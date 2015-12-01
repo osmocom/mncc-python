@@ -146,9 +146,9 @@ class GsmCallFsm(pykka.ThreadingActor):
 
     # pykka Actor message receiver
     def on_receive(self, message):
-        print 'GsmCallFsm(%u):on_receive(%s)' % (self.callref, message)
         if message['type'] == 'mncc':
             msg = message['msg']
+            print 'GsmCallFsm(%u):on_receive(mncc, %s)' % (self.callref, msg)
             if msg.callref == self.callref:
                 return self._handle_mncc(msg)
         elif message['type'] == 'start_mt_call':
