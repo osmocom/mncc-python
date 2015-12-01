@@ -101,7 +101,7 @@ class GsmCallFsm(pykka.ThreadingActor):
     def _do_mncc_call_conf_ind(self, mncc_msg):
         self.fsm.mncc_call_conf_ind(mncc_msg)
     def _do_mncc_alert_ind(self, mncc_msg):
-        self.fsm.mncc_allert_ind(mncc_msg)
+        self.fsm.mncc_alert_ind(mncc_msg)
     def _do_mncc_setup_cnf(self, mncc_msg):
         self.fsm.mncc_setup_cnf(mncc_msg)
 
