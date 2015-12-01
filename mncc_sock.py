@@ -12,6 +12,10 @@ class mncc_msg(mncc.gsm_mncc):
     def receive(self, bytes):
         fit = min(len(bytes), ctypes.sizeof(self))
         ctypes.memmove(ctypes.addressof(self), bytes, fit)
+    def __str__(self):
+        return 'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
+    def __unicode__(self):
+        return u'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
 
 def mncc_number(number, num_type = 0, num_plan = 0, num_present = 1, num_screen = 0):
     return mncc.gsm_mncc_number(number = number, type = num_type,
