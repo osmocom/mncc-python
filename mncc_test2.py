@@ -51,7 +51,13 @@ def connect_call(msisdn_a, msisdn_b):
     return call_conn
 
 # start a first bogus call
-connect_call("1234", "6789")
+connect_call("7839", "3802")
+connect_call("3809", "3814")
+connect_call("3805", "3806")
+connect_call("3812", "3815")
+connect_call("3807", "3811")
+connect_call("3804", "3808")
+connect_call("3803", "3813")
 
 time.sleep(1)
 
