@@ -7,34 +7,35 @@ import pykka
 from fysom import Fysom
 from mncc_sock import mncc_msg, mncc_number
 
-class GsmCallFsm(object):
+class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
 
-    def get_next_callref(self):
+    def _get_next_callref(self):
         GsmCallFsm.last_callref = GsmCallFsm.last_callref + 1
         return GsmCallFsm.last_callref;
 
-    def printstatechange(self, e):
+    def _printstatechange(self, e):
         print 'GsmCallFsm(%s): event: %s, src: %s, dst: %s' % (self.name, e.event, e.src, e.dst)
 
-    def onmncc_setup_req(self, e):
+    def _onmncc_setup_req(self, e):
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_REQ, callref = self.callref,
                        fields = mncc.MNCC_F_CALLED | mncc.MNCC_F_CALLING,
                        calling = mncc_number(self.calling),
                        called = mncc_number(self.called))
-        self.mncc.send(msg)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
         print 'GsmCallFsm(%s): mncc_setup_req event: %s, src: %s, dst: %s' % (self.name, e.event, e.src, e.dst)
 
-    def onmncc_setup_cnf(self, e):
+    def _onmncc_setup_cnf(self, e):
         # send MNCC_SETUP_COMPL_REQ to MNCC interface, causing
         # CC-CONNECT-ACK to be sent to MS
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_COMPL_REQ)
-        self.mncc.send(msg)
+        self.mncc_ref.tell({'send', msg})
 
-    def __init__(self, name, mncc):
+    def __init__(self, name, mncc_ref):
+        super(GsmCallFsm, self).__init__()
         self.name = name
-        self.mncc = mncc;
-        self.callref = self.get_next_callref()
+        self.mncc_ref = mncc_ref;
+        self.callref = self._get_next_callref()
         self.fsm = Fysom(initial = 'NULL',
             events = [
                 # MT call setup
@@ -77,11 +78,11 @@ class GsmCallFsm(object):
 
                     ('mncc_rel_cnf', 'RELEASE_REQUEST', 'NULL')
                     ],
-            callbacks = [('onmncc_setup_req', self.onmncc_setup_req),
-                         ('onmncc_setup_cnf', self.onmncc_setup_cnf),
+            callbacks = [('onmncc_setup_req', self._onmncc_setup_req),
+                         ('onmncc_setup_cnf', self._onmncc_setup_cnf),
                          ],
             )
-        self.fsm.onchangestate = self.printstatechange
+        self.fsm.onchangestate = self._printstatechange
 
     def start_mt_call(self, calling, called):
         self.calling = calling
@@ -89,50 +90,59 @@ class GsmCallFsm(object):
         self.fsm.mncc_setup_req()
 
     # MT call
-    def do_mncc_rel_ind(self, mncc_msg):
+    def _do_mncc_rel_ind(self, mncc_msg):
         self.fsm.mncc_rel_ind(mncc_msg)
-    def do_mncc_call_conf_ind(self, mncc_msg):
+    def _do_mncc_call_conf_ind(self, mncc_msg):
         self.fsm.mncc_call_conf_ind(mncc_msg)
-    def do_mncc_alert_ind(self, mncc_msg):
+    def _do_mncc_alert_ind(self, mncc_msg):
         self.fsm.mncc_allert_ind(mncc_msg)
-    def do_mncc_setup_cnf(self, mncc_msg):
+    def _do_mncc_setup_cnf(self, mncc_msg):
         self.fsm.mncc_setup_cnf(mncc_msg)
 
     # MO call
-    def do_mncc_setup_ind(self, mncc_msg):
+    def _do_mncc_setup_ind(self, mncc_msg):
         self.fsm.mncc_setup_ind(mncc_msg)
-    def do_mncc_setup_compl_ind(self, mncc_msg):
+    def _do_mncc_setup_compl_ind(self, mncc_msg):
         self.fsm.mncc_setup_compl_ind(mncc_msg)
 
     # Misc
-    def do_mncc_disc_ind(self, mncc_msg):
+    def _do_mncc_disc_ind(self, mncc_msg):
         self.fsm.mncc_disc_ind(mncc_msg)
-    def do_mncc_rel_ind(self, mncc_msg):
+    def _do_mncc_rel_ind(self, mncc_msg):
         self.fsm.mncc_rel_ind(mncc_msg)
-    def do_mncc_rel_cnf(self, mncc_msg):
+    def _do_mncc_rel_cnf(self, mncc_msg):
         self.fsm.mncc_rel_cnf(mncc_msg)
 
-    func_by_type = {
+    _func_by_type = {
             # MT call
-            mncc.MNCC_REL_IND: do_mncc_rel_ind,
-            mncc.MNCC_CALL_CONF_IND: do_mncc_call_conf_ind,
-            mncc.MNCC_ALERT_IND: do_mncc_alert_ind,
-            mncc.MNCC_SETUP_CNF: do_mncc_setup_cnf,
+            mncc.MNCC_REL_IND: _do_mncc_rel_ind,
+            mncc.MNCC_CALL_CONF_IND: _do_mncc_call_conf_ind,
+            mncc.MNCC_ALERT_IND: _do_mncc_alert_ind,
+            mncc.MNCC_SETUP_CNF: _do_mncc_setup_cnf,
 
             # MO call
-            mncc.MNCC_SETUP_IND: do_mncc_setup_ind,
-            mncc.MNCC_SETUP_COMPL_IND: do_mncc_setup_compl_ind,
+            mncc.MNCC_SETUP_IND: _do_mncc_setup_ind,
+            mncc.MNCC_SETUP_COMPL_IND: _do_mncc_setup_compl_ind,
 
             # misc
-            mncc.MNCC_DISC_IND: do_mncc_disc_ind,
-            mncc.MNCC_REL_IND: do_mncc_rel_ind,
-            mncc.MNCC_REL_CNF: do_mncc_rel_cnf,
+            mncc.MNCC_DISC_IND: _do_mncc_disc_ind,
+            mncc.MNCC_REL_IND: _do_mncc_rel_ind,
+            mncc.MNCC_REL_CNF: _do_mncc_rel_cnf,
             }
 
-    def lookup_method(self, mncc_msg_type):
-        return self.func_by_type[mncc_msg_type]
+    def _lookup_method(self, mncc_msg_type):
+        return self._func_by_type[mncc_msg_type]
 
-    def handle_mncc(self, mncc_msg):
+    def _handle_mncc(self, mncc_msg):
         if mncc_msg.callref != self.callref:
             raise Exception('mncc', 'Callref not for this GsmCallFsm')
-        self.lookup_method(mncc_msg.msg_type)(self, mncc_msg)
+        self._lookup_method(mncc_msg.msg_type)(self, mncc_msg)
+
+    # pykka Actor message receiver
+    def on_receive(self, message):
+        if message['type'] == 'mncc':
+            msg = message['msg']
+            if msg.callref == self.callref:
+                return self._handle_mncc(msg)
+        else:
+            raise Exception('mncc', 'Unknown message %s' % message)
