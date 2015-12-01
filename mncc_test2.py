@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from gsm_call_fsm import GsmCallFsm
+from gsm_call_fsm import GsmCallFsm, GsmCallConnector
 from mncc_sock import MnccSocket
 import pykka
 import logging
@@ -29,8 +29,8 @@ signal.signal(signal.SIGINT, sigint_handler)
 mncc_sock = MnccSocket()
 mncc_act = MnccActor.start(mncc_sock)
 
-call_proxy = GsmCallFsm.start('foo', mncc_act).proxy()
-call_proxy.start_mt_call("1234", "6789")
+call_conn = GsmCallConnector.start(mncc_act).proxy()
+call_conn.start_call_ab("1234", "6789")
 
 while 1:
     msg = mncc_sock.recv()

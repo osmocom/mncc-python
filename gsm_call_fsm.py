@@ -15,7 +15,9 @@ class GsmCallFsm(pykka.ThreadingActor):
         return GsmCallFsm.last_callref;
 
     def _printstatechange(self, e):
-        print 'GsmCallFsm(%s, %u): event: %s, %s -> %s' % (self.name, self.callref, e.event, e.src, e.dst)
+        print 'GsmCallFsm(%u/%s): event: %s, %s -> %s' % (self.callref, self.called, e.event, e.src, e.dst)
+        if self.ctrl_ref != None:
+            self.ctrl_ref.tell({'type':'call_state_change', 'called':self.called, 'old_state':e.src, 'new_state':e.dst})
 
     def _onmncc_setup_req(self, e):
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_REQ, callref = self.callref,
@@ -34,11 +36,11 @@ class GsmCallFsm(pykka.ThreadingActor):
         if e.event != 'startup':
             self.stop()
 
-    def __init__(self, name, mncc_ref):
+    def __init__(self, mncc_ref, ctrl_ref = None):
         super(GsmCallFsm, self).__init__()
-        self.name = name
         self.mncc_ref = mncc_ref;
         self.callref = self._get_next_callref()
+        self.ctrl_ref = ctrl_ref
         self.fsm = Fysom(initial = 'NULL',
             events = [
                 # MT call setup
@@ -144,9 +146,42 @@ class GsmCallFsm(pykka.ThreadingActor):
 
     # pykka Actor message receiver
     def on_receive(self, message):
+        print 'GsmCallFsm(%u):on_receive(%s)' % (self.callref, message)
         if message['type'] == 'mncc':
             msg = message['msg']
             if msg.callref == self.callref:
                 return self._handle_mncc(msg)
+        elif message['type'] == 'start_mt_call':
+            self.start_mt_call(message['calling'], message['called'])
         else:
             raise Exception('mncc', 'Unknown message %s' % message)
+
+
+class GsmCallConnector(pykka.ThreadingActor):
+    def __init__(self, mncc_act):
+        super(GsmCallConnector, self).__init__()
+        self.mncc_act = mncc_act
+        print 'Starting Call A actor'
+        self.call_a = GsmCallFsm.start(self.mncc_act, self.actor_ref)
+        print 'Starting Call B actor'
+        self.call_b = GsmCallFsm.start(self.mncc_act, self.actor_ref)
+
+    def start_call_ab(self, msisdn_a, msisdn_b):
+        print 'Starting calls for A and B'
+        self.msisdn_a = msisdn_a
+        self.msisdn_b = msisdn_b
+
+        # start MT call A->B
+        print 'Starting Call A->B'
+        self.call_a.tell({'type':'start_mt_call', 'calling':self.msisdn_a, 'called':self.msisdn_b})
+
+        # start MT call B->A
+        print 'Starting Call B->A'
+        self.call_b.tell({'type':'start_mt_call', 'calling':self.msisdn_b, 'called':self.msisdn_a})
+
+    def call_state_change(self, msisdn, old_state, new_state):
+        print 'CallConnector:leg_state_change(%s) %s -> %s' % (msisdn, old_state, new_state)
+
+    def on_receive(self, message):
+        if message['type'] == 'call_state_change':
+            self.call_state_change(message['called'], message['old_state'], message['new_state'])
