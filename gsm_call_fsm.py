@@ -29,8 +29,8 @@ class GsmCallFsm(pykka.ThreadingActor):
     def _onmncc_setup_cnf(self, e):
         # send MNCC_SETUP_COMPL_REQ to MNCC interface, causing
         # CC-CONNECT-ACK to be sent to MS
-        msg = mncc_msg(msg_type = mncc.MNCC_SETUP_COMPL_REQ)
-        self.mncc_ref.tell({'send', msg})
+        msg = mncc_msg(msg_type = mncc.MNCC_SETUP_COMPL_REQ, callref = self.callref)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
     def _onenter_NULL(self, e):
         if e.event != 'startup':
