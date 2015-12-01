@@ -31,6 +31,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         # CC-CONNECT-ACK to be sent to MS
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_COMPL_REQ, callref = self.callref)
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
+        self.fsm.mncc_setup_compl_req()
 
     def _onmncc_disc_ind(self, e):
         # send MNCC_RELEASE_REQ
