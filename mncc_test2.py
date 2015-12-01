@@ -15,15 +15,18 @@ class MnccActor(pykka.ThreadingActor):
         self.mncc_sock = mncc_sock
 
     def on_receive(self, message):
-        print 'MnccActor Received %s' % message
         if message['type'] == 'send':
-            mncc_sock.send(message['msg'])
+            msg = message['msg']
+            print 'MnccActor TxMNCC %s' % msg
+            mncc_sock.send(msg)
+        else:
+            raise Exception('mncc', 'MnccActor Received unhandled %s' % message)
 
 # MNCC receive thread, broadcasting received MNCC packets to GsmCallFsm
 def mncc_rx_thread(mncc_sock):
     while 1:
         msg = mncc_sock.recv()
-        print "Received %s from MNCC, broadcasting to Call FSMs" % msg
+        print "MnccActor RxMNCC %s, broadcasting to Call FSMs" % msg
         # we simply broadcast to all calls
         pykka.ActorRegistry.broadcast({'type': 'mncc', 'msg': msg}, GsmCallFsm)
 
