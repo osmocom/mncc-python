@@ -78,7 +78,7 @@ class GsmCallFsm(pykka.ThreadingActor):
                                        'MT_CALL_CONFIRMED', 'ACTIVE',
                                         'CONNECT_INDICATION'], 'DISCONNECT_INDICATION'),
 
-                    ('mncc_rel_ind', 'DISCONNECT_INDICATION', 'NULL'),
+                    ('mncc_rel_ind', '*', 'NULL'),
                     ('mncc_disc_ind', 'DISCONNECT_INDICATION', 'RELEASE_REQUEST'),
 
                     ('mncc_rel_cnf', 'RELEASE_REQUEST', 'NULL')
