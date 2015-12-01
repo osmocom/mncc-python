@@ -1,3 +1,9 @@
+/* This file contains sections copied from
+ * libosmocore/include/osmocom/gsm/protocol/gsm_04_08.h,
+ * libosmocore/include/osmocom/gsm/mncc.h and
+ * openbsc/include/openbsc/mncc.h
+ */
+
 #include <stdint.h>
 
 /* GSM 04.08 Bearer Capability: Rate Adaption */
