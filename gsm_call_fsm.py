@@ -32,6 +32,11 @@ class GsmCallFsm(pykka.ThreadingActor):
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_COMPL_REQ, callref = self.callref)
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
+    def _onmncc_disc_ind(self, e):
+        # send MNCC_RELEASE_REQ
+        msg = mncc_msg(msg_type = mncc.MNCC_REL_REQ, callref = self.callref)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
     def _onenter_NULL(self, e):
         if e.event != 'startup':
             self.stop()
@@ -85,6 +90,7 @@ class GsmCallFsm(pykka.ThreadingActor):
                     ],
             callbacks = [('onmncc_setup_req', self._onmncc_setup_req),
                          ('onmncc_setup_cnf', self._onmncc_setup_cnf),
+                         ('onmncc_disc_ind', self._onmncc_disc_ind),
                          ('onenterNULL', self._onenter_NULL),
                          ],
             )
