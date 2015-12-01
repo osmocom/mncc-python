@@ -22,7 +22,7 @@ the actors.  This is what happens with the GsmCallFsm()'s, which are
 created by the GsmCallConnector() representing both legs of a call and 
 the MnccActor() that wraps the MNCC socket towards OsmoNITB.
 
-The actual encoding/decodng of MNCC messages is auto-generated from the
+The actual encoding/decoding of MNCC messages is auto-generated from the
 mncc header file #defines, enums and c-structures by means of ctypes 
 code generation.
 
