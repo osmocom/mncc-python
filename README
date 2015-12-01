@@ -1,0 +1,38 @@
+I've been working on a small python tool that can be used to attach to 
+the MNCC interface of OsmoNITB.  It implements the 04.08 CC state 
+machine with our MNCC primitives, including support for RTP bridge mode
+of the voice streams.
+
+The first working version of the tool is available from
+        http://git.osmocom.org/mncc-python/
+or
+        git clone git://git.osmocom.org/mncc-python
+
+The code is pretty hacky in some places.  That's partially due to the 
+fact that I'm much more familiar in the C, Perl and Erlang world than in
+python.  Still I thought it's a good idea to do it in python to enable 
+more people to use/edit/contribute to it.
+
+I'm happy for review / cleanup suggestion by people with more Python-foo 
+than I have.
+
+Architecturally, I decided to do things a bit erlang-like, where we have
+finite state machines in an actor models, and message passing between 
+the actors.  This is what happens with the GsmCallFsm()'s, which are 
+created by the GsmCallConnector() representing both legs of a call and 
+the MnccActor() that wraps the MNCC socket towards OsmoNITB.
+
+The actual encoding/decodng of MNCC messages is auto-generated from the
+mncc header file #defines, enums and c-structures by means of ctypes 
+code generation.
+
+The immediate first use case for this was to be able to generate MT 
+calls to a set of known MSISDNs and load all 14 TCH/H channels of a
+single-TRX BTS.  It will connect the MT calls in pairs, so you end up 
+with 7 MS-to-MS calls.
+
+mncc_test.py currently drops you into a python shell where you can e.g.
+start more / new calls by calling functions like
+        connect_call("7839", "3802")
+from that shell.  Exiting the shell by quit() or Ctrl+C will terminate 
+all call FSMs and terminate.
