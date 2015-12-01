@@ -1,0 +1,1042 @@
+<?xml version="1.0"?>
+<GCC_XML cvs_revision="1.135">
+  <Namespace id="_1" name="::" members="_3 _4 _5 _6 _7 _8 _10 _11 _12 _13 _14 _15 _16 _17 _18 _19 _20 _21 _22 _23 _24 _25 _26 _27 _28 _29 _30 _31 _32 _33 _34 _35 _36 _37 _38 _39 _40 _41 _42 _43 _44 _45 _46 _47 _49 _50 _51 _52 _53 _54 _55 _56 _57 _58 _59 _60 _61 _62 _63 _64 _65 _66 _67 _68 _69 _70 _71 _72 _73 _74 _75 _76 _77 _78 _79 _80 _82 _83 _84 _85 _86 _87 _88 _89 _90 _91 _92 _94 _95 _96 _97 _98 _99 _100 _101 _102 _103 _104 _105 _106 _107 _108 _109 _110 _111 _112 _113 _114 _115 _116 _117 _118 _119 _120 _121 _122 _123 _124 _125 _126 _127 _128 _129 _130 _131 _132 _133 _134 _135 _136 _137 _138 _139 _140 _141 _142 _143 _144 _145 _146 _148 _149 _150 _151 _152 _153 _154 _155 _156 _157 _158 _159 _160 _161 _162 _163 _164 _165 _166 _167 _168 _169 _170 _171 _172 _173 _174 _175 _176 _177 _178 _179 _180 _181 _183 _184 _185 _186 _187 _188 _189 _190 _191 _192 _193 _194 _195 _196 _197 _198 _199 _200 _201 _202 _203 _204 _205 _206 _207 _208 _209 _210 _2 _211 _212 _213 _214 _215 _216 _217 _218 _219 _220 _221 _222 _223 _224 _225 _226 _227 _228 _229 _230 _231 _232 _233 _234 _235 _236 _237 _238 _239 _240 _241 _242 _243 _244 _245 _246 _247 _248 _249 _250 _251 _252 _253 _254 _255 _256 _257 _258 _259 _261 _262 _263 _264 _265 _266 _267 _268 _269 _270 _272 _273 _274 _275 _276 _277 _278 _279 _280 _281 _282 _283 _284 _285 _286 _287 _288 _289 _290 _291 _292 _293 _294 _295 _296 _297 _298 _299 _300 _301 _302 _303 _304 _305 _306 _307 _308 _309 _310 _311 _312 _313 _314 _315 _316 _317 _318 _319 _320 _321 _322 _323 _324 _325 _326 _327 _328 _329 _330 _331 _332 _333 _334 _335 _336 _337 _338 _339 _340 _341 _342 _343 _344 _345 _346 _347 _348 _349 _350 _351 _352 _353 _354 _355 _356 _357 _358 _359 _360 _361 " mangled="_Z2::" demangled="::"/>
+  <Namespace id="_2" name="std" context="_1" members="" mangled="_Z3std" demangled="std"/>
+  <Function id="_3" name="__builtin_nans" returns="_362" context="_1" location="f0:21" file="f0" line="21" extern="1" attributes="nothrow const nonnull">
+    <Argument name="str" type="_363" location="f0:21" file="f0" line="21"/>
+  </Function>
+  <Variable id="_4" name="cpp_sym_MNCC_HOLD_IND" type="_93c" init="287" context="_1" location="f1:111" file="f1" line="111" static="1"/>
+  <Function id="_5" name="__builtin_acosf" returns="_365" context="_1" mangled="acosf" location="f0:25" file="f0" line="25" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:25" file="f0" line="25"/>
+  </Function>
+  <Function id="_6" name="__builtin_acosl" returns="_366" context="_1" mangled="acosl" location="f0:26" file="f0" line="26" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:26" file="f0" line="26"/>
+  </Function>
+  <Variable id="_7" name="cpp_sym___USE_XOPEN2K8" type="_93c" init="1" context="_1" location="f1:69" file="f1" line="69" static="1"/>
+  <Function id="_8" name="__builtin_va_arg_pack" returns="_367" context="_1" location="f0:147" file="f0" line="147" extern="1">
+    <Ellipsis/>
+  </Function>
+  <FundamentalType id="_9" name="long unsigned int" size="64" align="64"/>
+  <Typedef id="_10" name="uint_least64_t" type="_9" context="_1" location="f2:80" file="f2" line="80"/>
+  <Variable id="_11" name="cpp_sym_GSM_TCHF_FRAME" type="_93c" init="768" context="_1" location="f1:129" file="f1" line="129" static="1"/>
+  <Function id="_12" name="__builtin_log10" returns="_362" context="_1" mangled="log10" location="f0:63" file="f0" line="63" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:63" file="f0" line="63"/>
+  </Function>
+  <Function id="_13" name="__builtin_popcountll" returns="_93" context="_1" location="f0:101" file="f0" line="101" extern="1" attributes="nothrow const">
+    <Argument type="_368" location="f0:101" file="f0" line="101"/>
+  </Function>
+  <Function id="_14" name="__builtin_clogf" returns="_369" context="_1" mangled="clogf" location="f0:111" file="f0" line="111" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:111" file="f0" line="111"/>
+  </Function>
+  <Function id="_15" name="__builtin_clogl" returns="_370" context="_1" mangled="clogl" location="f0:113" file="f0" line="113" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:113" file="f0" line="113"/>
+  </Function>
+  <Variable id="_16" name="cpp_sym_INTMAX_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:32" file="f1" line="32" static="1"/>
+  <Function id="_17" name="__builtin_cexpf" returns="_369" context="_1" mangled="cexpf" location="f0:108" file="f0" line="108" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:108" file="f0" line="108"/>
+  </Function>
+  <Function id="_18" name="__builtin_cexpl" returns="_370" context="_1" mangled="cexpl" location="f0:110" file="f0" line="110" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:110" file="f0" line="110"/>
+  </Function>
+  <Variable id="_19" name="cpp_sym_SIG_ATOMIC_MAX" type="_93c" init="2147483647" context="_1" location="f1:124" file="f1" line="124" static="1"/>
+  <Function id="_20" name="__builtin_isless" returns="_367" context="_1" location="f0:141" file="f0" line="141" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_21" name="cpp_sym_INT_LEAST32_MAX" type="_93c" init="2147483647" context="_1" location="f1:109" file="f1" line="109" static="1"/>
+  <Variable id="_22" name="cpp_sym___SYSCALL_WORDSIZE" type="_93c" init="64" context="_1" location="f1:55" file="f1" line="55" static="1"/>
+  <Function id="_23" name="__builtin_isnormal" returns="_367" context="_1" location="f0:145" file="f0" line="145" extern="1">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_24" name="cpp_sym__ISOC95_SOURCE" type="_93c" init="1" context="_1" location="f1:37" file="f1" line="37" static="1"/>
+  <Variable id="_25" name="cpp_sym_MNCC_SOCKET_HELLO" type="_93c" init="1024" context="_1" location="f1:57" file="f1" line="57" static="1"/>
+  <Variable id="_26" name="cpp_sym_MNCC_SETUP_COMPL_IND" type="_93c" init="262" context="_1" location="f1:30" file="f1" line="30" static="1"/>
+  <Struct id="_27" name="gsm_mncc_cccap" context="_1" mangled="14gsm_mncc_cccap" demangled="gsm_mncc_cccap" location="f3:135" file="f3" line="135" artificial="1" size="64" align="32" members="_372 _373 _374 _375 _376 _377 " bases=""/>
+  <Function id="_28" name="__builtin_asinf" returns="_365" context="_1" mangled="asinf" location="f0:28" file="f0" line="28" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:28" file="f0" line="28"/>
+  </Function>
+  <Function id="_29" name="__builtin_asinl" returns="_366" context="_1" mangled="asinl" location="f0:29" file="f0" line="29" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:29" file="f0" line="29"/>
+  </Function>
+  <Function id="_30" name="__builtin_popcount" returns="_93" context="_1" location="f0:99" file="f0" line="99" extern="1" attributes="nothrow const">
+    <Argument type="_93" location="f0:99" file="f0" line="99"/>
+  </Function>
+  <Variable id="_31" name="cpp_sym___USE_POSIX" type="_93c" init="1" context="_1" location="f1:68" file="f1" line="68" static="1"/>
+  <Variable id="_32" name="cpp_sym_MNCC_START_DTMF_IND" type="_93c" init="277" context="_1" location="f1:131" file="f1" line="131" static="1"/>
+  <Variable id="_33" name="cpp_sym_SIG_ATOMIC_MIN" type="_93c" init="-0x00000000080000000" context="_1" location="f1:120" file="f1" line="120" static="1"/>
+  <Variable id="_34" name="cpp_sym__LARGEFILE_SOURCE" type="_93c" init="1" context="_1" location="f1:166" file="f1" line="166" static="1"/>
+  <Function id="_35" name="__builtin_nansf" returns="_365" context="_1" location="f0:22" file="f0" line="22" extern="1" attributes="nothrow const nonnull">
+    <Argument name="str" type="_363" location="f0:22" file="f0" line="22"/>
+  </Function>
+  <Function id="_36" name="__builtin_nansl" returns="_366" context="_1" location="f0:23" file="f0" line="23" extern="1" attributes="nothrow const nonnull">
+    <Argument name="str" type="_363" location="f0:23" file="f0" line="23"/>
+  </Function>
+  <Function id="_37" name="__builtin_floorf" returns="_365" context="_1" mangled="floorf" location="f0:52" file="f0" line="52" extern="1" attributes="nothrow const">
+    <Argument type="_365" location="f0:52" file="f0" line="52"/>
+  </Function>
+  <Function id="_38" name="__builtin_floorl" returns="_366" context="_1" mangled="floorl" location="f0:53" file="f0" line="53" extern="1" attributes="nothrow const">
+    <Argument type="_366" location="f0:53" file="f0" line="53"/>
+  </Function>
+  <Variable id="_39" name="cpp_sym_MNCC_F_CAUSE" type="_93c" init="32" context="_1" location="f1:7" file="f1" line="7" static="1"/>
+  <Function id="_40" name="__builtin_ctanf" returns="_369" context="_1" mangled="ctanf" location="f0:123" file="f0" line="123" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:123" file="f0" line="123"/>
+  </Function>
+  <Function id="_41" name="__builtin_ctanh" returns="_378" context="_1" mangled="ctanh" location="f0:127" file="f0" line="127" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:127" file="f0" line="127"/>
+  </Function>
+  <Function id="_42" name="__builtin_ctanl" returns="_370" context="_1" mangled="ctanl" location="f0:125" file="f0" line="125" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:125" file="f0" line="125"/>
+  </Function>
+  <Variable id="_43" name="cpp_sym_UINT16_MAX" type="_93c" init="65535" context="_1" location="f1:107" file="f1" line="107" static="1"/>
+  <Function id="_44" name="__builtin_carg" returns="_362" context="_1" mangled="carg" location="f0:94" file="f0" line="94" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:94" file="f0" line="94"/>
+  </Function>
+  <Function id="_45" name="__builtin_clog" returns="_378" context="_1" mangled="clog" location="f0:112" file="f0" line="112" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:112" file="f0" line="112"/>
+  </Function>
+  <Function id="_46" name="__builtin_logf" returns="_365" context="_1" mangled="logf" location="f0:66" file="f0" line="66" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:66" file="f0" line="66"/>
+  </Function>
+  <Function id="_47" name="__builtin_logl" returns="_366" context="_1" mangled="logl" location="f0:67" file="f0" line="67" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:67" file="f0" line="67"/>
+  </Function>
+  <FundamentalType id="_48" name="long int" size="64" align="64"/>
+  <Typedef id="_49" name="int_fast64_t" type="_48" context="_1" location="f2:94" file="f2" line="94"/>
+  <Function id="_50" name="__builtin_fabs" returns="_362" context="_1" mangled="fabs" location="f0:48" file="f0" line="48" extern="1" attributes="nothrow const">
+    <Argument type="_362" location="f0:48" file="f0" line="48"/>
+  </Function>
+  <Function id="_51" name="__builtin_expf" returns="_365" context="_1" mangled="expf" location="f0:46" file="f0" line="46" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:46" file="f0" line="46"/>
+  </Function>
+  <Function id="_52" name="__builtin_expl" returns="_366" context="_1" mangled="expl" location="f0:47" file="f0" line="47" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:47" file="f0" line="47"/>
+  </Function>
+  <Variable id="_53" name="cpp_sym_UINT_LEAST8_MAX" type="_93c" init="255" context="_1" location="f1:110" file="f1" line="110" static="1"/>
+  <Variable id="_54" name="cpp_sym_MNCC_SETUP_COMPL_REQ" type="_93c" init="261" context="_1" location="f1:127" file="f1" line="127" static="1"/>
+  <Variable id="_55" name="cpp_sym_MNCC_F_FACILITY" type="_93c" init="512" context="_1" location="f1:123" file="f1" line="123" static="1"/>
+  <Function id="_56" name="__builtin_isunordered" returns="_367" context="_1" location="f0:146" file="f0" line="146" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Typedef id="_57" name="int_fast32_t" type="_48" context="_1" location="f2:93" file="f2" line="93"/>
+  <Variable id="_58" name="cpp_sym_MNCC_RETRIEVE_IND" type="_93c" init="290" context="_1" location="f1:95" file="f1" line="95" static="1"/>
+  <Variable id="_59" name="cpp_sym_MNCC_ALERT_REQ" type="_93c" init="266" context="_1" location="f1:77" file="f1" line="77" static="1"/>
+  <Struct id="_60" name="gsm_mncc_facility" context="_1" mangled="17gsm_mncc_facility" demangled="gsm_mncc_facility" location="f3:125" file="f3" line="125" artificial="1" size="1056" align="32" members="_379 _380 _381 _382 _383 _384 " bases=""/>
+  <Variable id="_61" name="cpp_sym__STDINT_H" type="_93c" init="1" context="_1" location="f1:100" file="f1" line="100" static="1"/>
+  <Function id="_62" name="__builtin_csqrt" returns="_378" context="_1" mangled="csqrt" location="f0:121" file="f0" line="121" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:121" file="f0" line="121"/>
+  </Function>
+  <Variable id="_63" name="cpp_sym_MNCC_F_SSVERSION" type="_93c" init="1024" context="_1" location="f1:161" file="f1" line="161" static="1"/>
+  <Function id="_64" name="__builtin_sin" returns="_362" context="_1" mangled="sin" location="f0:75" file="f0" line="75" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:75" file="f0" line="75"/>
+  </Function>
+  <Function id="_65" name="__builtin_ldexpf" returns="_365" context="_1" mangled="ldexpf" location="f0:60" file="f0" line="60" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:60" file="f0" line="60"/>
+    <Argument type="_93" location="f0:60" file="f0" line="60"/>
+  </Function>
+  <Function id="_66" name="__builtin_ldexpl" returns="_366" context="_1" mangled="ldexpl" location="f0:61" file="f0" line="61" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:61" file="f0" line="61"/>
+    <Argument type="_93" location="f0:61" file="f0" line="61"/>
+  </Function>
+  <Variable id="_67" name="cpp_sym_MNCC_STOP_DTMF_IND" type="_93c" init="280" context="_1" location="f1:101" file="f1" line="101" static="1"/>
+  <Function id="_68" name="__builtin_isinf_sign" returns="_367" context="_1" location="f0:140" file="f0" line="140" extern="1">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_69" name="cpp_sym_GSM_MAX_FACILITY" type="_93c" init="128" context="_1" location="f1:22" file="f1" line="22" static="1"/>
+  <Function id="_70" name="__builtin_islessequal" returns="_367" context="_1" location="f0:142" file="f0" line="142" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Enumeration id="_71" name="gsm48_bcap_sig_access" context="_1" location="f3:12" file="f3" line="12" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_SA_I440_I450" init="1"/>
+    <EnumValue name="GSM48_BCAP_SA_X21" init="2"/>
+    <EnumValue name="GSM48_BCAP_SA_X28_DP_IN" init="3"/>
+    <EnumValue name="GSM48_BCAP_SA_X28_DP_UN" init="4"/>
+    <EnumValue name="GSM48_BCAP_SA_X28_NDP" init="5"/>
+    <EnumValue name="GSM48_BCAP_SA_X32" init="6"/>
+  </Enumeration>
+  <Variable id="_72" name="cpp_sym_UINT_LEAST64_MAX" type="_9c" init="-1ul" context="_1" location="f1:97" file="f1" line="97" static="1"/>
+  <Function id="_73" name="__builtin_tanf" returns="_365" context="_1" mangled="tanf" location="f0:85" file="f0" line="85" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:85" file="f0" line="85"/>
+  </Function>
+  <Function id="_74" name="__builtin_tanh" returns="_362" context="_1" mangled="tanh" location="f0:86" file="f0" line="86" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:86" file="f0" line="86"/>
+  </Function>
+  <Function id="_75" name="__builtin_tanl" returns="_366" context="_1" mangled="tanl" location="f0:89" file="f0" line="89" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:89" file="f0" line="89"/>
+  </Function>
+  <Variable id="_76" name="cpp_sym___WORDSIZE_TIME64_COMPAT32" type="_93c" init="1" context="_1" location="f1:67" file="f1" line="67" static="1"/>
+  <Function id="_77" name="__builtin_ceil" returns="_362" context="_1" mangled="ceil" location="f0:36" file="f0" line="36" extern="1" attributes="nothrow const">
+    <Argument type="_362" location="f0:36" file="f0" line="36"/>
+  </Function>
+  <Function id="_78" name="__builtin_fmodf" returns="_365" context="_1" mangled="fmodf" location="f0:54" file="f0" line="54" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:54" file="f0" line="54"/>
+    <Argument type="_365" location="f0:54" file="f0" line="54"/>
+  </Function>
+  <Function id="_79" name="__builtin_fmodl" returns="_366" context="_1" mangled="fmodl" location="f0:55" file="f0" line="55" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:55" file="f0" line="55"/>
+    <Argument type="_366" location="f0:55" file="f0" line="55"/>
+  </Function>
+  <Variable id="_80" name="cpp_sym___USE_XOPEN2K" type="_93c" init="1" context="_1" location="f1:66" file="f1" line="66" static="1"/>
+  <FundamentalType id="_81" name="signed char" size="8" align="8"/>
+  <Typedef id="_82" name="int_least8_t" type="_81" context="_1" location="f2:65" file="f2" line="65"/>
+  <Struct id="_83" name="gsm_data_frame" context="_1" mangled="14gsm_data_frame" demangled="gsm_data_frame" location="f3:264" file="f3" line="264" artificial="1" size="64" align="32" members="_386 _387 _388 _389 _390 _391 _392 " bases=""/>
+  <Function id="_84" name="__builtin_return" returns="_393" context="_1" location="f0:13" file="f0" line="13" extern="1" attributes="nothrow noreturn">
+    <Argument name="RESULT" type="_394" location="f0:13" file="f0" line="13"/>
+  </Function>
+  <Variable id="_85" name="cpp_sym_MNCC_FACILITY_REQ" type="_93c" init="275" context="_1" location="f1:93" file="f1" line="93" static="1"/>
+  <Variable id="_86" name="cpp_sym_MNCC_REL_IND" type="_93c" init="273" context="_1" location="f1:45" file="f1" line="45" static="1"/>
+  <Struct id="_87" name="gsm_mncc_ssversion" context="_1" mangled="18gsm_mncc_ssversion" demangled="gsm_mncc_ssversion" location="f3:130" file="f3" line="130" artificial="1" size="1056" align="32" members="_395 _396 _397 _398 _399 _400 " bases=""/>
+  <Function id="_88" name="__builtin_sqrt" returns="_362" context="_1" mangled="sqrt" location="f0:81" file="f0" line="81" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:81" file="f0" line="81"/>
+  </Function>
+  <Function id="_89" name="__builtin_cpow" returns="_378" context="_1" mangled="cpow" location="f0:130" file="f0" line="130" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:130" file="f0" line="130"/>
+    <Argument type="_378" location="f0:130" file="f0" line="130"/>
+  </Function>
+  <Function id="_90" name="__builtin_coshf" returns="_365" context="_1" mangled="coshf" location="f0:42" file="f0" line="42" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:42" file="f0" line="42"/>
+  </Function>
+  <Function id="_91" name="__builtin_coshl" returns="_366" context="_1" mangled="coshl" location="f0:43" file="f0" line="43" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:43" file="f0" line="43"/>
+  </Function>
+  <Variable id="_92" name="cpp_sym__XOPEN_SOURCE_EXTENDED" type="_93c" init="1" context="_1" location="f1:132" file="f1" line="132" static="1"/>
+  <FundamentalType id="_93" name="int" size="32" align="32"/>
+  <Typedef id="_94" name="int_least32_t" type="_93" context="_1" location="f2:67" file="f2" line="67"/>
+  <Function id="_95" name="__builtin_cexp" returns="_378" context="_1" mangled="cexp" location="f0:109" file="f0" line="109" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:109" file="f0" line="109"/>
+  </Function>
+  <Variable id="_96" name="cpp_sym_MNCC_SOCK_VERSION" type="_93c" init="5" context="_1" location="f1:31" file="f1" line="31" static="1"/>
+  <Function id="_97" name="__builtin_atan2" returns="_362" context="_1" mangled="atan2" location="f0:31" file="f0" line="31" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:31" file="f0" line="31"/>
+    <Argument type="_362" location="f0:31" file="f0" line="31"/>
+  </Function>
+  <Function id="_98" name="__builtin_memchr" returns="_394" context="_1" location="f0:12" file="f0" line="12" extern="1">
+    <Argument type="_401" location="f0:12" file="f0" line="12"/>
+    <Argument type="_93" location="f0:12" file="f0" line="12"/>
+    <Argument type="_147" location="f0:12" file="f0" line="12"/>
+  </Function>
+  <Function id="_99" name="__builtin_atanf" returns="_365" context="_1" mangled="atanf" location="f0:34" file="f0" line="34" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:34" file="f0" line="34"/>
+  </Function>
+  <Function id="_100" name="__builtin_atanl" returns="_366" context="_1" mangled="atanl" location="f0:35" file="f0" line="35" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:35" file="f0" line="35"/>
+  </Function>
+  <Function id="_101" name="__builtin_ctan" returns="_378" context="_1" mangled="ctan" location="f0:124" file="f0" line="124" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:124" file="f0" line="124"/>
+  </Function>
+  <Function id="_102" name="__builtin_log" returns="_362" context="_1" mangled="log" location="f0:62" file="f0" line="62" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:62" file="f0" line="62"/>
+  </Function>
+  <Variable id="_103" name="cpp_sym___USE_ISOC99" type="_93c" init="1" context="_1" location="f1:156" file="f1" line="156" static="1"/>
+  <Variable id="_104" name="cpp_sym_INT16_MAX" type="_93c" init="32767" context="_1" location="f1:85" file="f1" line="85" static="1"/>
+  <Enumeration id="_105" name="gsm48_bcap_ra" context="_1" location="f3:4" file="f3" line="4" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_RA_NONE" init="0"/>
+    <EnumValue name="GSM48_BCAP_RA_V110_X30" init="1"/>
+    <EnumValue name="GSM48_BCAP_RA_X31" init="2"/>
+    <EnumValue name="GSM48_BCAP_RA_OTHER" init="3"/>
+  </Enumeration>
+  <Variable id="_106" name="cpp_sym_INT_FAST32_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:160" file="f1" line="160" static="1"/>
+  <Variable id="_107" name="cpp_sym___USE_BSD" type="_93c" init="1" context="_1" location="f1:73" file="f1" line="73" static="1"/>
+  <Variable id="_108" name="cpp_sym_UINT_FAST8_MAX" type="_93c" init="255" context="_1" location="f1:41" file="f1" line="41" static="1"/>
+  <Variable id="_109" name="cpp_sym_INT_LEAST32_MIN" type="_93c" init="-0x00000000080000000" context="_1" location="f1:8" file="f1" line="8" static="1"/>
+  <Variable id="_110" name="cpp_sym_MNCC_F_SIGNAL" type="_93c" init="8192" context="_1" location="f1:46" file="f1" line="46" static="1"/>
+  <Function id="_111" name="__builtin_isfinite" returns="_367" context="_1" location="f0:136" file="f0" line="136" extern="1">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_112" name="cpp_sym___USE_ISOC95" type="_93c" init="1" context="_1" location="f1:151" file="f1" line="151" static="1"/>
+  <Function id="_113" name="__builtin_asin" returns="_362" context="_1" mangled="asin" location="f0:27" file="f0" line="27" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:27" file="f0" line="27"/>
+  </Function>
+  <Variable id="_114" name="cpp_sym_INT16_MIN" type="_93c" init="-0x00000000000008000" context="_1" location="f1:81" file="f1" line="81" static="1"/>
+  <Variable id="_115" name="cpp_sym_MNCC_LCHAN_MODIFY" type="_93c" init="515" context="_1" location="f1:21" file="f1" line="21" static="1"/>
+  <Function id="_116" name="__builtin_frexp" returns="_362" context="_1" mangled="frexp" location="f0:56" file="f0" line="56" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:56" file="f0" line="56"/>
+    <Argument type="_402" location="f0:56" file="f0" line="56"/>
+  </Function>
+  <Variable id="_117" name="cpp_sym_INT_FAST32_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:125" file="f1" line="125" static="1"/>
+  <Variable id="_118" name="cpp_sym_SIZE_MAX" type="_9c" init="-1ul" context="_1" location="f1:148" file="f1" line="148" static="1"/>
+  <Function id="_119" name="__builtin_isgreaterequal" returns="_367" context="_1" location="f0:138" file="f0" line="138" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_120" name="cpp_sym_MNCC_SETUP_IND" type="_93c" init="258" context="_1" location="f1:133" file="f1" line="133" static="1"/>
+  <Variable id="_121" name="cpp_sym_WINT_MAX" type="_147c" init="4294967295u" context="_1" location="f1:164" file="f1" line="164" static="1"/>
+  <Typedef id="_122" name="uint_fast16_t" type="_9" context="_1" location="f2:105" file="f2" line="105"/>
+  <Variable id="_123" name="cpp_sym___USE_XOPEN_EXTENDED" type="_93c" init="1" context="_1" location="f1:25" file="f1" line="25" static="1"/>
+  <Function id="_124" name="__builtin_log10f" returns="_365" context="_1" mangled="log10f" location="f0:64" file="f0" line="64" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:64" file="f0" line="64"/>
+  </Function>
+  <Function id="_125" name="__builtin_log10l" returns="_366" context="_1" mangled="log10l" location="f0:65" file="f0" line="65" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:65" file="f0" line="65"/>
+  </Function>
+  <Variable id="_126" name="cpp_sym__ISOC99_SOURCE" type="_93c" init="1" context="_1" location="f1:40" file="f1" line="40" static="1"/>
+  <Variable id="_127" name="cpp_sym_MNCC_MODIFY_RSP" type="_93c" init="284" context="_1" location="f1:144" file="f1" line="144" static="1"/>
+  <Variable id="_128" name="cpp_sym_WINT_MIN" type="_147c" init="0u" context="_1" location="f1:150" file="f1" line="150" static="1"/>
+  <Variable id="_129" name="cpp_sym_MNCC_REJ_IND" type="_93c" init="296" context="_1" location="f1:118" file="f1" line="118" static="1"/>
+  <Function id="_130" name="__builtin_ctzl" returns="_93" context="_1" location="f0:97" file="f0" line="97" extern="1" attributes="nothrow const">
+    <Argument type="_48" location="f0:97" file="f0" line="97"/>
+  </Function>
+  <Variable id="_131" name="cpp_sym_MNCC_F_BEARER_CAP" type="_93c" init="1" context="_1" location="f1:162" file="f1" line="162" static="1"/>
+  <Struct id="_132" name="gsm_mncc_progress" context="_1" mangled="17gsm_mncc_progress" demangled="gsm_mncc_progress" location="f3:119" file="f3" line="119" artificial="1" size="96" align="32" members="_404 _405 _406 _407 _408 _409 _410 " bases=""/>
+  <Struct id="_133" name="gsm_mncc_cause" context="_1" mangled="14gsm_mncc_cause" demangled="gsm_mncc_cause" location="f3:104" file="f3" line="104" artificial="1" size="448" align="32" members="_411 _412 _413 _414 _415 _416 _417 _418 _419 _420 _421 " bases=""/>
+  <Function id="_134" name="__builtin_powif" returns="_365" context="_1" location="f0:73" file="f0" line="73" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:73" file="f0" line="73"/>
+    <Argument type="_93" location="f0:73" file="f0" line="73"/>
+  </Function>
+  <Function id="_135" name="__builtin_powil" returns="_366" context="_1" location="f0:74" file="f0" line="74" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:74" file="f0" line="74"/>
+    <Argument type="_93" location="f0:74" file="f0" line="74"/>
+  </Function>
+  <Function id="_136" name="__builtin_modff" returns="_365" context="_1" mangled="modff" location="f0:68" file="f0" line="68" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:68" file="f0" line="68"/>
+    <Argument type="_422" location="f0:68" file="f0" line="68"/>
+  </Function>
+  <Function id="_137" name="__builtin_exp" returns="_362" context="_1" mangled="exp" location="f0:45" file="f0" line="45" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:45" file="f0" line="45"/>
+  </Function>
+  <Function id="_138" name="__builtin_modfl" returns="_366" context="_1" mangled="modfl" location="f0:69" file="f0" line="69" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:69" file="f0" line="69"/>
+    <Argument type="_423" location="f0:69" file="f0" line="69"/>
+  </Function>
+  <Function id="_139" name="__builtin_prefetch" returns="_393" context="_1" location="f0:17" file="f0" line="17" extern="1" attributes="no vops">
+    <Argument name="ADDR" type="_401" location="f0:17" file="f0" line="17"/>
+    <Ellipsis/>
+  </Function>
+  <Variable id="_140" name="cpp_sym__POSIX_C_SOURCE" type="_48c" init="200809l" context="_1" location="f1:80" file="f1" line="80" static="1"/>
+  <Enumeration id="_141" name="gsm48_bcap_transp" context="_1" location="f3:48" file="f3" line="48" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_TR_TRANSP" init="0"/>
+    <EnumValue name="GSM48_BCAP_TR_RLP" init="1"/>
+    <EnumValue name="GSM48_BCAP_TR_TR_PREF" init="2"/>
+    <EnumValue name="GSM48_BCAP_TR_RLP_PREF" init="3"/>
+  </Enumeration>
+  <Variable id="_142" name="cpp_sym_MNCC_HOLD_CNF" type="_93c" init="288" context="_1" location="f1:43" file="f1" line="43" static="1"/>
+  <Function id="_143" name="__builtin_tan" returns="_362" context="_1" mangled="tan" location="f0:84" file="f0" line="84" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:84" file="f0" line="84"/>
+  </Function>
+  <Variable id="_144" name="cpp_sym_INT_FAST8_MAX" type="_93c" init="127" context="_1" location="f1:149" file="f1" line="149" static="1"/>
+  <Function id="_145" name="__builtin_fabsf" returns="_365" context="_1" mangled="fabsf" location="f0:49" file="f0" line="49" extern="1" attributes="nothrow const">
+    <Argument type="_365" location="f0:49" file="f0" line="49"/>
+  </Function>
+  <Function id="_146" name="__builtin_fabsl" returns="_366" context="_1" mangled="fabsl" location="f0:50" file="f0" line="50" extern="1" attributes="nothrow const">
+    <Argument type="_366" location="f0:50" file="f0" line="50"/>
+  </Function>
+  <FundamentalType id="_147" name="unsigned int" size="32" align="32"/>
+  <Typedef id="_148" name="uint32_t" type="_147" context="_1" location="f2:51" file="f2" line="51"/>
+  <Variable id="_149" name="cpp_sym___USE_LARGEFILE" type="_93c" init="1" context="_1" location="f1:112" file="f1" line="112" static="1"/>
+  <Variable id="_150" name="cpp_sym_UINTMAX_MAX" type="_9c" init="-1ul" context="_1" location="f1:23" file="f1" line="23" static="1"/>
+  <Variable id="_151" name="cpp_sym_MNCC_USERINFO_IND" type="_93c" init="294" context="_1" location="f1:35" file="f1" line="35" static="1"/>
+  <Variable id="_152" name="cpp_sym___USE_UNIX98" type="_93c" init="1" context="_1" location="f1:88" file="f1" line="88" static="1"/>
+  <Enumeration id="_153" name="gsm48_bcap_modem_type" context="_1" location="f3:56" file="f3" line="56" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_MT_NONE" init="0"/>
+    <EnumValue name="GSM48_BCAP_MT_V21" init="1"/>
+    <EnumValue name="GSM48_BCAP_MT_V22" init="2"/>
+    <EnumValue name="GSM48_BCAP_MT_V22bis" init="3"/>
+    <EnumValue name="GSM48_BCAP_MT_V23" init="4"/>
+    <EnumValue name="GSM48_BCAP_MT_V26ter" init="5"/>
+    <EnumValue name="GSM48_BCAP_MT_V32" init="6"/>
+    <EnumValue name="GSM48_BCAP_MT_UNDEF" init="7"/>
+    <EnumValue name="GSM48_BCAP_MT_AUTO_1" init="8"/>
+  </Enumeration>
+  <Variable id="_154" name="cpp_sym_GSM_BAD_FRAME" type="_93c" init="1023" context="_1" location="f1:167" file="f1" line="167" static="1"/>
+  <Variable id="_155" name="cpp_sym___GLIBC__" type="_93c" init="2" context="_1" location="f1:90" file="f1" line="90" static="1"/>
+  <Variable id="_156" name="cpp_sym_UINT8_MAX" type="_93c" init="255" context="_1" location="f1:6" file="f1" line="6" static="1"/>
+  <Variable id="_157" name="cpp_sym_INT_FAST64_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:48" file="f1" line="48" static="1"/>
+  <Variable id="_158" name="cpp_sym_UINT_FAST32_MAX" type="_9c" init="-1ul" context="_1" location="f1:115" file="f1" line="115" static="1"/>
+  <Typedef id="_159" name="uint_least32_t" type="_147" context="_1" location="f2:78" file="f2" line="78"/>
+  <Function id="_160" name="__builtin_inf" returns="_362" context="_1" location="f0:18" file="f0" line="18" extern="1" attributes="nothrow const"/>
+  <Variable id="_161" name="cpp_sym_INT_LEAST64_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:49" file="f1" line="49" static="1"/>
+  <Variable id="_162" name="cpp_sym_MNCC_MODIFY_IND" type="_93c" init="283" context="_1" location="f1:78" file="f1" line="78" static="1"/>
+  <Namespace id="_163" name="__cxxabiv1" context="_1" members="" mangled="_Z10__cxxabiv1" demangled="__cxxabiv1"/>
+  <Variable id="_164" name="cpp_sym_MNCC_FRAME_DROP" type="_93c" init="514" context="_1" location="f1:138" file="f1" line="138" static="1"/>
+  <Variable id="_165" name="cpp_sym___USE_POSIX2" type="_93c" init="1" context="_1" location="f1:17" file="f1" line="17" static="1"/>
+  <Variable id="_166" name="cpp_sym___USE_XOPEN" type="_93c" init="1" context="_1" location="f1:11" file="f1" line="11" static="1"/>
+  <Enumeration id="_167" name="gsm48_bcap_user_rate" context="_1" location="f3:22" file="f3" line="22" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_UR_300" init="1"/>
+    <EnumValue name="GSM48_BCAP_UR_1200" init="2"/>
+    <EnumValue name="GSM48_BCAP_UR_2400" init="3"/>
+    <EnumValue name="GSM48_BCAP_UR_4800" init="4"/>
+    <EnumValue name="GSM48_BCAP_UR_9600" init="5"/>
+    <EnumValue name="GSM48_BCAP_UR_12000" init="6"/>
+    <EnumValue name="GSM48_BCAP_UR_1200_75" init="7"/>
+  </Enumeration>
+  <Variable id="_168" name="cpp_sym_INT_FAST64_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:47" file="f1" line="47" static="1"/>
+  <Function id="_169" name="__builtin_frame_address" returns="_394" context="_1" location="f0:15" file="f0" line="15" extern="1">
+    <Argument name="LEVEL" type="_147" location="f0:15" file="f0" line="15"/>
+  </Function>
+  <Variable id="_170" name="cpp_sym__SYS_CDEFS_H" type="_93c" init="1" context="_1" location="f1:139" file="f1" line="139" static="1"/>
+  <Variable id="_171" name="cpp_sym_MNCC_HOLD_REJ" type="_93c" init="289" context="_1" location="f1:60" file="f1" line="60" static="1"/>
+  <Function id="_172" name="__builtin_cabs" returns="_362" context="_1" mangled="cabs" location="f0:91" file="f0" line="91" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:91" file="f0" line="91"/>
+  </Function>
+  <Variable id="_173" name="cpp_sym___USE_SVID" type="_93c" init="1" context="_1" location="f1:87" file="f1" line="87" static="1"/>
+  <Variable id="_174" name="cpp_sym_INT32_MAX" type="_93c" init="2147483647" context="_1" location="f1:33" file="f1" line="33" static="1"/>
+  <Function id="_175" name="__builtin_atan2f" returns="_365" context="_1" mangled="atan2f" location="f0:32" file="f0" line="32" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:32" file="f0" line="32"/>
+    <Argument type="_365" location="f0:32" file="f0" line="32"/>
+  </Function>
+  <Function id="_176" name="__builtin_atan2l" returns="_366" context="_1" mangled="atan2l" location="f0:33" file="f0" line="33" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:33" file="f0" line="33"/>
+    <Argument type="_366" location="f0:33" file="f0" line="33"/>
+  </Function>
+  <Variable id="_177" name="cpp_sym_MNCC_RETRIEVE_CNF" type="_93c" init="291" context="_1" location="f1:141" file="f1" line="141" static="1"/>
+  <Typedef id="_178" name="int_fast8_t" type="_81" context="_1" location="f2:90" file="f2" line="90"/>
+  <Function id="_179" name="__builtin_isinf" returns="_367" context="_1" mangled="isinf" location="f0:139" file="f0" line="139" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_180" name="cpp_sym_PTRDIFF_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:103" file="f1" line="103" static="1"/>
+  <Function id="_181" name="__builtin_fpclassify" returns="_367" context="_1" location="f0:135" file="f0" line="135" extern="1">
+    <Ellipsis/>
+  </Function>
+  <FundamentalType id="_182" name="short int" size="16" align="16"/>
+  <Typedef id="_183" name="int16_t" type="_182" context="_1" location="f2:37" file="f2" line="37"/>
+  <Variable id="_184" name="cpp_sym_MNCC_START_DTMF_REJ" type="_93c" init="279" context="_1" location="f1:28" file="f1" line="28" static="1"/>
+  <Typedef id="_185" name="int_fast16_t" type="_48" context="_1" location="f2:92" file="f2" line="92"/>
+  <Function id="_186" name="__builtin_ccoshf" returns="_369" context="_1" mangled="ccoshf" location="f0:105" file="f0" line="105" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:105" file="f0" line="105"/>
+  </Function>
+  <Function id="_187" name="__builtin_ccoshl" returns="_370" context="_1" mangled="ccoshl" location="f0:107" file="f0" line="107" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:107" file="f0" line="107"/>
+  </Function>
+  <Variable id="_188" name="cpp_sym_PTRDIFF_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:114" file="f1" line="114" static="1"/>
+  <Variable id="_189" name="cpp_sym_UINT_LEAST16_MAX" type="_93c" init="65535" context="_1" location="f1:153" file="f1" line="153" static="1"/>
+  <Function id="_190" name="__builtin_atan" returns="_362" context="_1" mangled="atan" location="f0:30" file="f0" line="30" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:30" file="f0" line="30"/>
+  </Function>
+  <Function id="_191" name="__builtin_sinhf" returns="_365" context="_1" mangled="sinhf" location="f0:78" file="f0" line="78" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:78" file="f0" line="78"/>
+  </Function>
+  <Function id="_192" name="__builtin_sinhl" returns="_366" context="_1" mangled="sinhl" location="f0:79" file="f0" line="79" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:79" file="f0" line="79"/>
+  </Function>
+  <Function id="_193" name="__builtin_sqrtf" returns="_365" context="_1" mangled="sqrtf" location="f0:82" file="f0" line="82" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:82" file="f0" line="82"/>
+  </Function>
+  <Function id="_194" name="__builtin_sqrtl" returns="_366" context="_1" mangled="sqrtl" location="f0:83" file="f0" line="83" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:83" file="f0" line="83"/>
+  </Function>
+  <Function id="_195" name="__builtin_frexpf" returns="_365" context="_1" mangled="frexpf" location="f0:57" file="f0" line="57" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:57" file="f0" line="57"/>
+    <Argument type="_402" location="f0:57" file="f0" line="57"/>
+  </Function>
+  <Function id="_196" name="__builtin_frexpl" returns="_366" context="_1" mangled="frexpl" location="f0:58" file="f0" line="58" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:58" file="f0" line="58"/>
+    <Argument type="_402" location="f0:58" file="f0" line="58"/>
+  </Function>
+  <Function id="_197" name="__builtin_cpowf" returns="_369" context="_1" mangled="cpowf" location="f0:129" file="f0" line="129" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:129" file="f0" line="129"/>
+    <Argument type="_369" location="f0:129" file="f0" line="129"/>
+  </Function>
+  <Function id="_198" name="__builtin_cpowl" returns="_370" context="_1" mangled="cpowl" location="f0:131" file="f0" line="131" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:131" file="f0" line="131"/>
+    <Argument type="_370" location="f0:131" file="f0" line="131"/>
+  </Function>
+  <Variable id="_199" name="cpp_sym_MNCC_REL_CNF" type="_93c" init="274" context="_1" location="f1:10" file="f1" line="10" static="1"/>
+  <Variable id="_200" name="cpp_sym___USE_XOPEN2KXSI" type="_93c" init="1" context="_1" location="f1:14" file="f1" line="14" static="1"/>
+  <Variable id="_201" name="cpp_sym_MNCC_RTP_FREE" type="_93c" init="518" context="_1" location="f1:71" file="f1" line="71" static="1"/>
+  <Typedef id="_202" name="uint_fast64_t" type="_9" context="_1" location="f2:107" file="f2" line="107"/>
+  <Variable id="_203" name="cpp_sym_UINT_FAST64_MAX" type="_9c" init="-1ul" context="_1" location="f1:99" file="f1" line="99" static="1"/>
+  <Variable id="_204" name="cpp_sym_MNCC_RETRIEVE_REJ" type="_93c" init="292" context="_1" location="f1:83" file="f1" line="83" static="1"/>
+  <Variable id="_205" name="cpp_sym___GLIBC_MINOR__" type="_93c" init="19" context="_1" location="f1:158" file="f1" line="158" static="1"/>
+  <Variable id="_206" name="cpp_sym__FEATURES_H" type="_93c" init="1" context="_1" location="f1:116" file="f1" line="116" static="1"/>
+  <Variable id="_207" name="cpp_sym_MNCC_DISC_IND" type="_93c" init="271" context="_1" location="f1:91" file="f1" line="91" static="1"/>
+  <Variable id="_208" name="cpp_sym_MNCC_START_DTMF_RSP" type="_93c" init="278" context="_1" location="f1:119" file="f1" line="119" static="1"/>
+  <Function id="_209" name="__builtin_bswap64" returns="_9" context="_1" location="f0:158" file="f0" line="158" extern="1">
+    <Argument name="_data" type="_9" location="f0:158" file="f0" line="158"/>
+  </Function>
+  <Variable id="_210" name="cpp_sym_MNCC_F_CALLED" type="_93c" init="2" context="_1" location="f1:51" file="f1" line="51" static="1"/>
+  <Variable id="_211" name="cpp_sym_UINT32_MAX" type="_147c" init="4294967295u" context="_1" location="f1:58" file="f1" line="58" static="1"/>
+  <Enumeration id="_212" name="._1" context="_1" location="f3:140" file="f3" line="140" artificial="1" size="32" align="32">
+    <EnumValue name="GSM_MNCC_BCAP_SPEECH" init="0"/>
+    <EnumValue name="GSM_MNCC_BCAP_UNR_DIG" init="1"/>
+    <EnumValue name="GSM_MNCC_BCAP_AUDIO" init="2"/>
+    <EnumValue name="GSM_MNCC_BCAP_FAX_G3" init="3"/>
+    <EnumValue name="GSM_MNCC_BCAP_OTHER_ITC" init="5"/>
+    <EnumValue name="GSM_MNCC_BCAP_RESERVED" init="7"/>
+  </Enumeration>
+  <Variable id="_213" name="cpp_sym___USE_POSIX199506" type="_93c" init="1" context="_1" location="f1:121" file="f1" line="121" static="1"/>
+  <Variable id="_214" name="cpp_sym___USE_LARGEFILE64" type="_93c" init="1" context="_1" location="f1:12" file="f1" line="12" static="1"/>
+  <Variable id="_215" name="cpp_sym___USE_EXTERN_INLINES" type="_93c" init="1" context="_1" location="f1:113" file="f1" line="113" static="1"/>
+  <Variable id="_216" name="cpp_sym_MNCC_DISC_REQ" type="_93c" init="270" context="_1" location="f1:146" file="f1" line="146" static="1"/>
+  <Function id="_217" name="__builtin_tanhf" returns="_365" context="_1" mangled="tanhf" location="f0:87" file="f0" line="87" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:87" file="f0" line="87"/>
+  </Function>
+  <Variable id="_218" name="cpp_sym_GSM_TCHF_FRAME_EFR" type="_93c" init="769" context="_1" location="f1:155" file="f1" line="155" static="1"/>
+  <Function id="_219" name="__builtin_tanhl" returns="_366" context="_1" mangled="tanhl" location="f0:88" file="f0" line="88" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:88" file="f0" line="88"/>
+  </Function>
+  <Function id="_220" name="__builtin_cabsf" returns="_365" context="_1" mangled="cabsf" location="f0:90" file="f0" line="90" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:90" file="f0" line="90"/>
+  </Function>
+  <Function id="_221" name="__builtin_cabsl" returns="_366" context="_1" mangled="cabsl" location="f0:92" file="f0" line="92" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:92" file="f0" line="92"/>
+  </Function>
+  <Typedef id="_222" name="int_least16_t" type="_182" context="_1" location="f2:66" file="f2" line="66"/>
+  <Function id="_223" name="__builtin_powf" returns="_365" context="_1" mangled="powf" location="f0:70" file="f0" line="70" extern="1" attributes="nothrow">
+    <Argument type="_365" location="f0:70" file="f0" line="70"/>
+    <Argument type="_365" location="f0:70" file="f0" line="70"/>
+  </Function>
+  <Function id="_224" name="__builtin_powi" returns="_362" context="_1" location="f0:72" file="f0" line="72" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:72" file="f0" line="72"/>
+    <Argument type="_93" location="f0:72" file="f0" line="72"/>
+  </Function>
+  <Function id="_225" name="__builtin_powl" returns="_366" context="_1" mangled="powl" location="f0:71" file="f0" line="71" extern="1" attributes="nothrow">
+    <Argument type="_366" location="f0:71" file="f0" line="71"/>
+    <Argument type="_366" location="f0:71" file="f0" line="71"/>
+  </Function>
+  <Variable id="_226" name="cpp_sym___USE_GNU" type="_93c" init="1" context="_1" location="f1:72" file="f1" line="72" static="1"/>
+  <Variable id="_227" name="cpp_sym_UINTPTR_MAX" type="_9c" init="-1ul" context="_1" location="f1:75" file="f1" line="75" static="1"/>
+  <Typedef id="_228" name="uintptr_t" type="_9" context="_1" location="f2:122" file="f2" line="122"/>
+  <Variable id="_229" name="cpp_sym_MNCC_STOP_DTMF_RSP" type="_93c" init="281" context="_1" location="f1:15" file="f1" line="15" static="1"/>
+  <Variable id="_230" name="cpp_sym_MNCC_USERINFO_REQ" type="_93c" init="293" context="_1" location="f1:70" file="f1" line="70" static="1"/>
+  <Struct id="_231" name="gsm_mncc_useruser" context="_1" mangled="17gsm_mncc_useruser" demangled="gsm_mncc_useruser" location="f3:114" file="f3" line="114" artificial="1" size="1088" align="32" members="_424 _425 _426 _427 _428 _429 " bases=""/>
+  <Variable id="_232" name="cpp_sym_MNCC_F_USERUSER" type="_93c" init="64" context="_1" location="f1:64" file="f1" line="64" static="1"/>
+  <Function id="_233" name="__builtin_ccos" returns="_378" context="_1" mangled="ccos" location="f0:103" file="f0" line="103" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:103" file="f0" line="103"/>
+  </Function>
+  <Variable id="_234" name="cpp_sym_MNCC_BRIDGE" type="_93c" init="512" context="_1" location="f1:50" file="f1" line="50" static="1"/>
+  <Variable id="_235" name="cpp_sym_GSM_MAX_USERUSER" type="_93c" init="128" context="_1" location="f1:61" file="f1" line="61" static="1"/>
+  <Typedef id="_236" name="intptr_t" type="_48" context="_1" location="f2:119" file="f2" line="119"/>
+  <Struct id="_237" name="gsm_mncc_bearer_cap" context="_1" mangled="19gsm_mncc_bearer_cap" demangled="gsm_mncc_bearer_cap" location="f3:75" file="f3" line="75" artificial="1" size="736" align="32" members="_430 _431 _432 _433 _434 _435 _436 _437 _438 _439 _440 _441 " bases=""/>
+  <Variable id="_238" name="cpp_sym_INT_LEAST64_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:86" file="f1" line="86" static="1"/>
+  <Variable id="_239" name="cpp_sym_MNCC_SETUP_CNF" type="_93c" init="260" context="_1" location="f1:4" file="f1" line="4" static="1"/>
+  <Variable id="_240" name="cpp_sym__ATFILE_SOURCE" type="_93c" init="1" context="_1" location="f1:3" file="f1" line="3" static="1"/>
+  <Function id="_241" name="__builtin_expect" returns="_48" context="_1" location="f0:16" file="f0" line="16" extern="1" attributes="nothrow const">
+    <Argument name="EXP" type="_48" location="f0:16" file="f0" line="16"/>
+    <Argument name="C" type="_48" location="f0:16" file="f0" line="16"/>
+  </Function>
+  <Variable id="_242" name="cpp_sym___USE_XOPEN2K8XSI" type="_93c" init="1" context="_1" location="f1:19" file="f1" line="19" static="1"/>
+  <Function id="_243" name="__builtin_popcountl" returns="_93" context="_1" location="f0:100" file="f0" line="100" extern="1" attributes="nothrow const">
+    <Argument type="_48" location="f0:100" file="f0" line="100"/>
+  </Function>
+  <Variable id="_244" name="cpp_sym___USE_ISOC11" type="_93c" init="1" context="_1" location="f1:163" file="f1" line="163" static="1"/>
+  <Variable id="_245" name="cpp_sym_MNCC_ALERT_IND" type="_93c" init="267" context="_1" location="f1:76" file="f1" line="76" static="1"/>
+  <Typedef id="_246" name="uintmax_t" type="_9" context="_1" location="f2:135" file="f2" line="135"/>
+  <Variable id="_247" name="cpp_sym_UINT64_MAX" type="_9c" init="-1ul" context="_1" location="f1:26" file="f1" line="26" static="1"/>
+  <Variable id="_248" name="cpp_sym___USE_POSIX199309" type="_93c" init="1" context="_1" location="f1:53" file="f1" line="53" static="1"/>
+  <Variable id="_249" name="cpp_sym__BSD_SOURCE" type="_93c" init="1" context="_1" location="f1:165" file="f1" line="165" static="1"/>
+  <Typedef id="_250" name="int64_t" type="_48" context="_1" location="f2:40" file="f2" line="40"/>
+  <Variable id="_251" name="cpp_sym_MNCC_SETUP_REQ" type="_93c" init="257" context="_1" location="f1:63" file="f1" line="63" static="1"/>
+  <Variable id="_252" name="cpp_sym_MNCC_F_CONNECTED" type="_93c" init="16" context="_1" location="f1:98" file="f1" line="98" static="1"/>
+  <Struct id="_253" name="gsm_mncc_rtp" context="_1" mangled="12gsm_mncc_rtp" demangled="gsm_mncc_rtp" location="f3:286" file="f3" line="286" artificial="1" size="192" align="32" members="_442 _443 _444 _445 _446 _447 _448 _449 _450 _451 " bases=""/>
+  <Typedef id="_254" name="int32_t" type="_93" context="_1" location="f2:38" file="f2" line="38"/>
+  <Variable id="_255" name="cpp_sym_INT_LEAST16_MAX" type="_93c" init="32767" context="_1" location="f1:29" file="f1" line="29" static="1"/>
+  <Variable id="_256" name="cpp_sym__SVID_SOURCE" type="_93c" init="1" context="_1" location="f1:56" file="f1" line="56" static="1"/>
+  <Variable id="_257" name="cpp_sym_INTPTR_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:154" file="f1" line="154" static="1"/>
+  <Function id="_258" name="__builtin_inff" returns="_365" context="_1" location="f0:19" file="f0" line="19" extern="1" attributes="nothrow const"/>
+  <Function id="_259" name="__builtin_infl" returns="_366" context="_1" location="f0:20" file="f0" line="20" extern="1" attributes="nothrow const"/>
+  <FundamentalType id="_260" name="short unsigned int" size="16" align="16"/>
+  <Typedef id="_261" name="uint16_t" type="_260" context="_1" location="f2:49" file="f2" line="49"/>
+  <Variable id="_262" name="cpp_sym_MNCC_FACILITY_IND" type="_93c" init="276" context="_1" location="f1:20" file="f1" line="20" static="1"/>
+  <Typedef id="_263" name="intmax_t" type="_48" context="_1" location="f2:134" file="f2" line="134"/>
+  <Struct id="_264" name="gsm_mncc" context="_1" mangled="8gsm_mncc" demangled="gsm_mncc" location="f3:227" file="f3" line="227" artificial="1" size="6688" align="32" members="_452 _453 _454 _455 _456 _457 _458 _459 _460 _461 _462 _463 _464 _465 _466 _467 _468 _469 _470 _471 _472 _473 _474 _475 _476 _477 _478 _479 " bases=""/>
+  <Variable id="_265" name="cpp_sym_MNCC_REJ_REQ" type="_93c" init="295" context="_1" location="f1:65" file="f1" line="65" static="1"/>
+  <Variable id="_266" name="cpp_sym_MNCC_F_KEYPAD" type="_93c" init="4096" context="_1" location="f1:108" file="f1" line="108" static="1"/>
+  <Variable id="_267" name="cpp_sym_INT32_MIN" type="_93c" init="-0x00000000080000000" context="_1" location="f1:106" file="f1" line="106" static="1"/>
+  <Variable id="_268" name="cpp_sym_MNCC_MODIFY_CNF" type="_93c" init="285" context="_1" location="f1:105" file="f1" line="105" static="1"/>
+  <Function id="_269" name="__builtin_cos" returns="_362" context="_1" mangled="cos" location="f0:39" file="f0" line="39" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_362" location="f0:39" file="f0" line="39"/>
+  </Function>
+  <Variable id="_270" name="cpp_sym_INT_FAST16_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:130" file="f1" line="130" static="1"/>
+  <FundamentalType id="_271" name="unsigned char" size="8" align="8"/>
+  <Typedef id="_272" name="uint_fast8_t" type="_271" context="_1" location="f2:103" file="f2" line="103"/>
+  <Variable id="_273" name="cpp_sym_MNCC_NOTIFY_REQ" type="_93c" init="268" context="_1" location="f1:134" file="f1" line="134" static="1"/>
+  <Variable id="_274" name="cpp_sym_INT_LEAST16_MIN" type="_93c" init="-0x00000000000008000" context="_1" location="f1:136" file="f1" line="136" static="1"/>
+  <Variable id="_275" name="cpp_sym_MNCC_SETUP_RSP" type="_93c" init="259" context="_1" location="f1:147" file="f1" line="147" static="1"/>
+  <Variable id="_276" name="cpp_sym_INTPTR_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:96" file="f1" line="96" static="1"/>
+  <Variable id="_277" name="cpp_sym___USE_MISC" type="_93c" init="1" context="_1" location="f1:89" file="f1" line="89" static="1"/>
+  <Typedef id="_278" name="uint_least16_t" type="_260" context="_1" location="f2:77" file="f2" line="77"/>
+  <Variable id="_279" name="cpp_sym_MNCC_F_CCCAP" type="_93c" init="2048" context="_1" location="f1:104" file="f1" line="104" static="1"/>
+  <Function id="_280" name="__builtin_ctz" returns="_93" context="_1" location="f0:96" file="f0" line="96" extern="1" attributes="nothrow const">
+    <Argument type="_93" location="f0:96" file="f0" line="96"/>
+  </Function>
+  <Variable id="_281" name="cpp_sym_MNCC_RTP_CREATE" type="_93c" init="516" context="_1" location="f1:13" file="f1" line="13" static="1"/>
+  <Function id="_282" name="__builtin_return_address" returns="_394" context="_1" location="f0:14" file="f0" line="14" extern="1">
+    <Argument name="LEVEL" type="_147" location="f0:14" file="f0" line="14"/>
+  </Function>
+  <Typedef id="_283" name="uint8_t" type="_271" context="_1" location="f2:48" file="f2" line="48"/>
+  <Function id="_284" name="__builtin_isnan" returns="_367" context="_1" mangled="isnan" location="f0:144" file="f0" line="144" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_285" name="cpp_sym_MNCC_F_CALLING" type="_93c" init="4" context="_1" location="f1:159" file="f1" line="159" static="1"/>
+  <Variable id="_286" name="cpp_sym_MNCC_CALL_PROC_REQ" type="_93c" init="264" context="_1" location="f1:126" file="f1" line="126" static="1"/>
+  <Variable id="_287" name="cpp_sym_INT_FAST16_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:24" file="f1" line="24" static="1"/>
+  <Variable id="_288" name="cpp_sym_MNCC_FRAME_RECV" type="_93c" init="513" context="_1" location="f1:152" file="f1" line="152" static="1"/>
+  <Function id="_289" name="__builtin_csinhf" returns="_369" context="_1" mangled="csinhf" location="f0:117" file="f0" line="117" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:117" file="f0" line="117"/>
+  </Function>
+  <Function id="_290" name="__builtin_csinhl" returns="_370" context="_1" mangled="csinhl" location="f0:119" file="f0" line="119" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:119" file="f0" line="119"/>
+  </Function>
+  <Function id="_291" name="__builtin_csqrtf" returns="_369" context="_1" mangled="csqrtf" location="f0:120" file="f0" line="120" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:120" file="f0" line="120"/>
+  </Function>
+  <Function id="_292" name="__builtin_csqrtl" returns="_370" context="_1" mangled="csqrtl" location="f0:122" file="f0" line="122" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:122" file="f0" line="122"/>
+  </Function>
+  <Variable id="_293" name="cpp_sym_MNCC_PROGRESS_REQ" type="_93c" init="265" context="_1" location="f1:16" file="f1" line="16" static="1"/>
+  <Typedef id="_294" name="int_least64_t" type="_48" context="_1" location="f2:69" file="f2" line="69"/>
+  <Typedef id="_295" name="int8_t" type="_81" context="_1" location="f2:36" file="f2" line="36"/>
+  <Variable id="_296" name="cpp_sym__ISOC11_SOURCE" type="_93c" init="1" context="_1" location="f1:82" file="f1" line="82" static="1"/>
+  <Variable id="_297" name="cpp_sym_MNCC_MODIFY_REJ" type="_93c" init="286" context="_1" location="f1:128" file="f1" line="128" static="1"/>
+  <Enumeration id="_298" name="gsm48_bcap_interm_rate" context="_1" location="f3:42" file="f3" line="42" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_IR_8k" init="2"/>
+    <EnumValue name="GSM48_BCAP_IR_16k" init="3"/>
+  </Enumeration>
+  <Variable id="_299" name="cpp_sym_MNCC_MODIFY_REQ" type="_93c" init="282" context="_1" location="f1:122" file="f1" line="122" static="1"/>
+  <Function id="_300" name="__builtin_floor" returns="_362" context="_1" mangled="floor" location="f0:51" file="f0" line="51" extern="1" attributes="nothrow const">
+    <Argument type="_362" location="f0:51" file="f0" line="51"/>
+  </Function>
+  <Function id="_301" name="__builtin_ldexp" returns="_362" context="_1" mangled="ldexp" location="f0:59" file="f0" line="59" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:59" file="f0" line="59"/>
+    <Argument type="_93" location="f0:59" file="f0" line="59"/>
+  </Function>
+  <Variable id="_302" name="cpp_sym__BITS_WCHAR_H" type="_93c" init="1" context="_1" location="f1:157" file="f1" line="157" static="1"/>
+  <Variable id="_303" name="cpp_sym_MNCC_NOTIFY_IND" type="_93c" init="269" context="_1" location="f1:42" file="f1" line="42" static="1"/>
+  <Variable id="_304" name="cpp_sym__XOPEN_SOURCE" type="_93c" init="700" context="_1" location="f1:145" file="f1" line="145" static="1"/>
+  <Variable id="_305" name="cpp_sym_MNCC_F_EMERGENCY" type="_93c" init="256" context="_1" location="f1:142" file="f1" line="142" static="1"/>
+  <Variable id="_306" name="cpp_sym___WORDSIZE" type="_93c" init="64" context="_1" location="f1:137" file="f1" line="137" static="1"/>
+  <Function id="_307" name="__builtin_ccosf" returns="_369" context="_1" mangled="ccosf" location="f0:102" file="f0" line="102" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:102" file="f0" line="102"/>
+  </Function>
+  <Function id="_308" name="__builtin_ccosh" returns="_378" context="_1" mangled="ccosh" location="f0:106" file="f0" line="106" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:106" file="f0" line="106"/>
+  </Function>
+  <Function id="_309" name="__builtin_ccosl" returns="_370" context="_1" mangled="ccosl" location="f0:104" file="f0" line="104" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:104" file="f0" line="104"/>
+  </Function>
+  <Function id="_310" name="__builtin_va_arg_pack_len" returns="_93" context="_1" location="f0:148" file="f0" line="148" extern="1">
+    <Ellipsis/>
+  </Function>
+  <Function id="_311" name="__builtin_islessgreater" returns="_367" context="_1" location="f0:143" file="f0" line="143" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_312" name="cpp_sym_GSM_MAX_SSVERSION" type="_93c" init="128" context="_1" location="f1:117" file="f1" line="117" static="1"/>
+  <Variable id="_313" name="cpp_sym_INT64_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:62" file="f1" line="62" static="1"/>
+  <Function id="_314" name="__builtin_ctanhf" returns="_369" context="_1" mangled="ctanhf" location="f0:126" file="f0" line="126" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:126" file="f0" line="126"/>
+  </Function>
+  <Function id="_315" name="__builtin_ctanhl" returns="_370" context="_1" mangled="ctanhl" location="f0:128" file="f0" line="128" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:128" file="f0" line="128"/>
+  </Function>
+  <Variable id="_316" name="cpp_sym__LARGEFILE64_SOURCE" type="_93c" init="1" context="_1" location="f1:143" file="f1" line="143" static="1"/>
+  <Variable id="_317" name="cpp_sym_MNCC_RTP_CONNECT" type="_93c" init="517" context="_1" location="f1:54" file="f1" line="54" static="1"/>
+  <Variable id="_318" name="cpp_sym___USE_ATFILE" type="_93c" init="1" context="_1" location="f1:27" file="f1" line="27" static="1"/>
+  <Function id="_319" name="__builtin_ceilf" returns="_365" context="_1" mangled="ceilf" location="f0:37" file="f0" line="37" extern="1" attributes="nothrow const">
+    <Argument type="_365" location="f0:37" file="f0" line="37"/>
+  </Function>
+  <Function id="_320" name="__builtin_ceill" returns="_366" context="_1" mangled="ceill" location="f0:38" file="f0" line="38" extern="1" attributes="nothrow const">
+    <Argument type="_366" location="f0:38" file="f0" line="38"/>
+  </Function>
+  <Variable id="_321" name="cpp_sym_INT64_MIN" type="_48c" init="-0x08000000000000000l" context="_1" location="f1:38" file="f1" line="38" static="1"/>
+  <Variable id="_322" name="cpp_sym_UINT_FAST16_MAX" type="_9c" init="-1ul" context="_1" location="f1:135" file="f1" line="135" static="1"/>
+  <Function id="_323" name="__builtin_csinf" returns="_369" context="_1" mangled="csinf" location="f0:114" file="f0" line="114" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:114" file="f0" line="114"/>
+  </Function>
+  <Function id="_324" name="__builtin_csinh" returns="_378" context="_1" mangled="csinh" location="f0:118" file="f0" line="118" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:118" file="f0" line="118"/>
+  </Function>
+  <Function id="_325" name="__builtin_csinl" returns="_370" context="_1" mangled="csinl" location="f0:116" file="f0" line="116" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:116" file="f0" line="116"/>
+  </Function>
+  <Struct id="_326" name="gsm_mncc_hello" context="_1" mangled="14gsm_mncc_hello" demangled="gsm_mncc_hello" location="f3:271" file="f3" line="271" artificial="1" size="256" align="32" members="_480 _481 _482 _483 _484 _485 _486 _487 _488 _489 _490 _491 " bases=""/>
+  <Function id="_327" name="__builtin_acos" returns="_362" context="_1" mangled="acos" location="f0:24" file="f0" line="24" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:24" file="f0" line="24"/>
+  </Function>
+  <Function id="_328" name="__builtin_ctzll" returns="_93" context="_1" location="f0:98" file="f0" line="98" extern="1" attributes="nothrow const">
+    <Argument type="_368" location="f0:98" file="f0" line="98"/>
+  </Function>
+  <Typedef id="_329" name="uint_fast32_t" type="_9" context="_1" location="f2:106" file="f2" line="106"/>
+  <Function id="_330" name="__builtin_cargf" returns="_365" context="_1" mangled="cargf" location="f0:93" file="f0" line="93" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_369" location="f0:93" file="f0" line="93"/>
+  </Function>
+  <Function id="_331" name="__builtin_cargl" returns="_366" context="_1" mangled="cargl" location="f0:95" file="f0" line="95" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_370" location="f0:95" file="f0" line="95"/>
+  </Function>
+  <Enumeration id="_332" name="gsm48_bcap_parity" context="_1" location="f3:33" file="f3" line="33" artificial="1" size="32" align="32">
+    <EnumValue name="GSM48_BCAP_PAR_ODD" init="0"/>
+    <EnumValue name="GSM48_BCAP_PAR_EVEN" init="2"/>
+    <EnumValue name="GSM48_BCAP_PAR_NONE" init="3"/>
+    <EnumValue name="GSM48_BCAP_PAR_ZERO" init="4"/>
+    <EnumValue name="GSM48_BCAP_PAR_ONE" init="5"/>
+  </Enumeration>
+  <Variable id="_333" name="cpp_sym_MNCC_REL_REQ" type="_93c" init="272" context="_1" location="f1:39" file="f1" line="39" static="1"/>
+  <Variable id="_334" name="cpp_sym_MNCC_F_REDIRECTING" type="_93c" init="8" context="_1" location="f1:74" file="f1" line="74" static="1"/>
+  <Variable id="_335" name="cpp_sym_GSM_TCH_FRAME_AMR" type="_93c" init="771" context="_1" location="f1:18" file="f1" line="18" static="1"/>
+  <Function id="_336" name="__builtin_cosf" returns="_365" context="_1" mangled="cosf" location="f0:40" file="f0" line="40" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:40" file="f0" line="40"/>
+  </Function>
+  <Function id="_337" name="__builtin_cosh" returns="_362" context="_1" mangled="cosh" location="f0:41" file="f0" line="41" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:41" file="f0" line="41"/>
+  </Function>
+  <Function id="_338" name="__builtin_cosl" returns="_366" context="_1" mangled="cosl" location="f0:44" file="f0" line="44" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:44" file="f0" line="44"/>
+  </Function>
+  <Variable id="_339" name="cpp_sym_INT8_MAX" type="_93c" init="127" context="_1" location="f1:84" file="f1" line="84" static="1"/>
+  <Variable id="_340" name="cpp_sym__DEFAULT_SOURCE" type="_93c" init="1" context="_1" location="f1:92" file="f1" line="92" static="1"/>
+  <Variable id="_341" name="cpp_sym_INT_FAST8_MIN" type="_93c" init="-0x00000000000000080" context="_1" location="f1:140" file="f1" line="140" static="1"/>
+  <Variable id="_342" name="cpp_sym___USE_FORTIFY_LEVEL" type="_93c" init="2" context="_1" location="f1:102" file="f1" line="102" static="1"/>
+  <Function id="_343" name="__builtin_isgreater" returns="_367" context="_1" location="f0:137" file="f0" line="137" extern="1" attributes="nothrow const">
+    <Ellipsis/>
+  </Function>
+  <Variable id="_344" name="cpp_sym_INT_LEAST8_MAX" type="_93c" init="127" context="_1" location="f1:2" file="f1" line="2" static="1"/>
+  <Variable id="_345" name="cpp_sym_MNCC_CALL_CONF_IND" type="_93c" init="263" context="_1" location="f1:79" file="f1" line="79" static="1"/>
+  <Struct id="_346" name="gsm_mncc_number" context="_1" mangled="15gsm_mncc_number" demangled="gsm_mncc_number" location="f3:96" file="f3" line="96" artificial="1" size="416" align="32" members="_492 _493 _494 _495 _496 _497 _498 _499 _500 " bases=""/>
+  <Function id="_347" name="__builtin_bswap32" returns="_147" context="_1" location="f0:157" file="f0" line="157" extern="1">
+    <Argument name="_data" type="_147" location="f0:157" file="f0" line="157"/>
+  </Function>
+  <Variable id="_348" name="cpp_sym_INT8_MIN" type="_93c" init="-0x00000000000000080" context="_1" location="f1:94" file="f1" line="94" static="1"/>
+  <Typedef id="_349" name="uint_least8_t" type="_271" context="_1" location="f2:76" file="f2" line="76"/>
+  <Variable id="_350" name="cpp_sym_MNCC_F_PROGRESS" type="_93c" init="128" context="_1" location="f1:59" file="f1" line="59" static="1"/>
+  <Variable id="_351" name="cpp_sym___GNU_LIBRARY__" type="_93c" init="6" context="_1" location="f1:9" file="f1" line="9" static="1"/>
+  <Function id="_352" name="__builtin_sinf" returns="_365" context="_1" mangled="sinf" location="f0:76" file="f0" line="76" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_365" location="f0:76" file="f0" line="76"/>
+  </Function>
+  <Function id="_353" name="__builtin_sinh" returns="_362" context="_1" mangled="sinh" location="f0:77" file="f0" line="77" extern="1" attributes="nothrow">
+    <Argument type="_362" location="f0:77" file="f0" line="77"/>
+  </Function>
+  <Function id="_354" name="__builtin_sinl" returns="_366" context="_1" mangled="sinl" location="f0:80" file="f0" line="80" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_366" location="f0:80" file="f0" line="80"/>
+  </Function>
+  <Typedef id="_355" name="uint64_t" type="_9" context="_1" location="f2:55" file="f2" line="55"/>
+  <Function id="_356" name="__builtin_csin" returns="_378" context="_1" mangled="csin" location="f0:115" file="f0" line="115" extern="1" attributes="nothrow pure no vops">
+    <Argument type="_378" location="f0:115" file="f0" line="115"/>
+  </Function>
+  <Variable id="_357" name="cpp_sym_INT_LEAST8_MIN" type="_93c" init="-0x00000000000000080" context="_1" location="f1:44" file="f1" line="44" static="1"/>
+  <Variable id="_358" name="cpp_sym__POSIX_SOURCE" type="_93c" init="1" context="_1" location="f1:36" file="f1" line="36" static="1"/>
+  <Variable id="_359" name="cpp_sym_UINT_LEAST32_MAX" type="_147c" init="4294967295u" context="_1" location="f1:52" file="f1" line="52" static="1"/>
+  <Variable id="_360" name="cpp_sym_INTMAX_MAX" type="_48c" init="9223372036854775807l" context="_1" location="f1:34" file="f1" line="34" static="1"/>
+  <Variable id="_361" name="cpp_sym_GSM_TCHH_FRAME" type="_93c" init="770" context="_1" location="f1:5" file="f1" line="5" static="1"/>
+  <FundamentalType id="_362" name="double" size="64" align="64"/>
+  <PointerType id="_363" type="_501c" size="64" align="64"/>
+  <CvQualifiedType id="_93c" type="_93" const="1"/>
+  <FundamentalType id="_365" name="float" size="32" align="32"/>
+  <FundamentalType id="_366" name="long double" size="128" align="128"/>
+  <FundamentalType id="_367" name="bool" size="8" align="8"/>
+  <FundamentalType id="_368" name="long long int" size="64" align="64"/>
+  <FundamentalType id="_369" name="complex float" size="64" align="32"/>
+  <FundamentalType id="_370" name="complex long double" size="256" align="128"/>
+  <CvQualifiedType id="_48c" type="_48" const="1"/>
+  <Field id="_372" name="dtmf" type="_93" offset="0" context="_27" access="public" location="f3:136" file="f3" line="136"/>
+  <Field id="_373" name="pcp" type="_93" offset="32" context="_27" access="public" location="f3:137" file="f3" line="137"/>
+  <Destructor id="_374" name="gsm_mncc_cccap" artificial="1" throw="" context="_27" access="public" mangled="_ZN14gsm_mncc_cccapD1Ev *INTERNAL* " demangled="gsm_mncc_cccap::~gsm_mncc_cccap()" location="f3:135" file="f3" line="135" endline="135" inline="1">
+  </Destructor>
+  <OperatorMethod id="_375" name="=" returns="_503" artificial="1" throw="" context="_27" access="public" mangled="_ZN14gsm_mncc_cccapaSERKS_" demangled="gsm_mncc_cccap::operator=(gsm_mncc_cccap const&amp;)" location="f3:135" file="f3" line="135" endline="135" inline="1">
+    <Argument type="_504" location="f3:135" file="f3" line="135"/>
+  </OperatorMethod>
+  <Constructor id="_376" name="gsm_mncc_cccap" artificial="1" throw="" context="_27" access="public" mangled="_ZN14gsm_mncc_cccapC1ERKS_ *INTERNAL* " demangled="gsm_mncc_cccap::gsm_mncc_cccap(gsm_mncc_cccap const&amp;)" location="f3:135" file="f3" line="135" endline="135" inline="1">
+    <Argument type="_504" location="f3:135" file="f3" line="135"/>
+  </Constructor>
+  <Constructor id="_377" name="gsm_mncc_cccap" artificial="1" throw="" context="_27" access="public" mangled="_ZN14gsm_mncc_cccapC1Ev *INTERNAL* " demangled="gsm_mncc_cccap::gsm_mncc_cccap()" location="f3:135" file="f3" line="135" inline="1"/>
+  <FundamentalType id="_378" name="complex double" size="128" align="64"/>
+  <Field id="_379" name="len" type="_93" offset="0" context="_60" access="public" location="f3:126" file="f3" line="126"/>
+  <Field id="_380" name="info" type="_505" offset="32" context="_60" access="public" location="f3:127" file="f3" line="127"/>
+  <Destructor id="_381" name="gsm_mncc_facility" artificial="1" throw="" context="_60" access="public" mangled="_ZN17gsm_mncc_facilityD1Ev *INTERNAL* " demangled="gsm_mncc_facility::~gsm_mncc_facility()" location="f3:125" file="f3" line="125" endline="125" inline="1">
+  </Destructor>
+  <OperatorMethod id="_382" name="=" returns="_506" artificial="1" throw="" context="_60" access="public" mangled="_ZN17gsm_mncc_facilityaSERKS_" demangled="gsm_mncc_facility::operator=(gsm_mncc_facility const&amp;)" location="f3:125" file="f3" line="125" endline="125" inline="1">
+    <Argument type="_507" location="f3:125" file="f3" line="125"/>
+  </OperatorMethod>
+  <Constructor id="_383" name="gsm_mncc_facility" artificial="1" throw="" context="_60" access="public" mangled="_ZN17gsm_mncc_facilityC1ERKS_ *INTERNAL* " demangled="gsm_mncc_facility::gsm_mncc_facility(gsm_mncc_facility const&amp;)" location="f3:125" file="f3" line="125" endline="125" inline="1">
+    <Argument type="_507" location="f3:125" file="f3" line="125"/>
+  </Constructor>
+  <Constructor id="_384" name="gsm_mncc_facility" artificial="1" throw="" context="_60" access="public" mangled="_ZN17gsm_mncc_facilityC1Ev *INTERNAL* " demangled="gsm_mncc_facility::gsm_mncc_facility()" location="f3:125" file="f3" line="125" inline="1"/>
+  <CvQualifiedType id="_9c" type="_9" const="1"/>
+  <Field id="_386" name="msg_type" type="_148" offset="0" context="_83" access="public" location="f3:265" file="f3" line="265"/>
+  <Field id="_387" name="callref" type="_148" offset="32" context="_83" access="public" location="f3:266" file="f3" line="266"/>
+  <Field id="_388" name="data" type="_508" offset="64" context="_83" access="public" location="f3:267" file="f3" line="267"/>
+  <Destructor id="_389" name="gsm_data_frame" artificial="1" throw="" context="_83" access="public" mangled="_ZN14gsm_data_frameD1Ev *INTERNAL* " demangled="gsm_data_frame::~gsm_data_frame()" location="f3:264" file="f3" line="264" endline="264" inline="1">
+  </Destructor>
+  <OperatorMethod id="_390" name="=" returns="_509" artificial="1" throw="" context="_83" access="public" mangled="_ZN14gsm_data_frameaSERKS_" demangled="gsm_data_frame::operator=(gsm_data_frame const&amp;)" location="f3:264" file="f3" line="264" endline="264" inline="1">
+    <Argument type="_510" location="f3:264" file="f3" line="264"/>
+  </OperatorMethod>
+  <Constructor id="_391" name="gsm_data_frame" artificial="1" throw="" context="_83" access="public" mangled="_ZN14gsm_data_frameC1ERKS_ *INTERNAL* " demangled="gsm_data_frame::gsm_data_frame(gsm_data_frame const&amp;)" location="f3:264" file="f3" line="264" endline="264" inline="1">
+    <Argument type="_510" location="f3:264" file="f3" line="264"/>
+  </Constructor>
+  <Constructor id="_392" name="gsm_data_frame" artificial="1" throw="" context="_83" access="public" mangled="_ZN14gsm_data_frameC1Ev *INTERNAL* " demangled="gsm_data_frame::gsm_data_frame()" location="f3:264" file="f3" line="264" inline="1"/>
+  <FundamentalType id="_393" name="void" align="8"/>
+  <PointerType id="_394" type="_393" size="64" align="64"/>
+  <Field id="_395" name="len" type="_93" offset="0" context="_87" access="public" location="f3:131" file="f3" line="131"/>
+  <Field id="_396" name="info" type="_505" offset="32" context="_87" access="public" location="f3:132" file="f3" line="132"/>
+  <Destructor id="_397" name="gsm_mncc_ssversion" artificial="1" throw="" context="_87" access="public" mangled="_ZN18gsm_mncc_ssversionD1Ev *INTERNAL* " demangled="gsm_mncc_ssversion::~gsm_mncc_ssversion()" location="f3:130" file="f3" line="130" endline="130" inline="1">
+  </Destructor>
+  <OperatorMethod id="_398" name="=" returns="_511" artificial="1" throw="" context="_87" access="public" mangled="_ZN18gsm_mncc_ssversionaSERKS_" demangled="gsm_mncc_ssversion::operator=(gsm_mncc_ssversion const&amp;)" location="f3:130" file="f3" line="130" endline="130" inline="1">
+    <Argument type="_512" location="f3:130" file="f3" line="130"/>
+  </OperatorMethod>
+  <Constructor id="_399" name="gsm_mncc_ssversion" artificial="1" throw="" context="_87" access="public" mangled="_ZN18gsm_mncc_ssversionC1ERKS_ *INTERNAL* " demangled="gsm_mncc_ssversion::gsm_mncc_ssversion(gsm_mncc_ssversion const&amp;)" location="f3:130" file="f3" line="130" endline="130" inline="1">
+    <Argument type="_512" location="f3:130" file="f3" line="130"/>
+  </Constructor>
+  <Constructor id="_400" name="gsm_mncc_ssversion" artificial="1" throw="" context="_87" access="public" mangled="_ZN18gsm_mncc_ssversionC1Ev *INTERNAL* " demangled="gsm_mncc_ssversion::gsm_mncc_ssversion()" location="f3:130" file="f3" line="130" inline="1"/>
+  <PointerType id="_401" type="_393c" size="64" align="64"/>
+  <PointerType id="_402" type="_93" size="64" align="64"/>
+  <CvQualifiedType id="_147c" type="_147" const="1"/>
+  <Field id="_404" name="coding" type="_93" offset="0" context="_132" access="public" location="f3:120" file="f3" line="120"/>
+  <Field id="_405" name="location" type="_93" offset="32" context="_132" access="public" location="f3:121" file="f3" line="121"/>
+  <Field id="_406" name="descr" type="_93" offset="64" context="_132" access="public" location="f3:122" file="f3" line="122"/>
+  <Destructor id="_407" name="gsm_mncc_progress" artificial="1" throw="" context="_132" access="public" mangled="_ZN17gsm_mncc_progressD1Ev *INTERNAL* " demangled="gsm_mncc_progress::~gsm_mncc_progress()" location="f3:119" file="f3" line="119" endline="119" inline="1">
+  </Destructor>
+  <OperatorMethod id="_408" name="=" returns="_514" artificial="1" throw="" context="_132" access="public" mangled="_ZN17gsm_mncc_progressaSERKS_" demangled="gsm_mncc_progress::operator=(gsm_mncc_progress const&amp;)" location="f3:119" file="f3" line="119" endline="119" inline="1">
+    <Argument type="_515" location="f3:119" file="f3" line="119"/>
+  </OperatorMethod>
+  <Constructor id="_409" name="gsm_mncc_progress" artificial="1" throw="" context="_132" access="public" mangled="_ZN17gsm_mncc_progressC1ERKS_ *INTERNAL* " demangled="gsm_mncc_progress::gsm_mncc_progress(gsm_mncc_progress const&amp;)" location="f3:119" file="f3" line="119" endline="119" inline="1">
+    <Argument type="_515" location="f3:119" file="f3" line="119"/>
+  </Constructor>
+  <Constructor id="_410" name="gsm_mncc_progress" artificial="1" throw="" context="_132" access="public" mangled="_ZN17gsm_mncc_progressC1Ev *INTERNAL* " demangled="gsm_mncc_progress::gsm_mncc_progress()" location="f3:119" file="f3" line="119" inline="1"/>
+  <Field id="_411" name="location" type="_93" offset="0" context="_133" access="public" location="f3:105" file="f3" line="105"/>
+  <Field id="_412" name="coding" type="_93" offset="32" context="_133" access="public" location="f3:106" file="f3" line="106"/>
+  <Field id="_413" name="rec" type="_93" offset="64" context="_133" access="public" location="f3:107" file="f3" line="107"/>
+  <Field id="_414" name="rec_val" type="_93" offset="96" context="_133" access="public" location="f3:108" file="f3" line="108"/>
+  <Field id="_415" name="value" type="_93" offset="128" context="_133" access="public" location="f3:109" file="f3" line="109"/>
+  <Field id="_416" name="diag_len" type="_93" offset="160" context="_133" access="public" location="f3:110" file="f3" line="110"/>
+  <Field id="_417" name="diag" type="_516" offset="192" context="_133" access="public" location="f3:111" file="f3" line="111"/>
+  <Destructor id="_418" name="gsm_mncc_cause" artificial="1" throw="" context="_133" access="public" mangled="_ZN14gsm_mncc_causeD1Ev *INTERNAL* " demangled="gsm_mncc_cause::~gsm_mncc_cause()" location="f3:104" file="f3" line="104" endline="104" inline="1">
+  </Destructor>
+  <OperatorMethod id="_419" name="=" returns="_517" artificial="1" throw="" context="_133" access="public" mangled="_ZN14gsm_mncc_causeaSERKS_" demangled="gsm_mncc_cause::operator=(gsm_mncc_cause const&amp;)" location="f3:104" file="f3" line="104" endline="104" inline="1">
+    <Argument type="_518" location="f3:104" file="f3" line="104"/>
+  </OperatorMethod>
+  <Constructor id="_420" name="gsm_mncc_cause" artificial="1" throw="" context="_133" access="public" mangled="_ZN14gsm_mncc_causeC1ERKS_ *INTERNAL* " demangled="gsm_mncc_cause::gsm_mncc_cause(gsm_mncc_cause const&amp;)" location="f3:104" file="f3" line="104" endline="104" inline="1">
+    <Argument type="_518" location="f3:104" file="f3" line="104"/>
+  </Constructor>
+  <Constructor id="_421" name="gsm_mncc_cause" artificial="1" throw="" context="_133" access="public" mangled="_ZN14gsm_mncc_causeC1Ev *INTERNAL* " demangled="gsm_mncc_cause::gsm_mncc_cause()" location="f3:104" file="f3" line="104" inline="1"/>
+  <PointerType id="_422" type="_365" size="64" align="64"/>
+  <PointerType id="_423" type="_366" size="64" align="64"/>
+  <Field id="_424" name="proto" type="_93" offset="0" context="_231" access="public" location="f3:115" file="f3" line="115"/>
+  <Field id="_425" name="info" type="_519" offset="32" context="_231" access="public" location="f3:116" file="f3" line="116"/>
+  <Destructor id="_426" name="gsm_mncc_useruser" artificial="1" throw="" context="_231" access="public" mangled="_ZN17gsm_mncc_useruserD1Ev *INTERNAL* " demangled="gsm_mncc_useruser::~gsm_mncc_useruser()" location="f3:114" file="f3" line="114" endline="114" inline="1">
+  </Destructor>
+  <OperatorMethod id="_427" name="=" returns="_520" artificial="1" throw="" context="_231" access="public" mangled="_ZN17gsm_mncc_useruseraSERKS_" demangled="gsm_mncc_useruser::operator=(gsm_mncc_useruser const&amp;)" location="f3:114" file="f3" line="114" endline="114" inline="1">
+    <Argument type="_521" location="f3:114" file="f3" line="114"/>
+  </OperatorMethod>
+  <Constructor id="_428" name="gsm_mncc_useruser" artificial="1" throw="" context="_231" access="public" mangled="_ZN17gsm_mncc_useruserC1ERKS_ *INTERNAL* " demangled="gsm_mncc_useruser::gsm_mncc_useruser(gsm_mncc_useruser const&amp;)" location="f3:114" file="f3" line="114" endline="114" inline="1">
+    <Argument type="_521" location="f3:114" file="f3" line="114"/>
+  </Constructor>
+  <Constructor id="_429" name="gsm_mncc_useruser" artificial="1" throw="" context="_231" access="public" mangled="_ZN17gsm_mncc_useruserC1Ev *INTERNAL* " demangled="gsm_mncc_useruser::gsm_mncc_useruser()" location="f3:114" file="f3" line="114" inline="1"/>
+  <Field id="_430" name="transfer" type="_93" offset="0" context="_237" access="public" location="f3:76" file="f3" line="76"/>
+  <Field id="_431" name="mode" type="_93" offset="32" context="_237" access="public" location="f3:77" file="f3" line="77"/>
+  <Field id="_432" name="coding" type="_93" offset="64" context="_237" access="public" location="f3:78" file="f3" line="78"/>
+  <Field id="_433" name="radio" type="_93" offset="96" context="_237" access="public" location="f3:79" file="f3" line="79"/>
+  <Field id="_434" name="speech_ctm" type="_93" offset="128" context="_237" access="public" location="f3:80" file="f3" line="80"/>
+  <Field id="_435" name="speech_ver" type="_522" offset="160" context="_237" access="public" location="f3:81" file="f3" line="81"/>
+  <Field id="_436" name="data" type="_437" offset="416" context="_237" access="public" location="f3:93" file="f3" line="93"/>
+  <Struct id="_437" context="_237" access="public" mangled="N19gsm_mncc_bearer_cap3._0E" demangled="gsm_mncc_bearer_cap::._0" location="f3:82" file="f3" line="82" artificial="1" size="320" align="32" members="_523 _524 _525 _526 _527 _528 _529 _530 _531 _532 _533 _534 _535 _536 " bases=""/>
+  <Destructor id="_438" name="gsm_mncc_bearer_cap" artificial="1" throw="" context="_237" access="public" mangled="_ZN19gsm_mncc_bearer_capD1Ev *INTERNAL* " demangled="gsm_mncc_bearer_cap::~gsm_mncc_bearer_cap()" location="f3:75" file="f3" line="75" endline="75" inline="1">
+  </Destructor>
+  <OperatorMethod id="_439" name="=" returns="_537" artificial="1" throw="" context="_237" access="public" mangled="_ZN19gsm_mncc_bearer_capaSERKS_" demangled="gsm_mncc_bearer_cap::operator=(gsm_mncc_bearer_cap const&amp;)" location="f3:75" file="f3" line="75" endline="75" inline="1">
+    <Argument type="_538" location="f3:75" file="f3" line="75"/>
+  </OperatorMethod>
+  <Constructor id="_440" name="gsm_mncc_bearer_cap" artificial="1" throw="" context="_237" access="public" mangled="_ZN19gsm_mncc_bearer_capC1ERKS_ *INTERNAL* " demangled="gsm_mncc_bearer_cap::gsm_mncc_bearer_cap(gsm_mncc_bearer_cap const&amp;)" location="f3:75" file="f3" line="75" endline="75" inline="1">
+    <Argument type="_538" location="f3:75" file="f3" line="75"/>
+  </Constructor>
+  <Constructor id="_441" name="gsm_mncc_bearer_cap" artificial="1" throw="" context="_237" access="public" mangled="_ZN19gsm_mncc_bearer_capC1Ev *INTERNAL* " demangled="gsm_mncc_bearer_cap::gsm_mncc_bearer_cap()" location="f3:75" file="f3" line="75" inline="1"/>
+  <Field id="_442" name="msg_type" type="_148" offset="0" context="_253" access="public" location="f3:287" file="f3" line="287"/>
+  <Field id="_443" name="callref" type="_148" offset="32" context="_253" access="public" location="f3:288" file="f3" line="288"/>
+  <Field id="_444" name="ip" type="_148" offset="64" context="_253" access="public" location="f3:289" file="f3" line="289"/>
+  <Field id="_445" name="port" type="_261" offset="96" context="_253" access="public" location="f3:290" file="f3" line="290"/>
+  <Field id="_446" name="payload_type" type="_148" offset="128" context="_253" access="public" location="f3:291" file="f3" line="291"/>
+  <Field id="_447" name="payload_msg_type" type="_148" offset="160" context="_253" access="public" location="f3:292" file="f3" line="292"/>
+  <Destructor id="_448" name="gsm_mncc_rtp" artificial="1" throw="" context="_253" access="public" mangled="_ZN12gsm_mncc_rtpD1Ev *INTERNAL* " demangled="gsm_mncc_rtp::~gsm_mncc_rtp()" location="f3:286" file="f3" line="286" endline="286" inline="1">
+  </Destructor>
+  <OperatorMethod id="_449" name="=" returns="_539" artificial="1" throw="" context="_253" access="public" mangled="_ZN12gsm_mncc_rtpaSERKS_" demangled="gsm_mncc_rtp::operator=(gsm_mncc_rtp const&amp;)" location="f3:286" file="f3" line="286" endline="286" inline="1">
+    <Argument type="_540" location="f3:286" file="f3" line="286"/>
+  </OperatorMethod>
+  <Constructor id="_450" name="gsm_mncc_rtp" artificial="1" throw="" context="_253" access="public" mangled="_ZN12gsm_mncc_rtpC1ERKS_ *INTERNAL* " demangled="gsm_mncc_rtp::gsm_mncc_rtp(gsm_mncc_rtp const&amp;)" location="f3:286" file="f3" line="286" endline="286" inline="1">
+    <Argument type="_540" location="f3:286" file="f3" line="286"/>
+  </Constructor>
+  <Constructor id="_451" name="gsm_mncc_rtp" artificial="1" throw="" context="_253" access="public" mangled="_ZN12gsm_mncc_rtpC1Ev *INTERNAL* " demangled="gsm_mncc_rtp::gsm_mncc_rtp()" location="f3:286" file="f3" line="286" inline="1"/>
+  <Field id="_452" name="msg_type" type="_148" offset="0" context="_264" access="public" location="f3:229" file="f3" line="229"/>
+  <Field id="_453" name="callref" type="_148" offset="32" context="_264" access="public" location="f3:230" file="f3" line="230"/>
+  <Field id="_454" name="fields" type="_148" offset="64" context="_264" access="public" location="f3:233" file="f3" line="233"/>
+  <Field id="_455" name="bearer_cap" type="_237" offset="96" context="_264" access="public" location="f3:236" file="f3" line="236"/>
+  <Field id="_456" name="called" type="_346" offset="832" context="_264" access="public" location="f3:237" file="f3" line="237"/>
+  <Field id="_457" name="calling" type="_346" offset="1248" context="_264" access="public" location="f3:238" file="f3" line="238"/>
+  <Field id="_458" name="redirecting" type="_346" offset="1664" context="_264" access="public" location="f3:239" file="f3" line="239"/>
+  <Field id="_459" name="connected" type="_346" offset="2080" context="_264" access="public" location="f3:240" file="f3" line="240"/>
+  <Field id="_460" name="cause" type="_133" offset="2496" context="_264" access="public" location="f3:241" file="f3" line="241"/>
+  <Field id="_461" name="progress" type="_132" offset="2944" context="_264" access="public" location="f3:242" file="f3" line="242"/>
+  <Field id="_462" name="useruser" type="_231" offset="3040" context="_264" access="public" location="f3:243" file="f3" line="243"/>
+  <Field id="_463" name="facility" type="_60" offset="4128" context="_264" access="public" location="f3:244" file="f3" line="244"/>
+  <Field id="_464" name="cccap" type="_27" offset="5184" context="_264" access="public" location="f3:245" file="f3" line="245"/>
+  <Field id="_465" name="ssversion" type="_87" offset="5248" context="_264" access="public" location="f3:246" file="f3" line="246"/>
+  <Field id="_466" name="clir" type="_475" offset="6304" context="_264" access="public" location="f3:250" file="f3" line="250"/>
+  <Field id="_467" name="signal" type="_93" offset="6368" context="_264" access="public" location="f3:251" file="f3" line="251"/>
+  <Field id="_468" name="keypad" type="_93" offset="6400" context="_264" access="public" location="f3:254" file="f3" line="254"/>
+  <Field id="_469" name="more" type="_93" offset="6432" context="_264" access="public" location="f3:255" file="f3" line="255"/>
+  <Field id="_470" name="notify" type="_93" offset="6464" context="_264" access="public" location="f3:256" file="f3" line="256"/>
+  <Field id="_471" name="emergency" type="_93" offset="6496" context="_264" access="public" location="f3:257" file="f3" line="257"/>
+  <Field id="_472" name="imsi" type="_541" offset="6528" context="_264" access="public" location="f3:258" file="f3" line="258"/>
+  <Field id="_473" name="lchan_type" type="_271" offset="6656" context="_264" access="public" location="f3:260" file="f3" line="260"/>
+  <Field id="_474" name="lchan_mode" type="_271" offset="6664" context="_264" access="public" location="f3:261" file="f3" line="261"/>
+  <Struct id="_475" context="_264" access="public" mangled="N8gsm_mncc3._2E" demangled="gsm_mncc::._2" location="f3:247" file="f3" line="247" artificial="1" size="64" align="32" members="_542 _543 _544 _545 _546 _547 " bases=""/>
+  <Destructor id="_476" name="gsm_mncc" artificial="1" throw="" context="_264" access="public" mangled="_ZN8gsm_mnccD1Ev *INTERNAL* " demangled="gsm_mncc::~gsm_mncc()" location="f3:227" file="f3" line="227" endline="227" inline="1">
+  </Destructor>
+  <OperatorMethod id="_477" name="=" returns="_548" artificial="1" throw="" context="_264" access="public" mangled="_ZN8gsm_mnccaSERKS_" demangled="gsm_mncc::operator=(gsm_mncc const&amp;)" location="f3:227" file="f3" line="227" endline="227" inline="1">
+    <Argument type="_549" location="f3:227" file="f3" line="227"/>
+  </OperatorMethod>
+  <Constructor id="_478" name="gsm_mncc" artificial="1" throw="" context="_264" access="public" mangled="_ZN8gsm_mnccC1ERKS_ *INTERNAL* " demangled="gsm_mncc::gsm_mncc(gsm_mncc const&amp;)" location="f3:227" file="f3" line="227" endline="227" inline="1">
+    <Argument type="_549" location="f3:227" file="f3" line="227"/>
+  </Constructor>
+  <Constructor id="_479" name="gsm_mncc" artificial="1" throw="" context="_264" access="public" mangled="_ZN8gsm_mnccC1Ev *INTERNAL* " demangled="gsm_mncc::gsm_mncc()" location="f3:227" file="f3" line="227" inline="1"/>
+  <Field id="_480" name="msg_type" type="_148" offset="0" context="_326" access="public" location="f3:272" file="f3" line="272"/>
+  <Field id="_481" name="version" type="_148" offset="32" context="_326" access="public" location="f3:273" file="f3" line="273"/>
+  <Field id="_482" name="mncc_size" type="_148" offset="64" context="_326" access="public" location="f3:276" file="f3" line="276"/>
+  <Field id="_483" name="data_frame_size" type="_148" offset="96" context="_326" access="public" location="f3:277" file="f3" line="277"/>
+  <Field id="_484" name="called_offset" type="_148" offset="128" context="_326" access="public" location="f3:280" file="f3" line="280"/>
+  <Field id="_485" name="signal_offset" type="_148" offset="160" context="_326" access="public" location="f3:281" file="f3" line="281"/>
+  <Field id="_486" name="emergency_offset" type="_148" offset="192" context="_326" access="public" location="f3:282" file="f3" line="282"/>
+  <Field id="_487" name="lchan_type_offset" type="_148" offset="224" context="_326" access="public" location="f3:283" file="f3" line="283"/>
+  <Destructor id="_488" name="gsm_mncc_hello" artificial="1" throw="" context="_326" access="public" mangled="_ZN14gsm_mncc_helloD1Ev *INTERNAL* " demangled="gsm_mncc_hello::~gsm_mncc_hello()" location="f3:271" file="f3" line="271" endline="271" inline="1">
+  </Destructor>
+  <OperatorMethod id="_489" name="=" returns="_550" artificial="1" throw="" context="_326" access="public" mangled="_ZN14gsm_mncc_helloaSERKS_" demangled="gsm_mncc_hello::operator=(gsm_mncc_hello const&amp;)" location="f3:271" file="f3" line="271" endline="271" inline="1">
+    <Argument type="_551" location="f3:271" file="f3" line="271"/>
+  </OperatorMethod>
+  <Constructor id="_490" name="gsm_mncc_hello" artificial="1" throw="" context="_326" access="public" mangled="_ZN14gsm_mncc_helloC1ERKS_ *INTERNAL* " demangled="gsm_mncc_hello::gsm_mncc_hello(gsm_mncc_hello const&amp;)" location="f3:271" file="f3" line="271" endline="271" inline="1">
+    <Argument type="_551" location="f3:271" file="f3" line="271"/>
+  </Constructor>
+  <Constructor id="_491" name="gsm_mncc_hello" artificial="1" throw="" context="_326" access="public" mangled="_ZN14gsm_mncc_helloC1Ev *INTERNAL* " demangled="gsm_mncc_hello::gsm_mncc_hello()" location="f3:271" file="f3" line="271" inline="1"/>
+  <Field id="_492" name="type" type="_93" offset="0" context="_346" access="public" location="f3:97" file="f3" line="97"/>
+  <Field id="_493" name="plan" type="_93" offset="32" context="_346" access="public" location="f3:98" file="f3" line="98"/>
+  <Field id="_494" name="present" type="_93" offset="64" context="_346" access="public" location="f3:99" file="f3" line="99"/>
+  <Field id="_495" name="screen" type="_93" offset="96" context="_346" access="public" location="f3:100" file="f3" line="100"/>
+  <Field id="_496" name="number" type="_552" offset="128" context="_346" access="public" location="f3:101" file="f3" line="101"/>
+  <Destructor id="_497" name="gsm_mncc_number" artificial="1" throw="" context="_346" access="public" mangled="_ZN15gsm_mncc_numberD1Ev *INTERNAL* " demangled="gsm_mncc_number::~gsm_mncc_number()" location="f3:96" file="f3" line="96" endline="96" inline="1">
+  </Destructor>
+  <OperatorMethod id="_498" name="=" returns="_553" artificial="1" throw="" context="_346" access="public" mangled="_ZN15gsm_mncc_numberaSERKS_" demangled="gsm_mncc_number::operator=(gsm_mncc_number const&amp;)" location="f3:96" file="f3" line="96" endline="96" inline="1">
+    <Argument type="_554" location="f3:96" file="f3" line="96"/>
+  </OperatorMethod>
+  <Constructor id="_499" name="gsm_mncc_number" artificial="1" throw="" context="_346" access="public" mangled="_ZN15gsm_mncc_numberC1ERKS_ *INTERNAL* " demangled="gsm_mncc_number::gsm_mncc_number(gsm_mncc_number const&amp;)" location="f3:96" file="f3" line="96" endline="96" inline="1">
+    <Argument type="_554" location="f3:96" file="f3" line="96"/>
+  </Constructor>
+  <Constructor id="_500" name="gsm_mncc_number" artificial="1" throw="" context="_346" access="public" mangled="_ZN15gsm_mncc_numberC1Ev *INTERNAL* " demangled="gsm_mncc_number::gsm_mncc_number()" location="f3:96" file="f3" line="96" inline="1"/>
+  <ReferenceType id="_503" type="_27" size="64" align="64"/>
+  <ReferenceType id="_504" type="_27c" size="64" align="64"/>
+  <ArrayType id="_505" min="0" max="127u" type="_501" size="1024" align="8"/>
+  <ReferenceType id="_506" type="_60" size="64" align="64"/>
+  <ReferenceType id="_507" type="_60c" size="64" align="64"/>
+  <ArrayType id="_508" min="0" max="0xffffffffffffffffffffffffffffffffu" type="_271" size="0" align="8"/>
+  <ReferenceType id="_509" type="_83" size="64" align="64"/>
+  <ReferenceType id="_510" type="_83c" size="64" align="64"/>
+  <ReferenceType id="_511" type="_87" size="64" align="64"/>
+  <ReferenceType id="_512" type="_87c" size="64" align="64"/>
+  <ReferenceType id="_514" type="_132" size="64" align="64"/>
+  <ReferenceType id="_515" type="_132c" size="64" align="64"/>
+  <ArrayType id="_516" min="0" max="31u" type="_501" size="256" align="8"/>
+  <ReferenceType id="_517" type="_133" size="64" align="64"/>
+  <ReferenceType id="_518" type="_133c" size="64" align="64"/>
+  <ArrayType id="_519" min="0" max="128u" type="_501" size="1032" align="8"/>
+  <ReferenceType id="_520" type="_231" size="64" align="64"/>
+  <ReferenceType id="_521" type="_231c" size="64" align="64"/>
+  <ArrayType id="_522" min="0" max="7u" type="_93" size="256" align="32"/>
+  <Field id="_523" name="rate_adaption" type="_105" offset="0" context="_437" access="public" location="f3:83" file="f3" line="83"/>
+  <Field id="_524" name="sig_access" type="_71" offset="32" context="_437" access="public" location="f3:84" file="f3" line="84"/>
+  <Field id="_525" name="async" type="_93" offset="64" context="_437" access="public" location="f3:85" file="f3" line="85"/>
+  <Field id="_526" name="nr_stop_bits" type="_93" offset="96" context="_437" access="public" location="f3:86" file="f3" line="86"/>
+  <Field id="_527" name="nr_data_bits" type="_93" offset="128" context="_437" access="public" location="f3:87" file="f3" line="87"/>
+  <Field id="_528" name="user_rate" type="_167" offset="160" context="_437" access="public" location="f3:88" file="f3" line="88"/>
+  <Field id="_529" name="parity" type="_332" offset="192" context="_437" access="public" location="f3:89" file="f3" line="89"/>
+  <Field id="_530" name="interm_rate" type="_298" offset="224" context="_437" access="public" location="f3:90" file="f3" line="90"/>
+  <Field id="_531" name="transp" type="_141" offset="256" context="_437" access="public" location="f3:91" file="f3" line="91"/>
+  <Field id="_532" name="modem_type" type="_153" offset="288" context="_437" access="public" location="f3:92" file="f3" line="92"/>
+  <Destructor id="_533" name="._0" artificial="1" throw="" context="_437" access="public" mangled="_ZN19gsm_mncc_bearer_cap3._0D1Ev *INTERNAL* " demangled="gsm_mncc_bearer_cap::._0::~._0()" location="f3:82" file="f3" line="82" endline="82" inline="1">
+  </Destructor>
+  <OperatorMethod id="_534" name="=" returns="_562" artificial="1" throw="" context="_437" access="public" mangled="_ZN19gsm_mncc_bearer_cap3._0aSERKS0_" demangled="gsm_mncc_bearer_cap::._0::operator=(gsm_mncc_bearer_cap::._0 const&amp;)" location="f3:82" file="f3" line="82" endline="82" inline="1">
+    <Argument type="_563" location="f3:82" file="f3" line="82"/>
+  </OperatorMethod>
+  <Constructor id="_535" artificial="1" throw="" context="_437" access="public" mangled="_ZN19gsm_mncc_bearer_cap3._0C1ERKS0_ *INTERNAL* " demangled="gsm_mncc_bearer_cap::._0::._0(gsm_mncc_bearer_cap::._0 const&amp;)" location="f3:82" file="f3" line="82" endline="82" inline="1">
+    <Argument type="_563" location="f3:82" file="f3" line="82"/>
+  </Constructor>
+  <Constructor id="_536" artificial="1" throw="" context="_437" access="public" mangled="_ZN19gsm_mncc_bearer_cap3._0C1Ev *INTERNAL* " demangled="gsm_mncc_bearer_cap::._0::._0()" location="f3:82" file="f3" line="82" inline="1"/>
+  <ReferenceType id="_537" type="_237" size="64" align="64"/>
+  <ReferenceType id="_538" type="_237c" size="64" align="64"/>
+  <ReferenceType id="_539" type="_253" size="64" align="64"/>
+  <ReferenceType id="_540" type="_253c" size="64" align="64"/>
+  <ArrayType id="_541" min="0" max="15u" type="_501" size="128" align="8"/>
+  <Field id="_542" name="sup" type="_93" offset="0" context="_475" access="public" location="f3:248" file="f3" line="248"/>
+  <Field id="_543" name="inv" type="_93" offset="32" context="_475" access="public" location="f3:249" file="f3" line="249"/>
+  <Destructor id="_544" name="._2" artificial="1" throw="" context="_475" access="public" mangled="_ZN8gsm_mncc3._2D1Ev *INTERNAL* " demangled="gsm_mncc::._2::~._2()" location="f3:247" file="f3" line="247" endline="247" inline="1">
+  </Destructor>
+  <OperatorMethod id="_545" name="=" returns="_566" artificial="1" throw="" context="_475" access="public" mangled="_ZN8gsm_mncc3._2aSERKS0_" demangled="gsm_mncc::._2::operator=(gsm_mncc::._2 const&amp;)" location="f3:247" file="f3" line="247" endline="247" inline="1">
+    <Argument type="_567" location="f3:247" file="f3" line="247"/>
+  </OperatorMethod>
+  <Constructor id="_546" artificial="1" throw="" context="_475" access="public" mangled="_ZN8gsm_mncc3._2C1ERKS0_ *INTERNAL* " demangled="gsm_mncc::._2::._2(gsm_mncc::._2 const&amp;)" location="f3:247" file="f3" line="247" endline="247" inline="1">
+    <Argument type="_567" location="f3:247" file="f3" line="247"/>
+  </Constructor>
+  <Constructor id="_547" artificial="1" throw="" context="_475" access="public" mangled="_ZN8gsm_mncc3._2C1Ev *INTERNAL* " demangled="gsm_mncc::._2::._2()" location="f3:247" file="f3" line="247" inline="1"/>
+  <ReferenceType id="_548" type="_264" size="64" align="64"/>
+  <ReferenceType id="_549" type="_264c" size="64" align="64"/>
+  <ReferenceType id="_550" type="_326" size="64" align="64"/>
+  <ReferenceType id="_551" type="_326c" size="64" align="64"/>
+  <ArrayType id="_552" min="0" max="32u" type="_501" size="264" align="8"/>
+  <ReferenceType id="_553" type="_346" size="64" align="64"/>
+  <ReferenceType id="_554" type="_346c" size="64" align="64"/>
+  <FundamentalType id="_501" name="char" size="8" align="8"/>
+  <ReferenceType id="_562" type="_437" size="64" align="64"/>
+  <ReferenceType id="_563" type="_437c" size="64" align="64"/>
+  <ReferenceType id="_566" type="_475" size="64" align="64"/>
+  <ReferenceType id="_567" type="_475c" size="64" align="64"/>
+  <CvQualifiedType id="_501c" type="_501" const="1"/>
+  <CvQualifiedType id="_393c" type="_393" const="1"/>
+  <CvQualifiedType id="_437c" type="_437" const="1"/>
+  <CvQualifiedType id="_237c" type="_237" const="1"/>
+  <CvQualifiedType id="_346c" type="_346" const="1"/>
+  <CvQualifiedType id="_133c" type="_133" const="1"/>
+  <CvQualifiedType id="_231c" type="_231" const="1"/>
+  <CvQualifiedType id="_132c" type="_132" const="1"/>
+  <CvQualifiedType id="_60c" type="_60" const="1"/>
+  <CvQualifiedType id="_87c" type="_87" const="1"/>
+  <CvQualifiedType id="_27c" type="_27" const="1"/>
+  <CvQualifiedType id="_475c" type="_475" const="1"/>
+  <CvQualifiedType id="_264c" type="_264" const="1"/>
+  <CvQualifiedType id="_83c" type="_83" const="1"/>
+  <CvQualifiedType id="_326c" type="_326" const="1"/>
+  <CvQualifiedType id="_253c" type="_253" const="1"/>
+  <File id="f0" name="/usr/share/gccxml-0.9/GCC/4.9/gccxml_builtins.h"/>
+  <File id="f1" name="/tmp/tmpPCmJyP.cpp"/>
+  <File id="f2" name="/usr/include/stdint.h"/>
+  <File id="f3" name="/tmp/./mncc.h"/>
+  <CPP_DUMP name="functions"><![CDATA[INT16_C(c) c
+INT32_C(c) c
+INT64_C(c) c ## L
+INT8_C(c) c
+INTMAX_C(c) c ## L
+UINT16_C(c) c
+UINT32_C(c) c ## U
+UINT64_C(c) c ## UL
+UINT8_C(c) c
+UINTMAX_C(c) c ## UL
+__ASMNAME(cname) __ASMNAME2 (__USER_LABEL_PREFIX__, cname)
+__ASMNAME2(prefix,cname) __STRING (prefix) cname
+__CONCAT(x,y) x ## y
+__GLIBC_PREREQ(maj,min) ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= ((maj) << 16) + (min))
+__GNUC_PREREQ(maj,min) ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
+__LDBL_REDIR(name,proto) name proto
+__LDBL_REDIR1(name,proto,alias) name proto
+__LDBL_REDIR1_NTH(name,proto,alias) name proto __THROW
+__LDBL_REDIR_NTH(name,proto) name proto __THROW
+__NTH(fct) __LEAF_ATTR fct throw ()
+__P(args) args
+__PMT(args) args
+__REDIRECT(name,proto,alias) name proto __asm__ (__ASMNAME (#alias))
+__REDIRECT_LDBL(name,proto,alias) __REDIRECT (name, proto, alias)
+__REDIRECT_NTH(name,proto,alias) name proto __THROW __asm__ (__ASMNAME (#alias))
+__REDIRECT_NTHNL(name,proto,alias) name proto __THROWNL __asm__ (__ASMNAME (#alias))
+__REDIRECT_NTH_LDBL(name,proto,alias) __REDIRECT_NTH (name, proto, alias)
+__STRING(x) #x
+__attribute_alloc_size__(params) __attribute__ ((__alloc_size__ params))
+__attribute_format_arg__(x) __attribute__ ((__format_arg__ (x)))
+__attribute_format_strfmon__(a,b) __attribute__ ((__format__ (__strfmon__, a, b)))
+__bos(ptr) __builtin_object_size (ptr, __USE_FORTIFY_LEVEL > 1)
+__bos0(ptr) __builtin_object_size (ptr, 0)
+__errordecl(name,msg) extern void name (void) __attribute__((__error__ (msg)))
+__glibc_likely(cond) __builtin_expect ((cond), 1)
+__glibc_unlikely(cond) __builtin_expect ((cond), 0)
+__nonnull(params) __attribute__ ((__nonnull__ params))
+__va_arg_pack() __builtin_va_arg_pack ()
+__va_arg_pack_len() __builtin_va_arg_pack_len ()
+__warnattr(msg) __attribute__((__warning__ (msg)))
+__warndecl(name,msg) extern void name (void) __attribute__((__warning__ (msg)))
+]]></CPP_DUMP>
+  <CPP_DUMP name="aliases"><![CDATA[WCHAR_MAX __WCHAR_MAX
+WCHAR_MIN __WCHAR_MIN
+__WCHAR_MAX __WCHAR_MAX__
+__WCHAR_MIN __WCHAR_MIN__
+__wur __attribute_warn_unused_result__
+]]></CPP_DUMP>
+  <CPP_DUMP name="excluded"><![CDATA[__BEGIN_DECLS extern "C" {
+__END_DECLS }
+]]></CPP_DUMP>
+</GCC_XML>
