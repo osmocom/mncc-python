@@ -5,7 +5,7 @@ from mncc_sock import MnccSocket
 from thread import start_new_thread
 import pykka
 import logging
-import signal, sys
+import signal, sys, time
 import readline, code
 
 # MnccActor provides an interface for GsmCallFsm to send MNCC messages
@@ -41,9 +41,16 @@ mncc_sock = MnccSocket()
 mncc_act = MnccActor.start(mncc_sock)
 start_new_thread(mncc_rx_thread, (mncc_sock,))
 
+# convenience wrapper
+def connect_call(msisdn_a, msisdn_b):
+    call_conn = GsmCallConnector.start(mncc_act).proxy()
+    call_conn.start_call_ab(msisdn_a, msisdn_b)
+    return call_conn
+
 # start a first bogus call
-call_conn = GsmCallConnector.start(mncc_act).proxy()
-call_conn.start_call_ab("1234", "6789")
+connect_call("1234", "6789")
+
+time.sleep(1)
 
 # start a shell to enable the user to add more calls as needed
 vars = globals().copy()
