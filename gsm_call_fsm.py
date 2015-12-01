@@ -15,7 +15,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         return GsmCallFsm.last_callref;
 
     def _printstatechange(self, e):
-        print 'GsmCallFsm(%s): event: %s, src: %s, dst: %s' % (self.name, e.event, e.src, e.dst)
+        print 'GsmCallFsm(%s, %u): event: %s, %s -> %s' % (self.name, self.callref, e.event, e.src, e.dst)
 
     def _onmncc_setup_req(self, e):
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_REQ, callref = self.callref,
@@ -23,7 +23,6 @@ class GsmCallFsm(pykka.ThreadingActor):
                        calling = mncc_number(self.calling),
                        called = mncc_number(self.called))
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
-        print 'GsmCallFsm(%s): mncc_setup_req event: %s, src: %s, dst: %s' % (self.name, e.event, e.src, e.dst)
 
     def _onmncc_setup_cnf(self, e):
         # send MNCC_SETUP_COMPL_REQ to MNCC interface, causing

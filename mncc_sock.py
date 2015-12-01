@@ -36,7 +36,6 @@ class MnccSocket(object):
 
     def recv(self):
         data = self.sock.recv(1500)
-        print 'received "%s"' % data
         ms = mncc_msg()
         ms.receive(data)
         return ms
