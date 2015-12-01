@@ -1,5 +1,14 @@
 #!/usr/bin/python
 
+# Python testing tool for establishing calls via the OsmoNITB MNCC
+# interface.
+#
+# (C) 2015 by Harald Welte <laforge@gnumonks.org>
+#
+# Licensed under GNU General Public License, Version 2 or at your
+# option, any later version.
+
+
 from gsm_call_fsm import GsmCallFsm, GsmCallConnector
 from mncc_sock import MnccSocket
 from thread import start_new_thread

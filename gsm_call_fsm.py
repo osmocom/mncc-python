@@ -1,15 +1,20 @@
 #!/usr/bin/python
 
+# Python implementation of GSM 04.08 call state machine for use with
+# OsmoNITB MNCC interface
+#
+# (C) 2015 by Harald Welte <laforge@gnumonks.org>
+#
+# Licensed under GNU General Public License, Version 2 or at your
+# option, any later version.
+
+
 import mncc
 import ctypes
 import pykka
 
 from fysom import Fysom
 from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg
-
-class RtpEndpointData(object):
-    def __init__(self):
-        self.ip = self.port = self.payload_type = self.payload_msg_type = None
 
 class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0

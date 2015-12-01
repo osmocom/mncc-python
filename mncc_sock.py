@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+# Python interface to OsmoNITB MNCC (Mobile Network Call Control)
+# interface
+#
+# (C) 2015 by Harald Welte <laforge@gnumonks.org>
+#
+# Licensed under GNU General Public License, Version 2 or at your
+# option, any later version.
+
 import socket
 import sys
 import os
