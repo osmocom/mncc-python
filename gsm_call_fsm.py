@@ -5,7 +5,7 @@ import ctypes
 import pykka
 
 from fysom import Fysom
-from mncc_sock import mncc_msg, mncc_number
+from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg
 
 class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
