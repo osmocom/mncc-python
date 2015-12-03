@@ -14,7 +14,9 @@ import ctypes
 import pykka
 
 from fysom import Fysom
-from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg
+from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg
+
+Uint32Array2 = mncc.uint32_t * 2
 
 class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
@@ -33,6 +35,13 @@ class GsmCallFsm(pykka.ThreadingActor):
                        fields = mncc.MNCC_F_CALLED | mncc.MNCC_F_CALLING,
                        calling = mncc_number(self.calling),
                        called = mncc_number(self.called))
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
+    def _onmncc_call_conf_ind(self, e):
+        msg_in = e.args[0]
+        for i in msg_in.bearer_cap.speech_ver:
+            print 'SPV: 0x%02x' % i,
+        msg = mncc_msg(msg_type = mncc.MNCC_LCHAN_MODIFY, callref = msg_in.callref, lchan_mode = 1)
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
     def _onmncc_setup_cnf(self, e):
@@ -106,6 +115,7 @@ class GsmCallFsm(pykka.ThreadingActor):
                     ('mncc_rel_cnf', 'RELEASE_REQUEST', 'NULL'),
                     ],
             callbacks = [('onmncc_setup_req', self._onmncc_setup_req),
+                         ('onmncc_call_conf_ind', self._onmncc_call_conf_ind),
                          ('onmncc_setup_cnf', self._onmncc_setup_cnf),
                          ('onmncc_disc_ind', self._onmncc_disc_ind),
                          ('onenterNULL', self._onenter_NULL),
@@ -249,14 +259,21 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.call_a.tell({'type':'connect_rtp', 'rtp':self.rtp_b})
             self.call_b.tell({'type':'connect_rtp', 'rtp':self.rtp_a})
 
+    def bridge_legs(self):
+        # bridge the voice channels of both call legs in the classic way
+        if self.rtp_bridge:
+            raise Exception('GsmCallConnector', 'bridge_legs but in RTP bridge mode')
+        msg = mncc_bridge_msg(msg_type = mncc.MNCC_BRIDGE, callref = Uint32Array2(self.callref_a, self.callref_b))
+        self.mncc_act.tell({'type': 'send', 'msg': msg})
+
     def call_state_change(self, msisdn, old_state, new_state):
         print 'CallConnector:leg_state_change(%s) %s -> %s' % (msisdn, old_state, new_state)
         if msisdn == self.msisdn_a:     # A->B leg
             self.state_a = new_state
         elif msisdn == self.msisdn_b:   # B->A leg
             self.state_b = new_state
-        #if self.rtp_bridge == False and self.state_a == 'ACTIVE' and self.state_b == 'ACTIVE':
-        #    self.connect_legs()
+        if self.rtp_bridge == False and self.state_a == 'ACTIVE' and self.state_b == 'ACTIVE':
+            self.bridge_legs()
 
     def on_receive(self, message):
         if message['type'] == 'call_state_change':
