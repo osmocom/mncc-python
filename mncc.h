@@ -297,3 +297,8 @@ struct gsm_mncc_rtp {
 	uint32_t	payload_type;
 	uint32_t	payload_msg_type;
 };
+
+struct gsm_mncc_bridge {
+	uint32_t	msg_type;
+	uint32_t	callref[2];
+};

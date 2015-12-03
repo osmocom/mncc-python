@@ -36,6 +36,16 @@ class mncc_rtp_msg(mncc.gsm_mncc_rtp):
     def __unicode__(self):
         return u'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
 
+class mncc_bridge_msg(mncc.gsm_mncc_bridge):
+    def send(self):
+        return buffer(self)[:]
+    def receive(self, bytes):
+        fit = min(len(bytes), ctypes.sizeof(self))
+        ctypes.memmove(ctypes.addressof(self), bytes, fit)
+    def __str__(self):
+        return 'mncc_bridge_msg(%u, %u)' % (self.callref[0], self.callref[1])
+    def __unicode__(self):
+        return u'mncc_bridge_msg(%u, %u)' % (self.callref[0], self.callref[1])
 
 def mncc_number(number, num_type = 0, num_plan = 0, num_present = 1, num_screen = 0):
     return mncc.gsm_mncc_number(number = number, type = num_type,
