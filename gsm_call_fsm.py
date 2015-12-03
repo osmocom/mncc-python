@@ -204,6 +204,8 @@ class GsmCallFsm(pykka.ThreadingActor):
             self.start_mt_call(message['calling'], message['called'])
         elif message['type'] == 'connect_rtp':
             self.connect_rtp(message['rtp'])
+        elif message['type'] == 'get_callref':
+            return self.callref
         else:
             raise Exception('mncc', 'Unknown message %s' % message)
 
@@ -217,6 +219,8 @@ class GsmCallConnector(pykka.ThreadingActor):
         self.call_a = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge)
         print 'Starting Call B actor'
         self.call_b = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge)
+        self.callref_a = self.call_a.ask({'type':'get_callref'})
+        self.callref_b = self.call_b.ask({'type':'get_callref'})
         self.state_a = self_state_b = 'NULL'
         self.rtp_a = self.rtp_b = None
 
