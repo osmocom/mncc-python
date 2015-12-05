@@ -233,6 +233,21 @@ class GsmCallFsm(pykka.ThreadingActor):
         # FIXME
         return
 
+    # DTMF
+    def _do_mncc_start_dtmf_ind(self, msg_in):
+        msg = mncc_msg(msg_type = mncc.MNCC_START_DTMF_RSP, callref = self.callref, fields = mncc.MNCC_F_KEYPAD, keypad = msg_in.keypad)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
+    def _do_mncc_stop_dtmf_ind(self, msg_in):
+        msg = mncc_msg(msg_type = mncc.MNCC_STOP_DTMF_RSP, callref = self.callref, fields = mncc.MNCC_F_KEYPAD, keypad = msg_in.keypad)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
+    # HOLD
+    def _do_mncc_hold_ind(self, msg_in):
+        # reject any hold requests
+        msg = mncc_msg(msg_type = mncc.MNCC_HOLD_REJ, callref= self.callref)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
     _func_by_type = {
             # MT call
             mncc.MNCC_REL_IND: _do_mncc_rel_ind,
@@ -253,6 +268,13 @@ class GsmCallFsm(pykka.ThreadingActor):
             mncc.MNCC_RTP_CREATE: _do_mncc_rtp_create_ind,
             mncc.MNCC_RTP_CONNECT: _do_mncc_rtp_connect_ind,
             mncc.MNCC_RTP_FREE: _do_mncc_rtp_free_ind,
+
+            # DTMF
+            mncc.MNCC_START_DTMF_IND: _do_mncc_start_dtmf_ind,
+            mncc.MNCC_STOP_DTMF_IND: _do_mncc_stop_dtmf_ind,
+
+            # HOLD
+            mncc.MNCC_HOLD_IND: _do_mncc_hold_ind,
             }
 
     def _lookup_method(self, mncc_msg_type):
