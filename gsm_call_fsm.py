@@ -309,9 +309,7 @@ class GsmCallConnector(pykka.ThreadingActor):
         self.mncc_act = mncc_act
         self.rtp_bridge = rtp_bridge
         self.codecs_permitted = codecs_permitted
-        print 'Starting Call A actor'
         self.call_a = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge, self.codecs_permitted)
-        print 'Starting Call B actor'
         self.call_b = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge, self.codecs_permitted)
         self.callref_a = self.call_a.ask({'type':'get_callref'})
         self.callref_b = self.call_b.ask({'type':'get_callref'})
@@ -319,16 +317,11 @@ class GsmCallConnector(pykka.ThreadingActor):
         self.rtp_a = self.rtp_b = None
 
     def start_call_ab(self, msisdn_a, msisdn_b):
-        print 'Starting calls for A and B'
         self.msisdn_a = msisdn_a
         self.msisdn_b = msisdn_b
-
         # start MT call B->A
-        print 'Starting MT Call to A'
         self.call_a.tell({'type':'start_mt_call', 'calling':self.msisdn_b, 'called':self.msisdn_a})
-
         # start MT call A->B
-        print 'Starting Call to B'
         self.call_b.tell({'type':'start_mt_call', 'calling':self.msisdn_a, 'called':self.msisdn_b})
 
     def rtp_created(self, msisdn, rtp):
