@@ -127,6 +127,7 @@ class GsmCallFsm(pykka.ThreadingActor):
     def __init__(self, mncc_ref, ctrl_ref = None, rtp_bridge = True, codecs_permitted = GSM48.AllCodecs):
         super(GsmCallFsm, self).__init__()
         self.mncc_ref = mncc_ref;
+        self.calling = self.called = None
         self.callref = self._get_next_callref()
         self.ctrl_ref = ctrl_ref
         self.rtp_bridge = rtp_bridge
