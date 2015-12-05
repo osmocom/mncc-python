@@ -69,7 +69,7 @@ class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
 
     def __str__(self):
-        return 'GsmCallFsm(%u/%s->%s)' % (self.callref, self.calling, self.called)
+        return 'GsmCallFsm(%u/%s->%s/%s)' % (self.callref, self.calling, self.called, self.fsm.current)
 
     def _get_next_callref(self):
         GsmCallFsm.last_callref = GsmCallFsm.last_callref + 1
