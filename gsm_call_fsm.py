@@ -68,12 +68,15 @@ class GSM48:
 class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
 
+    def __str__(self):
+        return 'GsmCallFsm(%u/%s->%s)' % (self.callref, self.calling, self.called)
+
     def _get_next_callref(self):
         GsmCallFsm.last_callref = GsmCallFsm.last_callref + 1
         return GsmCallFsm.last_callref;
 
     def _printstatechange(self, e):
-        print 'GsmCallFsm(%u/%s): event: %s, %s -> %s' % (self.callref, self.called, e.event, e.src, e.dst)
+        print '%s: event: %s, %s -> %s' % (self, e.event, e.src, e.dst)
         if self.ctrl_ref != None:
             self.ctrl_ref.tell({'type':'call_state_change', 'called':self.called, 'old_state':e.src, 'new_state':e.dst})
 
@@ -94,7 +97,7 @@ class GsmCallFsm(pykka.ThreadingActor):
     def _onmncc_call_conf_ind(self, e):
         msg_in = e.args[0]
         codec = self.find_matching_codec(msg_in.bearer_cap.speech_ver)
-        print 'CALL-CONF.ind(selected codec = %s)' % codec
+        print '%s: CALL-CONF.ind(selected codec = %s)' % (self, codec)
         # select the according lchan_mode
         lchan_mode = codec.to_lchan_mode()
         msg = mncc_msg(msg_type = mncc.MNCC_LCHAN_MODIFY, callref = msg_in.callref, lchan_mode = lchan_mode)
@@ -257,7 +260,7 @@ class GsmCallFsm(pykka.ThreadingActor):
 
     def _handle_mncc(self, mncc_msg):
         if mncc_msg.callref != self.callref:
-            raise Exception('mncc', 'Callref not for this GsmCallFsm')
+            raise Exception('mncc', '%s: Callref not for this GsmCallFsm' % self)
         self._lookup_method(mncc_msg.msg_type)(self, mncc_msg)
 
     # pykka Actor message receiver
@@ -265,7 +268,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         if message['type'] == 'mncc':
             msg = message['msg']
             if msg.callref == self.callref:
-                print 'GsmCallFsm(%u):on_receive(mncc, %s)' % (self.callref, msg)
+                print '%s: on_receive(mncc, %s)' % (self, msg)
                 return self._handle_mncc(msg)
         elif message['type'] == 'start_mt_call':
             self.start_mt_call(message['calling'], message['called'])
@@ -274,7 +277,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         elif message['type'] == 'get_callref':
             return self.callref
         else:
-            raise Exception('mncc', 'Unknown message %s' % message)
+            raise Exception('mncc', '%s: Unknown message %s' % (self, message))
 
 
 class GsmCallConnector(pykka.ThreadingActor):
