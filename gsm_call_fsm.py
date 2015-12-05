@@ -18,6 +18,53 @@ from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg
 
 Uint32Array2 = mncc.uint32_t * 2
 
+class GSM48:
+    class BCAP_SV(object):
+        # GSM 04.08 bearer capability speech version
+        FR    = 0
+        HR    = 1
+        EFR   = 2
+        AMR_F = 4
+        AMR_H = 5
+
+        def __init__(self, codec):
+            self.codec = codec;
+
+        def __str__(self):
+            if self.codec == GSM48.BCAP_SV.FR:
+                return 'FR'
+            elif self.codec == GSM48.BCAP_SV.HR:
+                return 'HR'
+            elif self.codec == GSM48.BCAP_SV.EFR:
+                return 'EFR'
+            elif self.codec == GSM48.BCAP_SV.AMR_F:
+                return 'AMR-FR'
+            elif self.codec == GSM48.BCAP_SV.AMR_H:
+                return 'AMR-HR'
+            else:
+                return 'Unknown'
+
+        def to_lchan_mode(self):
+            if self.codec == GSM48.BCAP_SV.FR:
+                return GSM48.ChanMode.SPEECH_V1
+            elif self.codec == GSM48.BCAP_SV.HR:
+                return GSM48.ChanMode.SPEECH_V1
+            elif self.codec == GSM48.BCAP_SV.EFR:
+                return GSM48.ChanMode.SPEECH_EFR
+            elif self.codec == GSM48.BCAP_SV.AMR_F:
+                return GSM48.ChanMode.SPEECH_AMR
+            elif self.codec == GSM48.BCAP_SV.AMR_H:
+                return GSM48.ChanMode.SPEECH_AMR
+
+    AllCodecs = (BCAP_SV.FR, BCAP_SV.HR, BCAP_SV.EFR, BCAP_SV.AMR_F, BCAP_SV.AMR_H)
+
+    class ChanMode:
+        # GSM 04.08 Channel Mode
+        CMODE_SIGN  = 0x00
+        SPEECH_V1   = 0x01
+        SPEECH_EFR  = 0x21
+        SPEECH_AMR  = 0x41
+
 class GsmCallFsm(pykka.ThreadingActor):
     last_callref = 0
 
@@ -37,11 +84,20 @@ class GsmCallFsm(pykka.ThreadingActor):
                        called = mncc_number(self.called))
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
+    def find_matching_codec(self, ms_codecs):
+        # find common denominator of permitted codecs and MS codecs
+        for i in self.codecs_permitted:
+            if i in ms_codecs:
+                return GSM48.BCAP_SV(i)
+        return None
+
     def _onmncc_call_conf_ind(self, e):
         msg_in = e.args[0]
-        for i in msg_in.bearer_cap.speech_ver:
-            print 'SPV: 0x%02x' % i,
-        msg = mncc_msg(msg_type = mncc.MNCC_LCHAN_MODIFY, callref = msg_in.callref, lchan_mode = 1)
+        codec = self.find_matching_codec(msg_in.bearer_cap.speech_ver)
+        print 'CALL-CONF.ind(selected codec = %s)' % codec
+        # select the according lchan_mode
+        lchan_mode = codec.to_lchan_mode()
+        msg = mncc_msg(msg_type = mncc.MNCC_LCHAN_MODIFY, callref = msg_in.callref, lchan_mode = lchan_mode)
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
     def _onmncc_setup_cnf(self, e):
@@ -65,13 +121,14 @@ class GsmCallFsm(pykka.ThreadingActor):
         if e.event != 'startup':
             self.stop()
 
-    def __init__(self, mncc_ref, ctrl_ref = None, rtp_bridge = True):
+    def __init__(self, mncc_ref, ctrl_ref = None, rtp_bridge = True, codecs_permitted = GSM48.AllCodecs):
         super(GsmCallFsm, self).__init__()
         self.mncc_ref = mncc_ref;
         self.callref = self._get_next_callref()
         self.ctrl_ref = ctrl_ref
         self.rtp_bridge = rtp_bridge
         self.rtp = None
+        self.codecs_permitted = codecs_permitted
         self.fsm = Fysom(initial = 'NULL',
             events = [
                 # MT call setup
@@ -221,14 +278,15 @@ class GsmCallFsm(pykka.ThreadingActor):
 
 
 class GsmCallConnector(pykka.ThreadingActor):
-    def __init__(self, mncc_act, rtp_bridge = True):
+    def __init__(self, mncc_act, rtp_bridge = True, codecs_permitted = GSM48.AllCodecs):
         super(GsmCallConnector, self).__init__()
         self.mncc_act = mncc_act
         self.rtp_bridge = rtp_bridge
+        self.codecs_permitted = codecs_permitted
         print 'Starting Call A actor'
-        self.call_a = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge)
+        self.call_a = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge, self.codecs_permitted)
         print 'Starting Call B actor'
-        self.call_b = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge)
+        self.call_b = GsmCallFsm.start(self.mncc_act, self.actor_ref, self.rtp_bridge, self.codecs_permitted)
         self.callref_a = self.call_a.ask({'type':'get_callref'})
         self.callref_b = self.call_b.ask({'type':'get_callref'})
         self.state_a = self_state_b = 'NULL'

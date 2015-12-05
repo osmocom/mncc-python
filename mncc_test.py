@@ -9,7 +9,7 @@
 # option, any later version.
 
 
-from gsm_call_fsm import GsmCallFsm, GsmCallConnector
+from gsm_call_fsm import GsmCallFsm, GsmCallConnector, GSM48
 from mncc_sock import MnccSocket
 from thread import start_new_thread
 import pykka
@@ -54,8 +54,8 @@ mncc_act = MnccActor.start(mncc_sock)
 start_new_thread(mncc_rx_thread, (mncc_sock,))
 
 # convenience wrapper
-def connect_call(msisdn_a, msisdn_b):
-    call_conn = GsmCallConnector.start(mncc_act).proxy()
+def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs):
+    call_conn = GsmCallConnector.start(mncc_act, rtp_bridge, codecs).proxy()
     call_conn.start_call_ab(msisdn_a, msisdn_b)
     return call_conn
 
