@@ -358,6 +358,9 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.state_b = new_state
         if self.rtp_bridge == False and self.state_a == 'ACTIVE' and self.state_b == 'ACTIVE':
             self.bridge_legs()
+        if self.state_a == 'NULL' and self.state_b == 'NULL':
+            print 'Both A and B in state NULL -> Terminating'
+            self.stop()
 
     def on_receive(self, message):
         if message['type'] == 'call_state_change':
