@@ -1,7 +1,22 @@
+python MNCC interface for OsmoNITB
+(C) 2015 by Harald Welte
+======================================================================
+
 I've been working on a small python tool that can be used to attach to 
 the MNCC interface of OsmoNITB.  It implements the 04.08 CC state 
 machine with our MNCC primitives, including support for RTP bridge mode
 of the voice streams.
+
+= Requirements =
+
+mncc-python needs python-pykka, and fysom.
+
+On Debian or Ubuntu you can install them via
+	sudo apt-get install python-pykka python-pip
+	sudo pip install fysom
+
+
+= Getting the code =
 
 The first working version of the tool is available from
         http://git.osmocom.org/mncc-python/
@@ -34,5 +49,8 @@ with 7 MS-to-MS calls.
 mncc_test.py currently drops you into a python shell where you can e.g.
 start more / new calls by calling functions like
         connect_call("7839", "3802")
-from that shell.  Exiting the shell by quit() or Ctrl+C will terminate 
-all call FSMs and terminate.
+from that shell.  Above example initiates MT calls to subscribers with
+extension number 7839 and 3802.
+
+Exiting the shell by quit() or Ctrl+C will terminate all call FSMs and
+terminate.
