@@ -55,7 +55,7 @@ def mncc_number(number, num_type = 0, num_plan = 0, num_present = 1, num_screen 
 class MnccSocket(object):
     def __init__(self, address = '/tmp/bsc_mncc'):
         self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_SEQPACKET)
-        print 'connectiong to %s' % address
+        print 'connecting to %s' % address
         try:
             self.sock.connect(address)
         except socket.error, errmsg:
