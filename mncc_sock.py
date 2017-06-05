@@ -52,6 +52,18 @@ def mncc_number(number, num_type = 0, num_plan = 0, num_present = 1, num_screen 
                                 plan = num_plan, present = num_present,
                                 screen = num_screen)
 
+def mncc_bearer_cap(codecs_permitted):
+    speech_ver = ctypes.c_int * 8
+    speech_types = speech_ver()
+    index = 0
+
+    for codec in codecs_permitted:
+        speech_types[index] = codec
+        index = index + 1
+
+    speech_types[index] = -1
+    return mncc.gsm_mncc_bearer_cap(coding = 0, speech_ctm=0, radio = 1, speech_ver = speech_types, transfer = 0, mode = 0)
+
 class MnccSocketBase(object):
     def send(self, msg):
         return self.sock.sendall(msg.send())

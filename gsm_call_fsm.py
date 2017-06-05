@@ -14,7 +14,7 @@ import ctypes
 import pykka
 
 from fysom import Fysom
-from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg
+from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg, mncc_bearer_cap
 
 Uint32Array2 = mncc.uint32_t * 2
 
@@ -82,9 +82,10 @@ class GsmCallFsm(pykka.ThreadingActor):
 
     def _onmncc_setup_req(self, e):
         msg = mncc_msg(msg_type = mncc.MNCC_SETUP_REQ, callref = self.callref,
-                       fields = mncc.MNCC_F_CALLED | mncc.MNCC_F_CALLING,
+                       fields = mncc.MNCC_F_CALLED | mncc.MNCC_F_CALLING | mncc.MNCC_F_BEARER_CAP,
                        calling = mncc_number(self.calling),
-                       called = mncc_number(self.called))
+                       called = mncc_number(self.called),
+                       bearer_cap = mncc_bearer_cap(self.codecs_permitted))
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
     def find_matching_codec(self, ms_codecs):
