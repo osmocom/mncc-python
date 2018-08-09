@@ -12,9 +12,7 @@ of the voice streams.
 mncc-python needs python-pykka, and fysom.
 
 On Debian or Ubuntu you can install them via
-	sudo apt-get install python-pykka python-pip
-	sudo pip install fysom
-
+	sudo apt-get install python-pykka python-fysom
 
 = Getting the code =
 
