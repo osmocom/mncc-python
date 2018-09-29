@@ -35,6 +35,10 @@ class MnccActor(pykka.ThreadingActor):
 def mncc_rx_thread(mncc_sock):
     while 1:
         msg = mncc_sock.recv()
+        if msg.is_frame():
+            print("Dropping traffic frame: %s" % msg)
+            continue
+
         print "MnccActor RxMNCC %s, broadcasting to Call FSMs" % msg
         # we simply broadcast to all calls
         pykka.ActorRegistry.broadcast({'type': 'mncc', 'msg': msg}, GsmCallFsm)

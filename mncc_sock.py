@@ -26,6 +26,10 @@ class mncc_msg_common:
     def is_rtp(self):
         return self.msg_type in (mncc.MNCC_RTP_CREATE,
             mncc.MNCC_RTP_CONNECT, mncc.MNCC_RTP_FREE)
+    def is_frame(self):
+        return self.msg_type in (mncc.GSM_TCHF_FRAME,
+            mncc.GSM_TCHH_FRAME, mncc.GSM_TCHF_FRAME_EFR,
+            mncc.GSM_TCH_FRAME_AMR, mncc.GSM_BAD_FRAME)
 
 class mncc_msg(mncc.gsm_mncc, mncc_msg_common):
     def __str__(self):
@@ -38,6 +42,28 @@ class mncc_hello_msg(mncc.gsm_mncc_hello, mncc_msg_common):
         return 'mncc_hello_msg(version=0x%04x)' % (self.version)
     def __unicode__(self):
         return u'mncc_hello_msg(version=0x%04x)' % (self.version)
+
+class mncc_data_frame_msg(mncc.gsm_data_frame, mncc_msg_common):
+    def __str__(self):
+        return 'mncc_data_frame(type=0x%04x, codec=%s, callref=%u)' \
+            % (self.msg_type, self.codec_str(), self.callref)
+    def __unicode__(self):
+        return u'mncc_data_frame(type=0x%04x, codec=%s, callref=%u)' \
+            % (self.msg_type, self.codec_str(), self.callref)
+
+    def codec_str(self):
+        if self.msg_type == mncc.GSM_TCHF_FRAME:
+            return "FR"
+        elif self.msg_type == mncc.GSM_TCHH_FRAME:
+            return "HR"
+        elif self.msg_type == mncc.GSM_TCHF_FRAME_EFR:
+            return "EFR"
+        elif self.msg_type == mncc.GSM_TCH_FRAME_AMR:
+            return "AMR"
+        elif self.msg_type == mncc.GSM_BAD_FRAME:
+            return "(BFI)"
+        else:
+            return "(???)"
 
 class mncc_rtp_msg(mncc.gsm_mncc_rtp, mncc_msg_common):
     def __str__(self):
@@ -82,6 +108,9 @@ class MnccSocketBase(object):
         ms.receive(data)
         if ms.is_rtp():
                ms = mncc_rtp_msg()
+               ms.receive(data)
+        elif ms.is_frame():
+               ms = mncc_data_frame_msg()
                ms.receive(data)
         elif ms.msg_type == mncc.MNCC_SOCKET_HELLO:
                ms = mncc_hello_msg()
