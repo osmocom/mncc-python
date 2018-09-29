@@ -4,6 +4,7 @@
 # interface
 #
 # (C) 2015 by Harald Welte <laforge@gnumonks.org>
+# (C) 2018 by Vadim Yanitskiy <axilirator@gmail.com>
 #
 # Licensed under GNU General Public License, Version 2 or at your
 # option, any later version.
@@ -24,6 +25,17 @@ class mncc_msg(mncc.gsm_mncc):
         return 'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
     def __unicode__(self):
         return u'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
+
+class mncc_hello_msg(mncc.gsm_mncc_hello):
+    def send(self):
+        return buffer(self)[:]
+    def receive(self, bytes):
+        fit = min(len(bytes), ctypes.sizeof(self))
+        ctypes.memmove(ctypes.addressof(self), bytes, fit)
+    def __str__(self):
+        return 'mncc_hello_msg(version=0x%04x)' % (self.version)
+    def __unicode__(self):
+        return u'mncc_hello_msg(version=0x%04x)' % (self.version)
 
 class mncc_rtp_msg(mncc.gsm_mncc_rtp):
     def send(self):
@@ -79,6 +91,9 @@ class MnccSocketBase(object):
         if ms.msg_type == mncc.MNCC_RTP_CREATE or ms.msg_type == mncc.MNCC_RTP_CONNECT or ms.msg_type == mncc.MNCC_RTP_FREE:
                ms = mncc_rtp_msg()
                ms.receive(data)
+        elif ms.msg_type == mncc.MNCC_SOCKET_HELLO:
+               ms = mncc_hello_msg()
+               ms.receive(data)
         return ms
 
 class MnccSocket(MnccSocketBase):
@@ -92,8 +107,36 @@ class MnccSocket(MnccSocketBase):
             sys.stderr.write("%s\n" % errmsg)
             sys.exit(1)
 
-        # FIXME: parse the HELLO message
+        # Check the HELLO message
+        self.check_hello()
+
+    def check_hello(self):
+        print('Waiting for HELLO message...')
         msg = self.recv()
+
+        # Match expected message type
+        if msg.msg_type != mncc.MNCC_SOCKET_HELLO:
+            sys.stderr.write('Received an unknown (!= MNCC_SOCKET_HELLO) '
+                'message: %s\n' % msg)
+            sys.exit(1)
+
+        # Match expected protocol version
+        if msg.version != mncc.MNCC_SOCK_VERSION:
+            sys.stderr.write('MNCC protocol version mismatch '
+                '(0x%04x vs 0x%04x)\n' % (msg.version, mncc.MNCC_SOCK_VERSION))
+            sys.exit(1)
+
+        # Match expected message sizes / offsets
+        if (msg.mncc_size != ctypes.sizeof(mncc.gsm_mncc) or
+            msg.data_frame_size != ctypes.sizeof(mncc.gsm_data_frame) or
+            msg.called_offset != mncc.gsm_mncc.called.offset or
+            msg.signal_offset != mncc.gsm_mncc.signal.offset or
+            msg.emergency_offset != mncc.gsm_mncc.emergency.offset or
+            msg.lchan_type_offset != mncc.gsm_mncc.lchan_type.offset):
+                sys.stderr.write('MNCC message alignment mismatch\n')
+                sys.exit(1)
+
+        print('Received %s' % msg)
 
 class MnccSocketServer(object):
     def __init__(self, address = '/tmp/bsc_mncc'):
