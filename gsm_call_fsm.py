@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 
 # Python implementation of GSM 04.08 call state machine for use with
 # OsmoNITB MNCC interface

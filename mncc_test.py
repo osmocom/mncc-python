@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 
 # Python testing tool for establishing calls via the OsmoNITB MNCC
 # interface.
