@@ -15,45 +15,32 @@ import os
 import mncc
 import ctypes
 
-class mncc_msg(mncc.gsm_mncc):
+class mncc_msg_common:
     def send(self):
         return buffer(self)[:]
     def receive(self, bytes):
         fit = min(len(bytes), ctypes.sizeof(self))
         ctypes.memmove(ctypes.addressof(self), bytes, fit)
+
+class mncc_msg(mncc.gsm_mncc, mncc_msg_common):
     def __str__(self):
         return 'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
     def __unicode__(self):
         return u'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
 
-class mncc_hello_msg(mncc.gsm_mncc_hello):
-    def send(self):
-        return buffer(self)[:]
-    def receive(self, bytes):
-        fit = min(len(bytes), ctypes.sizeof(self))
-        ctypes.memmove(ctypes.addressof(self), bytes, fit)
+class mncc_hello_msg(mncc.gsm_mncc_hello, mncc_msg_common):
     def __str__(self):
         return 'mncc_hello_msg(version=0x%04x)' % (self.version)
     def __unicode__(self):
         return u'mncc_hello_msg(version=0x%04x)' % (self.version)
 
-class mncc_rtp_msg(mncc.gsm_mncc_rtp):
-    def send(self):
-        return buffer(self)[:]
-    def receive(self, bytes):
-        fit = min(len(bytes), ctypes.sizeof(self))
-        ctypes.memmove(ctypes.addressof(self), bytes, fit)
+class mncc_rtp_msg(mncc.gsm_mncc_rtp, mncc_msg_common):
     def __str__(self):
         return 'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
     def __unicode__(self):
         return u'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
 
-class mncc_bridge_msg(mncc.gsm_mncc_bridge):
-    def send(self):
-        return buffer(self)[:]
-    def receive(self, bytes):
-        fit = min(len(bytes), ctypes.sizeof(self))
-        ctypes.memmove(ctypes.addressof(self), bytes, fit)
+class mncc_bridge_msg(mncc.gsm_mncc_bridge, mncc_msg_common):
     def __str__(self):
         return 'mncc_bridge_msg(%u, %u)' % (self.callref[0], self.callref[1])
     def __unicode__(self):
