@@ -22,6 +22,11 @@ class mncc_msg_common:
         fit = min(len(bytes), ctypes.sizeof(self))
         ctypes.memmove(ctypes.addressof(self), bytes, fit)
 
+    # Message type matching
+    def is_rtp(self):
+        return self.msg_type in (mncc.MNCC_RTP_CREATE,
+            mncc.MNCC_RTP_CONNECT, mncc.MNCC_RTP_FREE)
+
 class mncc_msg(mncc.gsm_mncc, mncc_msg_common):
     def __str__(self):
         return 'mncc_msg(type=0x%04x, callref=%u, fields=0x%04x)' % (self.msg_type, self.callref, self.fields)
@@ -75,7 +80,7 @@ class MnccSocketBase(object):
         data = self.sock.recv(1500)
         ms = mncc_msg()
         ms.receive(data)
-        if ms.msg_type == mncc.MNCC_RTP_CREATE or ms.msg_type == mncc.MNCC_RTP_CONNECT or ms.msg_type == mncc.MNCC_RTP_FREE:
+        if ms.is_rtp():
                ms = mncc_rtp_msg()
                ms.receive(data)
         elif ms.msg_type == mncc.MNCC_SOCKET_HELLO:
