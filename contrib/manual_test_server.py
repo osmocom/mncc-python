@@ -91,39 +91,39 @@ conn = server.accept()
 # Say hello and set-up a call
 conn.send_msg(MnccMessageBuilder.build_hello())
 conn.send_msg(MnccMessageBuilder.build_setup_ind("1234", "5000"))
-print("=> Sent hello + setup indication")
+log.info("=> Sent hello + setup indication")
 
 # Wait for the RTP crate.. and actknowledge it..
 msg = conn.recv()
 assert msg.msg_type == mncc.MNCC_RTP_CREATE
-print("<= Received request to create a RTP socket")
+log.info("<= Received request to create a RTP socket")
 conn.send_msg(MnccMessageBuilder.build_rtp_msg(mncc.MNCC_RTP_CREATE,
                                                 msg.callref,
                                                 #socket.INADDR_LOOPBACK, 4000))
                                                 socket.INADDR_ANY, 4000))
-print("=> Claimed socket was created...")
+log.info("=> Claimed socket was created...")
 
 msg = conn.recv()
 assert msg.msg_type == mncc.MNCC_CALL_PROC_REQ
-print("<= Received proceeding...")
+log.info("<= Received proceeding...")
 
 
 
 while True:
     msg = conn.recv()
     if msg.msg_type == mncc.MNCC_ALERT_REQ:
-        print("=> I should alert...")
+        log.info("=> I should alert...")
         continue
     if msg.msg_type == mncc.MNCC_RTP_CONNECT:
         conn.send_msg(MnccMessageBuilder.build_rtp_msg(mncc.MNCC_RTP_CONNECT,
                                                 msg.callref,
                                                 socket.INADDR_LOOPBACK, 4000))
-        print("=> I needed to connect RTP...")
+        log.info("=> I needed to connect RTP...")
         continue
     if msg.msg_type == mncc.MNCC_SETUP_RSP:
-        print("=> Call is connected?")
+        log.info("=> Call is connected?")
         conn.send_msg(MnccMessageBuilder.build_setup_cmpl_ind(msg.callref))
         send_dtmf(msg.callref)
         continue
 
-    print(msg)
+    log.debug(msg)

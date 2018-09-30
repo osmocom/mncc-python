@@ -9,6 +9,7 @@
 # Licensed under GNU General Public License, Version 2 or at your
 # option, any later version.
 
+import logging as log
 import socket
 import os
 import mncc
@@ -120,14 +121,14 @@ class MnccSocket(MnccSocketBase):
     def __init__(self, address = '/tmp/bsc_mncc'):
         super(MnccSocketBase, self).__init__()
         self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_SEQPACKET)
-        print('connecting to %s' % address)
+        log.info('Connecting to %s' % address)
         self.sock.connect(address)
 
         # Check the HELLO message
         self.check_hello()
 
     def check_hello(self):
-        print('Waiting for HELLO message...')
+        log.debug('Waiting for HELLO message...')
         msg = self.recv()
 
         # Match expected message type
@@ -149,7 +150,7 @@ class MnccSocket(MnccSocketBase):
             msg.lchan_type_offset != mncc.gsm_mncc.lchan_type.offset):
                 raise AssertionError('MNCC message alignment mismatch\n')
 
-        print('Received %s' % msg)
+        log.info('Received %s' % msg)
 
 class MnccSocketServer(object):
     def __init__(self, address = '/tmp/bsc_mncc'):

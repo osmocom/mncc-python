@@ -13,6 +13,8 @@ import mncc
 import ctypes
 import pykka
 
+import logging as log
+
 from fysom import Fysom
 from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg, mncc_bearer_cap
 
@@ -76,7 +78,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         return GsmCallFsm.last_callref;
 
     def _printstatechange(self, e):
-        print '%s: event: %s, %s -> %s' % (self, e.event, e.src, e.dst)
+        log.debug('%s: event: %s, %s -> %s' % (self, e.event, e.src, e.dst))
         if self.ctrl_ref != None:
             self.ctrl_ref.tell({'type':'call_state_change', 'called':self.called, 'old_state':e.src, 'new_state':e.dst})
 
@@ -98,7 +100,7 @@ class GsmCallFsm(pykka.ThreadingActor):
     def _onmncc_call_conf_ind(self, e):
         msg_in = e.args[0]
         codec = self.find_matching_codec(msg_in.bearer_cap.speech_ver)
-        print '%s: CALL-CONF.ind(selected codec = %s)' % (self, codec)
+        log.info('%s: CALL-CONF.ind(selected codec = %s)' % (self, codec))
         # select the according lchan_mode
         lchan_mode = codec.to_lchan_mode()
         msg = mncc_msg(msg_type = mncc.MNCC_LCHAN_MODIFY, callref = msg_in.callref, lchan_mode = lchan_mode)
@@ -292,7 +294,7 @@ class GsmCallFsm(pykka.ThreadingActor):
         if message['type'] == 'mncc':
             msg = message['msg']
             if msg.callref == self.callref:
-                print '%s: on_receive(mncc, %s)' % (self, msg)
+                log.debug('%s: on_receive(mncc, %s)' % (self, msg))
                 return self._handle_mncc(msg)
         elif message['type'] == 'start_mt_call':
             self.start_mt_call(message['calling'], message['called'])
@@ -326,7 +328,7 @@ class GsmCallConnector(pykka.ThreadingActor):
         self.call_b.tell({'type':'start_mt_call', 'calling':self.msisdn_a, 'called':self.msisdn_b})
 
     def rtp_created(self, msisdn, rtp):
-        print 'CallConnector:rtp_created(%s) %s' % (msisdn, rtp)
+        log.info('CallConnector:rtp_created(%s) %s' % (msisdn, rtp))
         if self.rtp_bridge == False:
             raise Exception('GsmCallConnector', 'rtp_created but not in RTP bridge mode')
         if msisdn == self.msisdn_a:     # A->B leg
@@ -345,7 +347,8 @@ class GsmCallConnector(pykka.ThreadingActor):
         self.mncc_act.tell({'type': 'send', 'msg': msg})
 
     def call_state_change(self, msisdn, old_state, new_state):
-        print 'CallConnector:leg_state_change(%s) %s -> %s' % (msisdn, old_state, new_state)
+        log.debug('CallConnector:leg_state_change(%s) %s -> %s'
+            % (msisdn, old_state, new_state))
         if msisdn == self.msisdn_a:     # A->B leg
             self.state_a = new_state
         elif msisdn == self.msisdn_b:   # B->A leg
@@ -353,7 +356,7 @@ class GsmCallConnector(pykka.ThreadingActor):
         if self.rtp_bridge == False and self.state_a == 'ACTIVE' and self.state_b == 'ACTIVE':
             self.bridge_legs()
         if self.state_a == 'NULL' and self.state_b == 'NULL':
-            print 'Both A and B in state NULL -> Terminating'
+            log.info('Both A and B in state NULL -> Terminating')
             self.stop()
 
     def on_receive(self, message):

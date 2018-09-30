@@ -13,7 +13,7 @@ from gsm_call_fsm import GsmCallFsm, GsmCallConnector, GSM48
 from mncc_sock import MnccSocket
 from thread import start_new_thread
 import pykka
-import logging
+import logging as log
 import signal, sys, time
 import readline, code
 
@@ -26,7 +26,7 @@ class MnccActor(pykka.ThreadingActor):
     def on_receive(self, message):
         if message['type'] == 'send':
             msg = message['msg']
-            print 'MnccActor TxMNCC %s' % msg
+            log.debug('MnccActor TxMNCC %s' % msg)
             mncc_sock.send(msg)
         else:
             raise Exception('mncc', 'MnccActor Received unhandled %s' % message)
@@ -36,10 +36,10 @@ def mncc_rx_thread(mncc_sock):
     while 1:
         msg = mncc_sock.recv()
         if msg.is_frame():
-            print("Dropping traffic frame: %s" % msg)
+            log.warning("Dropping traffic frame: %s" % msg)
             continue
 
-        print "MnccActor RxMNCC %s, broadcasting to Call FSMs" % msg
+        log.debug("MnccActor RxMNCC %s, broadcasting to Call FSMs" % msg)
         # we simply broadcast to all calls
         pykka.ActorRegistry.broadcast({'type': 'mncc', 'msg': msg}, GsmCallFsm)
 
@@ -48,7 +48,7 @@ def sigint_handler(signum, frame):
     pykka.ActorRegistry.stop_all()
     sys.exit(0)
 
-logging.basicConfig(level = logging.DEBUG,
+log.basicConfig(level = log.DEBUG,
     format = "%(levelname)s %(filename)s:%(lineno)d %(message)s")
 
 signal.signal(signal.SIGINT, sigint_handler)

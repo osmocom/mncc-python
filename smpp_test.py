@@ -17,7 +17,7 @@ logging.basicConfig(level = logging.DEBUG,
 def send_message(dest, string):
     parts, encoding_flag, msg_type_flag = smpplib.gsm.make_parts(string)
 
-    print 'Sending SMS "%s" to %s' % (string, dest)
+    log.info('Sending SMS "%s" to %s' % (string, dest))
     for part in parts:
         pdu = client.send_message(
             source_addr_ton=smpplib.consts.SMPP_TON_INTL,
@@ -32,7 +32,7 @@ def send_message(dest, string):
             esm_class=smpplib.consts.SMPP_MSGMODE_FORWARD,
             registered_delivery=False,
     )
-    print(pdu.sequence)
+    log.debug(pdu.sequence)
 
 
 client = smpplib.client.Client('127.0.0.1', 2775)
