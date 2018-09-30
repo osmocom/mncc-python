@@ -127,5 +127,3 @@ while True:
         continue
 
     print(msg)
-    print(msg.msg_type)
-print(type(msg))
