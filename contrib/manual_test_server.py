@@ -3,6 +3,8 @@ import mncc_sock
 import ctypes
 import socket
 
+import logging as log
+
 GSM340_PLAN_ISDN = 1
 GSM340_TYPE_NATIONAL = 2
 
@@ -79,6 +81,9 @@ def send_dtmf(callref):
     conn.send_msg(MnccMessageBuilder.build_dtmf_start(callref, '2'))
     conn.send_msg(MnccMessageBuilder.build_dtmf_stop(callref, '2'))
 
+
+log.basicConfig(level = log.DEBUG,
+    format = "%(levelname)s %(filename)s:%(lineno)d %(message)s")
 
 server = mncc_sock.MnccSocketServer()
 conn = server.accept()

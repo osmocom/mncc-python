@@ -48,7 +48,8 @@ def sigint_handler(signum, frame):
     pykka.ActorRegistry.stop_all()
     sys.exit(0)
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level = logging.DEBUG,
+    format = "%(levelname)s %(filename)s:%(lineno)d %(message)s")
 
 signal.signal(signal.SIGINT, sigint_handler)
 

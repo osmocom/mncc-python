@@ -11,7 +11,8 @@ import smpplib.consts
 # to generate some SMS load on OsmoNITB via its SMPP interface
 
 # if you want to know what's happening
-logging.basicConfig(level='DEBUG')
+logging.basicConfig(level = logging.DEBUG,
+    format = "%(levelname)s %(filename)s:%(lineno)d %(message)s")
 
 def send_message(dest, string):
     parts, encoding_flag, msg_type_flag = smpplib.gsm.make_parts(string)
