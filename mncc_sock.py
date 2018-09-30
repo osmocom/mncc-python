@@ -10,7 +10,6 @@
 # option, any later version.
 
 import socket
-import sys
 import os
 import mncc
 import ctypes
@@ -122,11 +121,7 @@ class MnccSocket(MnccSocketBase):
         super(MnccSocketBase, self).__init__()
         self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_SEQPACKET)
         print('connecting to %s' % address)
-        try:
-            self.sock.connect(address)
-        except socket.error as errmsg:
-            sys.stderr.write("%s\n" % errmsg)
-            sys.exit(1)
+        self.sock.connect(address)
 
         # Check the HELLO message
         self.check_hello()
@@ -137,15 +132,13 @@ class MnccSocket(MnccSocketBase):
 
         # Match expected message type
         if msg.msg_type != mncc.MNCC_SOCKET_HELLO:
-            sys.stderr.write('Received an unknown (!= MNCC_SOCKET_HELLO) '
+            raise AssertionError('Received an unknown (!= MNCC_SOCKET_HELLO) '
                 'message: %s\n' % msg)
-            sys.exit(1)
 
         # Match expected protocol version
         if msg.version != mncc.MNCC_SOCK_VERSION:
-            sys.stderr.write('MNCC protocol version mismatch '
+            raise AssertionError('MNCC protocol version mismatch '
                 '(0x%04x vs 0x%04x)\n' % (msg.version, mncc.MNCC_SOCK_VERSION))
-            sys.exit(1)
 
         # Match expected message sizes / offsets
         if (msg.mncc_size != ctypes.sizeof(mncc.gsm_mncc) or
@@ -154,8 +147,7 @@ class MnccSocket(MnccSocketBase):
             msg.signal_offset != mncc.gsm_mncc.signal.offset or
             msg.emergency_offset != mncc.gsm_mncc.emergency.offset or
             msg.lchan_type_offset != mncc.gsm_mncc.lchan_type.offset):
-                sys.stderr.write('MNCC message alignment mismatch\n')
-                sys.exit(1)
+                raise AssertionError('MNCC message alignment mismatch\n')
 
         print('Received %s' % msg)
 
