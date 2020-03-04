@@ -67,9 +67,13 @@ class mncc_data_frame_msg(mncc.gsm_data_frame, mncc_msg_common):
 
 class mncc_rtp_msg(mncc.gsm_mncc_rtp, mncc_msg_common):
     def __str__(self):
-        return 'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
+        return 'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%s, port=%u)' % (self.msg_type, self.callref, self.ip_str(), self.port)
     def __unicode__(self):
-        return u'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
+        return u'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%s, port=%u)' % (self.msg_type, self.callref, self.ip_str(), self.port)
+
+    def ip_str(self):
+        numbers = reversed([str((self.ip >> (8*b)) & 0xff) for b in range(4)])
+        return '.'.join(numbers)
 
 class mncc_bridge_msg(mncc.gsm_mncc_bridge, mncc_msg_common):
     def __str__(self):

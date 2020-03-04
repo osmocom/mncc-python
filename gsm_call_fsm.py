@@ -12,6 +12,7 @@
 import mncc
 import ctypes
 import pykka
+import subprocess
 
 import logging as log
 
@@ -339,6 +340,12 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.call_a.tell({'type':'connect_rtp', 'rtp':self.rtp_b})
             self.call_b.tell({'type':'connect_rtp', 'rtp':self.rtp_a})
 
+    def send_rtp(self, rtp):
+	cmd = ('osmo-gapk', '-i', '/docker/1frame.fr1', '-f', 'gsm', '-g', 'gsm', '-O', '%s/%s' % (rtp.ip_str(), rtp.port))
+	log.info('Sending RTP: %s' % (' '.join(cmd)))
+	p = subprocess.Popen(cmd)
+	log.info('Process started: RTP: %s' % p.pid)
+
     def bridge_legs(self):
         # bridge the voice channels of both call legs in the classic way
         if self.rtp_bridge:
@@ -358,6 +365,10 @@ class GsmCallConnector(pykka.ThreadingActor):
         if self.state_a == 'NULL' and self.state_b == 'NULL':
             log.info('Both A and B in state NULL -> Terminating')
             self.stop()
+
+        if self.state_a == 'ACTIVE' and self.state_b == 'ACTIVE':
+		self.send_rtp(self.rtp_a)
+		#self.send_rtp(self.rtp_b)
 
     def on_receive(self, message):
         if message['type'] == 'call_state_change':
