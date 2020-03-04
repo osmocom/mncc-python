@@ -173,8 +173,12 @@ def mt_call(msisdn_called, msisdn_calling = '123456789', codecs = GSM48.AllCodec
     call_conn.start_call(msisdn_called, msisdn_calling)
     return call_conn
 
-# start one call automatically
-mt_call('90001')
+log.info("")
+log.info("")
+log.info("Start calls by typing:")
+log.info("    mt_call('90001')")
+log.info("")
+log.info("")
 
 # start a shell to enable the user to add more calls as needed
 vars = globals().copy()

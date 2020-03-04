@@ -65,15 +65,13 @@ def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs
     return call_conn
 
 # start a first bogus call
-connect_call("7839", "3802")
-connect_call("3809", "3814")
-connect_call("3805", "3806")
-connect_call("3812", "3815")
-connect_call("3807", "3811")
-connect_call("3804", "3808")
-connect_call("3803", "3813")
 
-time.sleep(1)
+log.info("")
+log.info("")
+log.info("Start calls by typing:")
+log.info('    connect_call("90001", "90002")')
+log.info("")
+log.info("")
 
 # start a shell to enable the user to add more calls as needed
 vars = globals().copy()
