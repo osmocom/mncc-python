@@ -69,7 +69,8 @@ def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs
 log.info("")
 log.info("")
 log.info("Start calls by typing:")
-log.info('    connect_call("90001", "90002")')
+log.info('    c = connect_call("90001", "90002")')
+log.info('    c.release()')
 log.info("")
 log.info("")
 

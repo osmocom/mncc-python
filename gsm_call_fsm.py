@@ -90,6 +90,10 @@ class GsmCallFsm(pykka.ThreadingActor):
                        bearer_cap = mncc_bearer_cap(self.codecs_permitted))
         self.mncc_ref.tell({'type': 'send', 'msg': msg})
 
+    def _onmncc_disc_req(self, e):
+        msg = mncc_msg(msg_type = mncc.MNCC_DISC_REQ, callref = self.callref)
+        self.mncc_ref.tell({'type': 'send', 'msg': msg})
+
     def find_matching_codec(self, ms_codecs):
         # find common denominator of permitted codecs and MS codecs
         for i in self.codecs_permitted:
@@ -182,6 +186,7 @@ class GsmCallFsm(pykka.ThreadingActor):
                          ('onmncc_call_conf_ind', self._onmncc_call_conf_ind),
                          ('onmncc_setup_cnf', self._onmncc_setup_cnf),
                          ('onmncc_disc_ind', self._onmncc_disc_ind),
+                         ('onmncc_disc_req', self._onmncc_disc_req),
                          ('onenterNULL', self._onenter_NULL),
                          ],
             )
@@ -302,6 +307,8 @@ class GsmCallFsm(pykka.ThreadingActor):
             self.connect_rtp(message['rtp'])
         elif message['type'] == 'get_callref':
             return self.callref
+        elif message['type'] == 'release':
+            self.fsm.mncc_disc_req(None)
         else:
             raise Exception('mncc', '%s: Unknown message %s' % (self, message))
 
@@ -366,3 +373,6 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.rtp_created(message['called'], message['rtp'])
         #else:
         #    raise Exception('mncc', 'GsmCallConnector Rx Unknown message %s' % message)
+
+    def release(self):
+        self.call_a.tell({'type':'release'})

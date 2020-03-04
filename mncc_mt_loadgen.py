@@ -120,6 +120,9 @@ class MTCallRtpsource(pykka.ThreadingActor):
         self.call.tell({'type':'start_mt_call',
                         'calling':self.msisdn_calling, 'called':self.msisdn_called})
 
+    def release(self):
+        self.call.tell({'type':'release'})
+
     def on_stop(self):
         # Attempt to do a graceful shutdown by deleting the RTP connection from rtpsource
         self.ctrl_act.ask({'type':'rtp_delete', 'cname':self.callref})
