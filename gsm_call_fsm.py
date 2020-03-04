@@ -303,6 +303,8 @@ class GsmCallFsm(pykka.ThreadingActor):
             self.connect_rtp(message['rtp'])
         elif message['type'] == 'get_callref':
             return self.callref
+        elif message['type'] == 'release':
+            self._onmncc_disc_ind(None)
         else:
             raise Exception('mncc', '%s: Unknown message %s' % (self, message))
 
@@ -377,3 +379,6 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.rtp_created(message['called'], message['rtp'])
         #else:
         #    raise Exception('mncc', 'GsmCallConnector Rx Unknown message %s' % message)
+
+    def release(self):
+        self.call_a.tell({'type':'release'})
