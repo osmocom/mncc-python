@@ -142,7 +142,7 @@ class MnccSocket(MnccSocketBase):
                 '(0x%04x vs 0x%04x)\n' % (msg.version, mncc.MNCC_SOCK_VERSION))
 
         # Match expected message sizes / offsets
-        if (msg.mncc_size != ctypes.sizeof(mncc.gsm_mncc) or
+        if (msg.mncc_size < ctypes.sizeof(mncc.gsm_mncc) or
             msg.data_frame_size != ctypes.sizeof(mncc.gsm_data_frame) or
             msg.called_offset != mncc.gsm_mncc.called.offset or
             msg.signal_offset != mncc.gsm_mncc.signal.offset or
