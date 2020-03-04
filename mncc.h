@@ -273,7 +273,7 @@ struct gsm_data_frame {
 	unsigned char	data[0];
 };
 
-#define MNCC_SOCK_VERSION	5
+#define MNCC_SOCK_VERSION	6
 struct gsm_mncc_hello {
 	uint32_t	msg_type;
 	uint32_t	version;
