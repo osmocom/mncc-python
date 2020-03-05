@@ -71,8 +71,8 @@ def calls(nr, ramp=1.0):
 	return
     nr /= 2
     for i in range(nr):
-	a = 90001 + i
-	b = a + nr
+	a = 90001 + 2*i
+	b = a + 1
 	a = str(a)
 	b = str(b)
 	print('%d: connect_call(%r, %r)' % (i, a, b))
