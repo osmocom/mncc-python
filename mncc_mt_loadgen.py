@@ -176,6 +176,14 @@ def mt_call(msisdn_called, msisdn_calling = '123456789', codecs = GSM48.AllCodec
     call_conn.start_call(msisdn_called, msisdn_calling)
     return call_conn
 
+def calls(nr, ramp=1.0):
+    for i in range(nr):
+        a = 90001 + i
+        a = str(a)
+        print("%d: mt_call(%r)" % (i, a))
+        mt_call(a)
+        time.sleep(ramp)
+
 log.info("")
 log.info("")
 log.info("Start calls by typing:")
