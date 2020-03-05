@@ -16,6 +16,7 @@ import pykka
 import logging as log
 import signal, sys, time
 import readline, code
+import time
 
 # MnccActor provides an interface for GsmCallFsm to send MNCC messages
 class MnccActor(pykka.ThreadingActor):
@@ -64,6 +65,20 @@ def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs
     call_conn.start_call_ab(msisdn_a, msisdn_b)
     return call_conn
 
+def calls(nr, ramp=1.0):
+    if (nr & 1):
+        print('Only even numbers allowed, because each invocation has two call legs')
+	return
+    nr /= 2
+    for i in range(nr):
+	a = 90001 + i
+	b = a + nr
+	a = str(a)
+	b = str(b)
+	print('%d: connect_call(%r, %r)' % (i, a, b))
+	connect_call(a, b)
+	time.sleep(ramp)
+
 # start a first bogus call
 
 log.info("")
@@ -71,6 +86,8 @@ log.info("")
 log.info("Start calls by typing:")
 log.info('    c = connect_call("90001", "90002")')
 log.info('    c.release()')
+log.info('or')
+log.info('    calls(200)')
 log.info("")
 log.info("")
 
