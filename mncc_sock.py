@@ -154,7 +154,8 @@ class MnccSocket(MnccSocketBase):
 
 class MnccSocketServer(object):
     def __init__(self, address = '/tmp/bsc_mncc'):
-        os.unlink(address)
+        if os.path.exists(address):
+            os.unlink(address)
         self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_SEQPACKET)
         self.sock.bind(address)
         self.sock.listen(5)
