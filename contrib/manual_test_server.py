@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import mncc
 import mncc_sock
 import ctypes
