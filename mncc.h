@@ -6,6 +6,34 @@
 
 #include <stdint.h>
 
+/* GSM 04.08 Bearer Capability: Information Transfer Capability */
+enum gsm48_bcap_itcap {
+	GSM48_BCAP_ITCAP_SPEECH		= 0,
+	GSM48_BCAP_ITCAP_UNR_DIG_INF	= 1,
+	GSM48_BCAP_ITCAP_3k1_AUDIO	= 2,
+	GSM48_BCAP_ITCAP_FAX_G3		= 3,
+	GSM48_BCAP_ITCAP_OTHER		= 5,
+	GSM48_BCAP_ITCAP_RESERVED	= 7,
+};
+
+/* GSM 04.08 Bearer Capability: Transfer Mode */
+enum gsm48_bcap_tmod {
+	GSM48_BCAP_TMOD_CIRCUIT		= 0,
+	GSM48_BCAP_TMOD_PACKET		= 1,
+};
+
+/* GSM 04.08 Bearer Capability: Coding Standard */
+enum gsm48_bcap_coding {
+	GSM48_BCAP_CODING_GSM_STD	= 0,
+};
+
+/* GSM 04.08 Bearer Capability: Radio Channel Requirements */
+enum gsm48_bcap_rrq {
+	GSM48_BCAP_RRQ_FR_ONLY	= 1,
+	GSM48_BCAP_RRQ_DUAL_HR	= 2,
+	GSM48_BCAP_RRQ_DUAL_FR	= 3,
+};
+
 /* GSM 04.08 Bearer Capability: Rate Adaption */
 enum gsm48_bcap_ra {
 	GSM48_BCAP_RA_NONE	= 0,
@@ -71,6 +99,19 @@ enum gsm48_bcap_modem_type {
 	GSM48_BCAP_MT_AUTO_1	= 8,
 };
 
+/*! GSM 04.08 Bearer Capability: Speech Version Indication
+ *  (See also 3GPP TS 24.008, Table 10.5.103) */
+enum gsm48_bcap_speech_ver {
+	GSM48_BCAP_SV_FR	= 0,	/*!< GSM FR V1 (GSM FR) */
+	GSM48_BCAP_SV_HR	= 1,	/*!< GSM HR V1 (GSM HR) */
+	GSM48_BCAP_SV_EFR	= 2,	/*!< GSM FR V2 (GSM EFR) */
+	GSM48_BCAP_SV_AMR_F	= 4,	/*!< GSM FR V3 (FR AMR) */
+	GSM48_BCAP_SV_AMR_H	= 5,	/*!< GSM HR V3 (HR_AMR) */
+	GSM48_BCAP_SV_AMR_OFW	= 6,	/*!< GSM FR V4 (OFR AMR-WB) */
+	GSM48_BCAP_SV_AMR_OHW	= 7,	/*!< GSM HR V4 (OHR AMR-WB) */
+	GSM48_BCAP_SV_AMR_FW	= 8,	/*!< GSM FR V5 (FR AMR-WB) */
+	GSM48_BCAP_SV_AMR_OH	= 11,	/*!< GSM HR V6 (OHR AMR) */
+};
 
 
 #define GSM_MAX_FACILITY       128
@@ -265,6 +306,8 @@ struct gsm_mncc {
 
 	unsigned char	lchan_type;
 	unsigned char	lchan_mode;
+
+	char		sdp[1024];
 };
 
 struct gsm_data_frame {
@@ -273,7 +316,7 @@ struct gsm_data_frame {
 	unsigned char	data[0];
 };
 
-#define MNCC_SOCK_VERSION	5
+#define MNCC_SOCK_VERSION	6
 struct gsm_mncc_hello {
 	uint32_t	msg_type;
 	uint32_t	version;
@@ -296,6 +339,7 @@ struct gsm_mncc_rtp {
 	uint16_t	port;
 	uint32_t	payload_type;
 	uint32_t	payload_msg_type;
+	char		sdp[1024];
 };
 
 struct gsm_mncc_bridge {
