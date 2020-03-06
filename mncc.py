@@ -2,49 +2,82 @@ from ctypes import *
 
 
 
+GSM48_BCAP_TR_TR_PREF = 2
+GSM48_BCAP_PAR_EVEN = 2
+GSM48_BCAP_PAR_ODD = 0
+GSM48_BCAP_SA_I440_I450 = 1
+GSM48_BCAP_PAR_ZERO = 4
+GSM48_BCAP_SA_X28_NDP = 5
+GSM48_BCAP_ITCAP_SPEECH = 0
+GSM48_BCAP_TR_TRANSP = 0
+GSM48_BCAP_TR_RLP = 1
+GSM48_BCAP_MT_V26ter = 5
+GSM48_BCAP_SA_X32 = 6
+GSM48_BCAP_ITCAP_OTHER = 5
+GSM48_BCAP_MT_V32 = 6
+GSM48_BCAP_SV_FR = 0
+GSM48_BCAP_SA_X28_DP_IN = 3
+GSM48_BCAP_MT_V23 = 4
+GSM48_BCAP_MT_AUTO_1 = 8
+GSM48_BCAP_MT_V22bis = 3
+GSM48_BCAP_ITCAP_FAX_G3 = 3
+GSM48_BCAP_UR_4800 = 4
+GSM48_BCAP_IR_16k = 3
+GSM48_BCAP_RA_OTHER = 3
+GSM48_BCAP_RA_NONE = 0
+GSM48_BCAP_SV_AMR_F = 4
+GSM48_BCAP_MT_V21 = 1
+GSM48_BCAP_ITCAP_3k1_AUDIO = 2
+GSM48_BCAP_SA_X28_DP_UN = 4
+GSM48_BCAP_TR_RLP_PREF = 3
+GSM48_BCAP_SV_AMR_FW = 8
+GSM_MNCC_BCAP_AUDIO = 2
+GSM48_BCAP_RA_X31 = 2
+GSM48_BCAP_SV_HR = 1
+GSM48_BCAP_SV_EFR = 2
+GSM48_BCAP_RA_V110_X30 = 1
+GSM48_BCAP_SV_AMR_H = 5
+GSM_MNCC_BCAP_UNR_DIG = 1
+GSM48_BCAP_TMOD_CIRCUIT = 0
+GSM48_BCAP_MT_NONE = 0
+GSM48_BCAP_UR_1200_75 = 7
+GSM48_BCAP_UR_12000 = 6
+GSM48_BCAP_UR_9600 = 5
+GSM48_BCAP_MT_UNDEF = 7
 GSM48_BCAP_UR_2400 = 3
 GSM48_BCAP_UR_1200 = 2
-GSM48_BCAP_PAR_ONE = 5
-GSM48_BCAP_SA_X21 = 2
-GSM48_BCAP_SA_I440_I450 = 1
-GSM48_BCAP_PAR_ODD = 0
-GSM48_BCAP_RA_NONE = 0
-GSM48_BCAP_SA_X28_NDP = 5
-GSM48_BCAP_UR_1200_75 = 7
-GSM48_BCAP_PAR_NONE = 3
-GSM48_BCAP_SA_X28_DP_UN = 4
-GSM48_BCAP_PAR_ZERO = 4
-GSM48_BCAP_TR_RLP = 1
-GSM_MNCC_BCAP_RESERVED = 7
-GSM48_BCAP_SA_X28_DP_IN = 3
-GSM_MNCC_BCAP_OTHER_ITC = 5
-GSM48_BCAP_TR_TRANSP = 0
-GSM_MNCC_BCAP_FAX_G3 = 3
-GSM48_BCAP_MT_V26ter = 5
-GSM48_BCAP_MT_V22 = 2
-GSM48_BCAP_MT_V21 = 1
-GSM48_BCAP_IR_16k = 3
-GSM48_BCAP_RA_V110_X30 = 1
-GSM_MNCC_BCAP_UNR_DIG = 1
-GSM48_BCAP_MT_V23 = 4
-GSM_MNCC_BCAP_AUDIO = 2
-GSM_MNCC_BCAP_SPEECH = 0
-GSM48_BCAP_MT_V32 = 6
+GSM48_BCAP_ITCAP_RESERVED = 7
 GSM48_BCAP_UR_300 = 1
-GSM48_BCAP_TR_RLP_PREF = 3
-GSM48_BCAP_MT_V22bis = 3
-GSM48_BCAP_RA_X31 = 2
-GSM48_BCAP_UR_9600 = 5
-GSM48_BCAP_MT_NONE = 0
-GSM48_BCAP_RA_OTHER = 3
-GSM48_BCAP_PAR_EVEN = 2
-GSM48_BCAP_UR_12000 = 6
-GSM48_BCAP_MT_UNDEF = 7
-GSM48_BCAP_TR_TR_PREF = 2
+GSM_MNCC_BCAP_RESERVED = 7
+GSM_MNCC_BCAP_OTHER_ITC = 5
+GSM_MNCC_BCAP_FAX_G3 = 3
+GSM48_BCAP_RRQ_DUAL_FR = 3
 GSM48_BCAP_IR_8k = 2
-GSM48_BCAP_UR_4800 = 4
-GSM48_BCAP_SA_X32 = 6
-GSM48_BCAP_MT_AUTO_1 = 8
+GSM48_BCAP_PAR_NONE = 3
+GSM_MNCC_BCAP_SPEECH = 0
+GSM48_BCAP_MT_V22 = 2
+GSM48_BCAP_SV_AMR_OH = 11
+GSM48_BCAP_SA_X21 = 2
+GSM48_BCAP_RRQ_DUAL_HR = 2
+GSM48_BCAP_PAR_ONE = 5
+GSM48_BCAP_SV_AMR_OHW = 7
+GSM48_BCAP_SV_AMR_OFW = 6
+GSM48_BCAP_ITCAP_UNR_DIG_INF = 1
+GSM48_BCAP_RRQ_FR_ONLY = 1
+GSM48_BCAP_TMOD_PACKET = 1
+GSM48_BCAP_CODING_GSM_STD = 0
+
+# values for enumeration 'gsm48_bcap_itcap'
+gsm48_bcap_itcap = c_int # enum
+
+# values for enumeration 'gsm48_bcap_tmod'
+gsm48_bcap_tmod = c_int # enum
+
+# values for enumeration 'gsm48_bcap_coding'
+gsm48_bcap_coding = c_int # enum
+
+# values for enumeration 'gsm48_bcap_rrq'
+gsm48_bcap_rrq = c_int # enum
 
 # values for enumeration 'gsm48_bcap_ra'
 gsm48_bcap_ra = c_int # enum
@@ -66,6 +99,9 @@ gsm48_bcap_transp = c_int # enum
 
 # values for enumeration 'gsm48_bcap_modem_type'
 gsm48_bcap_modem_type = c_int # enum
+
+# values for enumeration 'gsm48_bcap_speech_ver'
+gsm48_bcap_speech_ver = c_int # enum
 class gsm_mncc_bearer_cap(Structure):
     pass
 class N19gsm_mncc_bearer_cap3DOT_0E(Structure):
@@ -177,6 +213,7 @@ gsm_mncc._fields_ = [
     ('imsi', c_char * 16),
     ('lchan_type', c_ubyte),
     ('lchan_mode', c_ubyte),
+    ('sdp', c_char * 1024),
 ]
 class gsm_data_frame(Structure):
     pass
@@ -207,6 +244,7 @@ gsm_mncc_rtp._fields_ = [
     ('port', uint16_t),
     ('payload_type', uint32_t),
     ('payload_msg_type', uint32_t),
+    ('sdp', c_char * 1024),
 ]
 class gsm_mncc_bridge(Structure):
     pass
@@ -224,7 +262,7 @@ INT_LEAST32_MIN = -2147483648 # Variable c_int '-0x00000000080000000'
 __GNU_LIBRARY__ = 6 # Variable c_int '6'
 MNCC_REL_CNF = 274 # Variable c_int '274'
 __USE_XOPEN = 1 # Variable c_int '1'
-__USE_LARGEFILE64 = 1 # Variable c_int '1'
+MNCC_REL_REQ = 272 # Variable c_int '272'
 MNCC_RTP_CREATE = 516 # Variable c_int '516'
 __USE_XOPEN2KXSI = 1 # Variable c_int '1'
 MNCC_STOP_DTMF_RSP = 281 # Variable c_int '281'
@@ -232,6 +270,7 @@ MNCC_PROGRESS_REQ = 265 # Variable c_int '265'
 __USE_POSIX2 = 1 # Variable c_int '1'
 GSM_TCH_FRAME_AMR = 771 # Variable c_int '771'
 __USE_XOPEN2K8XSI = 1 # Variable c_int '1'
+__USE_POSIX199309 = 1 # Variable c_int '1'
 MNCC_FACILITY_IND = 276 # Variable c_int '276'
 MNCC_LCHAN_MODIFY = 515 # Variable c_int '515'
 GSM_MAX_FACILITY = 128 # Variable c_int '128'
@@ -244,7 +283,7 @@ __USE_ATFILE = 1 # Variable c_int '1'
 MNCC_START_DTMF_REJ = 279 # Variable c_int '279'
 INT_LEAST16_MAX = 32767 # Variable c_int '32767'
 MNCC_SETUP_COMPL_IND = 262 # Variable c_int '262'
-MNCC_SOCK_VERSION = 5 # Variable c_int '5'
+MNCC_SOCK_VERSION = 6 # Variable c_int '6'
 INTMAX_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
 INT32_MAX = 2147483647 # Variable c_int '2147483647'
 INTMAX_MAX = 9223372036854775807 # Variable c_long '9223372036854775807l'
@@ -252,22 +291,22 @@ MNCC_USERINFO_IND = 294 # Variable c_int '294'
 _POSIX_SOURCE = 1 # Variable c_int '1'
 _ISOC95_SOURCE = 1 # Variable c_int '1'
 INT64_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
-MNCC_REL_REQ = 272 # Variable c_int '272'
 _ISOC99_SOURCE = 1 # Variable c_int '1'
-UINT_FAST8_MAX = 255 # Variable c_int '255'
-MNCC_NOTIFY_IND = 269 # Variable c_int '269'
+MNCC_HOLD_IND = 287 # Variable c_int '287'
+__USE_POSIX = 1 # Variable c_int '1'
 MNCC_HOLD_CNF = 288 # Variable c_int '288'
 INT_LEAST8_MIN = -128 # Variable c_int '-0x00000000000000080'
 MNCC_REL_IND = 273 # Variable c_int '273'
 MNCC_F_SIGNAL = 8192 # Variable c_int '8192'
 INT_FAST64_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
 INT_FAST64_MAX = 9223372036854775807 # Variable c_long '9223372036854775807l'
-INT_LEAST64_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
+MNCC_DISC_REQ = 270 # Variable c_int '270'
 MNCC_BRIDGE = 512 # Variable c_int '512'
 MNCC_F_CALLED = 2 # Variable c_int '2'
 UINT_LEAST32_MAX = 4294967295L # Variable c_uint '4294967295u'
-__USE_POSIX199309 = 1 # Variable c_int '1'
+__USE_LARGEFILE64 = 1 # Variable c_int '1'
 MNCC_RTP_CONNECT = 517 # Variable c_int '517'
+MNCC_NOTIFY_IND = 269 # Variable c_int '269'
 __SYSCALL_WORDSIZE = 64 # Variable c_int '64'
 __GLIBC_MINOR__ = 19 # Variable c_int '19'
 MNCC_SOCKET_HELLO = 1024 # Variable c_int '1024'
@@ -278,10 +317,10 @@ GSM_MAX_USERUSER = 128 # Variable c_int '128'
 INT64_MAX = 9223372036854775807 # Variable c_long '9223372036854775807l'
 MNCC_SETUP_REQ = 257 # Variable c_int '257'
 MNCC_F_USERUSER = 64 # Variable c_int '64'
+UINT_FAST8_MAX = 255 # Variable c_int '255'
 MNCC_REJ_REQ = 295 # Variable c_int '295'
 __USE_XOPEN2K = 1 # Variable c_int '1'
 __WORDSIZE_TIME64_COMPAT32 = 1 # Variable c_int '1'
-__USE_POSIX = 1 # Variable c_int '1'
 __USE_XOPEN2K8 = 1 # Variable c_int '1'
 MNCC_USERINFO_REQ = 293 # Variable c_int '293'
 MNCC_RTP_FREE = 518 # Variable c_int '518'
@@ -324,7 +363,7 @@ UINT16_MAX = 65535 # Variable c_int '65535'
 MNCC_F_KEYPAD = 4096 # Variable c_int '4096'
 INT_LEAST32_MAX = 2147483647 # Variable c_int '2147483647'
 UINT_LEAST8_MAX = 255 # Variable c_int '255'
-MNCC_HOLD_IND = 287 # Variable c_int '287'
+INT_LEAST64_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
 __USE_LARGEFILE = 1 # Variable c_int '1'
 __USE_EXTERN_INLINES = 1 # Variable c_int '1'
 PTRDIFF_MIN = -9223372036854775808 # Variable c_long '-0x08000000000000000l'
@@ -359,7 +398,6 @@ MNCC_F_EMERGENCY = 256 # Variable c_int '256'
 _LARGEFILE64_SOURCE = 1 # Variable c_int '1'
 MNCC_MODIFY_RSP = 284 # Variable c_int '284'
 _XOPEN_SOURCE = 700 # Variable c_int '700'
-MNCC_DISC_REQ = 270 # Variable c_int '270'
 MNCC_SETUP_RSP = 259 # Variable c_int '259'
 SIZE_MAX = 18446744073709551615L # Variable c_ulong '-1ul'
 INT_FAST8_MAX = 127 # Variable c_int '127'
@@ -406,99 +444,114 @@ intptr_t = c_long
 uintptr_t = c_ulong
 intmax_t = c_long
 uintmax_t = c_ulong
-__all__ = ['GSM48_BCAP_SA_X28_DP_UN', 'gsm_mncc_number',
+__all__ = ['GSM48_BCAP_SA_X28_DP_UN', 'GSM48_BCAP_ITCAP_OTHER',
            'GSM48_BCAP_UR_9600', '_POSIX_C_SOURCE', '_ATFILE_SOURCE',
            'MNCC_SETUP_CNF', 'GSM48_BCAP_PAR_ONE', 'GSM_TCHH_FRAME',
-           'UINT8_MAX', '__USE_ATFILE', 'INT_LEAST8_MAX',
-           'MNCC_F_CAUSE', 'INT32_MIN', 'int_fast32_t',
+           'GSM48_BCAP_RRQ_DUAL_FR', '__USE_ATFILE', 'INT_LEAST8_MAX',
+           'MNCC_F_CAUSE', 'INT32_MIN', 'MNCC_SETUP_RSP',
            '__GNU_LIBRARY__', 'MNCC_REL_CNF', 'WINT_MIN',
-           '__USE_XOPEN', '__USE_LARGEFILE64', 'MNCC_NOTIFY_REQ',
+           'MNCC_LCHAN_MODIFY', '__USE_XOPEN', 'MNCC_REL_REQ',
            'MNCC_RTP_CREATE', 'MNCC_REJ_IND', '__USE_XOPEN2KXSI',
-           'MNCC_STOP_DTMF_RSP', 'UINT_FAST16_MAX',
+           'GSM48_BCAP_TMOD_PACKET', 'UINT_FAST16_MAX',
            'MNCC_PROGRESS_REQ', 'uint8_t', '__USE_POSIX2',
-           'GSM_TCH_FRAME_AMR', 'GSM48_BCAP_MT_UNDEF',
-           'INT_LEAST16_MIN', 'MNCC_SETUP_COMPL_IND',
-           'uint_least16_t', 'MNCC_FACILITY_IND', 'MNCC_LCHAN_MODIFY',
-           'GSM_MAX_FACILITY', 'UINTMAX_MAX', 'GSM48_BCAP_SA_X21',
-           '_LARGEFILE_SOURCE', 'INT_FAST16_MIN', 'MNCC_F_KEYPAD',
-           'GSM_MNCC_BCAP_UNR_DIG', 'UINT64_MAX',
-           'gsm_mncc_ssversion', 'GSM48_BCAP_TR_TR_PREF',
+           'GSM_TCH_FRAME_AMR', 'GSM48_BCAP_SV_AMR_OFW',
+           'GSM48_BCAP_MT_UNDEF', 'INT_LEAST16_MIN',
+           'MNCC_SETUP_COMPL_IND', 'uint_least16_t',
+           'MNCC_FACILITY_IND', 'GSM48_BCAP_ITCAP_RESERVED',
+           'GSM_MAX_FACILITY', 'UINT8_MAX', 'UINTMAX_MAX',
+           'GSM48_BCAP_SA_X21', '_LARGEFILE_SOURCE', 'INT_FAST16_MIN',
+           'MNCC_F_KEYPAD', 'GSM_MNCC_BCAP_UNR_DIG', 'UINT64_MAX',
+           'gsm_mncc_ssversion', 'int32_t', 'GSM48_BCAP_TR_TR_PREF',
            'MNCC_START_DTMF_REJ', 'GSM48_BCAP_MT_AUTO_1',
            'INT_LEAST16_MAX', 'N19gsm_mncc_bearer_cap3DOT_0E',
-           'MNCC_SOCK_VERSION', 'INTMAX_MIN', 'INT_LEAST32_MAX',
+           'MNCC_SOCK_VERSION', 'INTMAX_MIN', 'INT32_MAX',
            'GSM48_BCAP_IR_16k', 'GSM48_BCAP_UR_12000',
-           'GSM48_BCAP_PAR_EVEN', 'int_least16_t', 'INTMAX_MAX',
-           'GSM48_BCAP_TR_RLP', 'MNCC_USERINFO_IND', '_POSIX_SOURCE',
-           '_ISOC95_SOURCE', 'uint_fast16_t', 'INT64_MIN',
-           '_ISOC99_SOURCE', 'uint_least8_t', 'UINT_FAST8_MAX',
-           '__USE_POSIX', '__USE_SVID', 'MNCC_HOLD_CNF',
-           'INT_LEAST8_MIN', 'MNCC_REL_IND', 'GSM48_BCAP_UR_1200',
-           'GSM48_BCAP_MT_V26ter', 'MNCC_F_SIGNAL',
-           'GSM48_BCAP_SA_X32', 'INT_FAST64_MIN', 'gsm_mncc_cause',
-           'MNCC_DISC_REQ', 'MNCC_BRIDGE', 'int16_t',
+           'GSM48_BCAP_PAR_EVEN', 'int_least16_t',
+           'gsm48_bcap_speech_ver', 'GSM48_BCAP_TR_RLP',
+           'MNCC_USERINFO_IND', '_POSIX_SOURCE', '_ISOC95_SOURCE',
+           'uint_fast16_t', 'INT64_MIN', '_ISOC99_SOURCE',
+           'uint_least8_t', 'UINT_FAST8_MAX', '__USE_POSIX',
+           '__USE_SVID', 'MNCC_HOLD_CNF', 'INT_LEAST8_MIN',
+           'INTMAX_MAX', 'GSM48_BCAP_UR_1200', 'GSM48_BCAP_MT_V26ter',
+           'MNCC_F_SIGNAL', 'GSM48_BCAP_SA_X32', 'INT_FAST64_MIN',
+           'MNCC_MODIFY_RSP', 'gsm_mncc_cause', 'INT_LEAST64_MIN',
+           'MNCC_HOLD_IND', 'GSM48_BCAP_CODING_GSM_STD',
            'GSM48_BCAP_UR_2400', 'uintmax_t', 'MNCC_F_CALLED',
-           'UINT_LEAST32_MAX', 'MNCC_REL_REQ', 'MNCC_RTP_CONNECT',
-           'GSM48_BCAP_TR_TRANSP', '__SYSCALL_WORDSIZE',
-           '__GLIBC_MINOR__', 'int_least8_t', 'MNCC_SOCKET_HELLO',
-           'UINT32_MAX', 'MNCC_F_PROGRESS', 'MNCC_HOLD_REJ',
-           'GSM48_BCAP_SA_I440_I450', 'int64_t', 'GSM_MAX_USERUSER',
-           'GSM48_BCAP_PAR_ODD', 'GSM48_BCAP_PAR_NONE', 'INT64_MAX',
-           'MNCC_F_FACILITY', 'MNCC_SETUP_REQ', 'GSM48_BCAP_RA_X31',
-           'gsm_mncc_bearer_cap', 'MNCC_F_USERUSER', '_SVID_SOURCE',
+           'UINT_LEAST32_MAX', '__USE_POSIX199309',
+           'MNCC_RTP_CONNECT', 'GSM48_BCAP_TR_TRANSP',
+           '__SYSCALL_WORDSIZE', '__GLIBC_MINOR__', 'int_least8_t',
+           'MNCC_SOCKET_HELLO', 'UINT32_MAX', 'MNCC_F_PROGRESS',
+           'MNCC_HOLD_REJ', 'GSM48_BCAP_SA_I440_I450', 'int64_t',
+           'GSM_MAX_USERUSER', 'GSM48_BCAP_PAR_ODD',
+           'GSM48_BCAP_PAR_NONE', 'INT64_MAX', 'MNCC_F_FACILITY',
+           'MNCC_SETUP_REQ', 'MNCC_CALL_CONF_IND',
+           'GSM48_BCAP_RA_X31', 'gsm_mncc_bearer_cap',
+           'MNCC_F_USERUSER', 'gsm_mncc_number', '_SVID_SOURCE',
            '__USE_XOPEN2K', '__WORDSIZE_TIME64_COMPAT32',
-           'gsm_data_frame', 'MNCC_HOLD_IND', 'GSM48_BCAP_UR_1200_75',
+           'gsm_data_frame', 'GSM48_BCAP_UR_1200_75',
            'GSM48_BCAP_MT_V22bis', 'GSM_MNCC_BCAP_SPEECH',
            'MNCC_USERINFO_REQ', 'MNCC_RTP_FREE', '__USE_GNU',
-           '__USE_BSD', 'gsm_mncc_cccap', 'GSM48_BCAP_PAR_ZERO',
-           'MNCC_F_REDIRECTING', 'UINTPTR_MAX', 'GSM48_BCAP_RA_NONE',
+           '__USE_BSD', 'MNCC_REL_IND', 'gsm_mncc_cccap', 'INT8_MIN',
+           'GSM48_BCAP_PAR_ZERO', 'MNCC_F_REDIRECTING', 'UINTPTR_MAX',
+           'GSM48_BCAP_RA_NONE', 'GSM48_BCAP_RRQ_DUAL_HR',
            'UINT_LEAST16_MAX', 'gsm48_bcap_user_rate', 'uint16_t',
            'MNCC_MODIFY_IND', 'uint_fast8_t',
            'gsm48_bcap_interm_rate', 'gsm_mncc', 'INT16_MIN',
            '_ISOC11_SOURCE', 'MNCC_RETRIEVE_REJ', 'INT8_MAX',
-           'GSM48_BCAP_TR_RLP_PREF', 'int32_t', 'uint_least64_t',
-           'INT16_MAX', 'GSM48_BCAP_UR_4800', 'INT_LEAST64_MAX',
-           'GSM48_BCAP_SA_X28_DP_IN', 'GSM_MNCC_BCAP_FAX_G3',
-           '__USE_MISC', 'INTPTR_MAX', 'MNCC_DISC_IND',
-           '_DEFAULT_SOURCE', 'MNCC_FACILITY_REQ',
-           'gsm_mncc_useruser', 'INT8_MIN', 'MNCC_RETRIEVE_IND',
-           'GSM48_BCAP_RA_V110_X30', 'gsm_mncc_progress',
-           'gsm48_bcap_transp', 'INTPTR_MIN', '__USE_ISOC99',
-           'UINT_LEAST64_MAX', 'MNCC_F_CONNECTED',
-           'GSM_MNCC_BCAP_AUDIO', 'int_least64_t', 'UINT_FAST64_MAX',
-           'uintptr_t', 'INT_FAST64_MAX', '_STDINT_H',
-           'MNCC_STOP_DTMF_IND', '__USE_FORTIFY_LEVEL',
-           'gsm48_bcap_parity', 'int8_t', 'PTRDIFF_MAX',
-           '__USE_XOPEN2K8', 'gsm48_bcap_sig_access', 'MNCC_F_CCCAP',
-           'int_fast8_t', 'MNCC_MODIFY_CNF', 'gsm_mncc_rtp',
-           'INT_LEAST32_MIN', 'gsm_mncc_bridge', 'uint_least32_t',
-           'UINT16_MAX', 'GSM48_BCAP_MT_V32', '__USE_XOPEN_EXTENDED',
-           'INT32_MAX', '__USE_UNIX98', 'UINT_LEAST8_MAX',
-           'uint_fast64_t', 'INT_LEAST64_MIN', '__USE_LARGEFILE',
-           '__USE_EXTERN_INLINES', 'PTRDIFF_MIN', 'UINT_FAST32_MAX',
-           '_FEATURES_H', 'GSM_MNCC_BCAP_OTHER_ITC', 'gsm_mncc_hello',
-           'uint64_t', 'GSM_MAX_SSVERSION', 'MNCC_ALERT_REQ',
-           'GSM48_BCAP_RA_OTHER', 'MNCC_START_DTMF_RSP',
-           'SIG_ATOMIC_MIN', '__USE_POSIX199506', 'MNCC_MODIFY_REQ',
+           'GSM48_BCAP_TR_RLP_PREF', 'gsm48_bcap_rrq',
+           'uint_least64_t', 'INT16_MAX', 'GSM48_BCAP_UR_4800',
+           'INT_LEAST64_MAX', 'GSM48_BCAP_SA_X28_DP_IN',
+           'GSM_MNCC_BCAP_FAX_G3', 'MNCC_STOP_DTMF_RSP', '__USE_MISC',
+           'INTPTR_MAX', 'MNCC_DISC_IND', '_DEFAULT_SOURCE',
+           'MNCC_FACILITY_REQ', 'gsm_mncc_useruser', '__USE_XOPEN2K8',
+           'MNCC_RETRIEVE_IND', 'GSM48_BCAP_RA_V110_X30',
+           'gsm_mncc_progress', 'gsm48_bcap_transp', 'INTPTR_MIN',
+           '__USE_ISOC99', 'UINT_LEAST64_MAX', 'GSM48_BCAP_SV_AMR_FW',
+           'GSM_MNCC_BCAP_AUDIO', 'int_least64_t',
+           'gsm48_bcap_coding', 'UINT_FAST64_MAX', 'uintptr_t',
+           'INT_FAST64_MAX', 'gsm48_bcap_tmod',
+           'GSM48_BCAP_SV_AMR_OHW', 'MNCC_STOP_DTMF_IND',
+           '__USE_FORTIFY_LEVEL', 'gsm48_bcap_parity', 'int8_t',
+           'PTRDIFF_MAX', 'GSM48_BCAP_SV_HR', 'gsm48_bcap_sig_access',
+           'MNCC_F_CCCAP', 'int_fast8_t', 'MNCC_MODIFY_CNF',
+           'gsm_mncc_rtp', 'INT_LEAST32_MIN',
+           'GSM48_BCAP_ITCAP_FAX_G3', 'int_fast64_t',
+           'gsm_mncc_bridge', 'uint_least32_t', 'UINT16_MAX',
+           'GSM48_BCAP_MT_V32', '__USE_XOPEN_EXTENDED',
+           'GSM48_BCAP_RRQ_FR_ONLY', '__USE_UNIX98',
+           'UINT_LEAST8_MAX', 'uint_fast64_t', 'MNCC_DISC_REQ',
+           '__USE_LARGEFILE', '__USE_EXTERN_INLINES', 'PTRDIFF_MIN',
+           'UINT_FAST32_MAX', '_FEATURES_H',
+           'GSM_MNCC_BCAP_OTHER_ITC', 'int16_t', 'gsm_mncc_hello',
+           'uint64_t', 'INT_FAST32_MAX', 'GSM_MAX_SSVERSION',
+           'MNCC_ALERT_REQ', 'GSM48_BCAP_RA_OTHER',
+           'MNCC_START_DTMF_RSP', 'SIG_ATOMIC_MIN',
+           '__USE_POSIX199506', 'MNCC_MODIFY_REQ',
            'gsm_mncc_facility', 'GSM_MNCC_BCAP_RESERVED',
            'SIG_ATOMIC_MAX', 'intptr_t', 'SIZE_MAX', 'uint_fast32_t',
-           'INT_FAST32_MIN', '__USE_ISOC11', 'gsm48_bcap_modem_type',
-           'int_fast16_t', 'GSM48_BCAP_UR_300',
-           'MNCC_SETUP_COMPL_REQ', 'MNCC_MODIFY_REJ',
-           'GSM_TCHF_FRAME', 'INT_FAST16_MAX', 'GSM48_BCAP_MT_V21',
-           'GSM48_BCAP_MT_V22', 'GSM48_BCAP_MT_V23',
-           'MNCC_START_DTMF_IND', '_XOPEN_SOURCE_EXTENDED',
-           'MNCC_SETUP_IND', '__USE_POSIX199309', 'MNCC_NOTIFY_IND',
-           '__USE_XOPEN2K8XSI', '__WORDSIZE', 'int_fast64_t',
+           'GSM48_BCAP_TMOD_CIRCUIT', 'INT_FAST32_MIN',
+           '__USE_ISOC11', '__USE_LARGEFILE64',
+           'gsm48_bcap_modem_type', 'int_fast16_t',
+           'GSM48_BCAP_UR_300', 'MNCC_SETUP_COMPL_REQ',
+           'MNCC_MODIFY_REJ', '_STDINT_H', 'int_fast32_t',
+           'INT_FAST16_MAX', 'GSM48_BCAP_MT_V21', 'GSM48_BCAP_IR_8k',
+           'GSM48_BCAP_MT_V23', 'MNCC_START_DTMF_IND',
+           'GSM48_BCAP_ITCAP_SPEECH', '_XOPEN_SOURCE_EXTENDED',
+           'MNCC_SETUP_IND', 'MNCC_NOTIFY_REQ', 'MNCC_NOTIFY_IND',
+           '__USE_XOPEN2K8XSI', '__WORDSIZE', 'GSM_TCHF_FRAME',
            'MNCC_FRAME_DROP', '_SYS_CDEFS_H', 'INT_FAST8_MIN',
            'MNCC_RETRIEVE_CNF', 'MNCC_F_EMERGENCY',
-           '_LARGEFILE64_SOURCE', 'MNCC_MODIFY_RSP', '_XOPEN_SOURCE',
-           'MNCC_SETUP_RSP', 'MNCC_REJ_REQ', 'INT_FAST8_MAX',
-           'GSM48_BCAP_MT_NONE', '__USE_ISOC95', 'MNCC_FRAME_RECV',
-           'MNCC_ALERT_IND', 'intmax_t', '__GLIBC__',
-           'GSM_TCHF_FRAME_EFR', 'GSM48_BCAP_SA_X28_NDP',
-           '_BITS_WCHAR_H', 'N8gsm_mncc3DOT_2E', 'int_least32_t',
-           'GSM48_BCAP_IR_8k', 'MNCC_F_CALLING', 'INT_FAST32_MAX',
-           'MNCC_F_SSVERSION', 'MNCC_F_BEARER_CAP',
-           'MNCC_CALL_PROC_REQ', 'WINT_MAX', '_BSD_SOURCE',
-           'uint32_t', 'gsm48_bcap_ra', 'MNCC_CALL_CONF_IND',
-           'GSM_BAD_FRAME']
+           '_LARGEFILE64_SOURCE', 'INT_LEAST32_MAX', '_XOPEN_SOURCE',
+           'MNCC_F_CONNECTED', 'GSM48_BCAP_ITCAP_UNR_DIG_INF',
+           'MNCC_REJ_REQ', 'INT_FAST8_MAX', 'GSM48_BCAP_MT_NONE',
+           '__USE_ISOC95', 'MNCC_FRAME_RECV', 'MNCC_ALERT_IND',
+           'GSM48_BCAP_SV_EFR', 'intmax_t', 'GSM48_BCAP_SV_AMR_OH',
+           'gsm48_bcap_itcap', '__GLIBC__', 'GSM_TCHF_FRAME_EFR',
+           'GSM48_BCAP_SA_X28_NDP', '_BITS_WCHAR_H',
+           'N8gsm_mncc3DOT_2E', 'GSM48_BCAP_SV_AMR_H',
+           'int_least32_t', 'GSM48_BCAP_MT_V22', 'MNCC_F_CALLING',
+           'MNCC_BRIDGE', 'MNCC_F_SSVERSION', 'MNCC_F_BEARER_CAP',
+           'GSM48_BCAP_SV_AMR_F', 'MNCC_CALL_PROC_REQ', 'WINT_MAX',
+           '_BSD_SOURCE', 'uint32_t', 'gsm48_bcap_ra',
+           'GSM48_BCAP_SV_FR', 'GSM_BAD_FRAME',
+           'GSM48_BCAP_ITCAP_3k1_AUDIO']
