@@ -343,7 +343,7 @@ class GsmCallConnector(pykka.ThreadingActor):
             self.call_b.tell({'type':'connect_rtp', 'rtp':self.rtp_a})
 
     def send_rtp(self, rtp):
-	cmd = ('osmo-gapk', '-i', '/docker/1frame.fr1', '-f', 'gsm', '-g', 'gsm', '-O', '%s/%s' % (rtp.ip_str(), rtp.port))
+	cmd = ('osmo-gapk', '-i', '/docker/5frames.fr1', '-f', 'gsm', '-g', 'gsm', '-O', '%s/%s' % (rtp.ip_str(), rtp.port))
 	log.info('Sending RTP: %s' % (' '.join(cmd)))
 	p = subprocess.Popen(cmd)
 	log.info('Process started: RTP: %s' % p.pid)
