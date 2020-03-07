@@ -228,8 +228,6 @@ class GsmCallFsm(pykka.ThreadingActor):
 
     # RTP
     def _do_mncc_rtp_create_ind(self, mncc_msg):
-        if self.rtp_bridge == False:
-            raise Exception('GsmCallFsm', 'rtp_create_ind but not in RTP bridge mode')
         self.rtp = mncc_msg
         # notify the call controller about this
         self.ctrl_ref.tell({'type':'rtp_create_ind', 'called':self.called, 'rtp':self.rtp})
@@ -336,8 +334,6 @@ class GsmCallConnector(pykka.ThreadingActor):
 
     def rtp_created(self, msisdn, rtp):
         log.info('CallConnector:rtp_created(%s) %s' % (msisdn, rtp))
-        if self.rtp_bridge == False:
-            raise Exception('GsmCallConnector', 'rtp_created but not in RTP bridge mode')
         if msisdn == self.msisdn_a:     # A->B leg
             self.rtp_a = rtp
         elif msisdn == self.msisdn_b:   # B->A leg

@@ -103,7 +103,7 @@ class MTCallRtpsource(pykka.ThreadingActor):
         self.mncc_act = mncc_act
         self.ctrl_act = ctrl_act
         self.codecs_permitted = codecs_permitted
-        self.call = GsmCallFsm.start(self.mncc_act, self.actor_ref, True, self.codecs_permitted)
+        self.call = GsmCallFsm.start(self.mncc_act, self.actor_ref, False, self.codecs_permitted)
         self.callref = self.call.ask({'type':'get_callref'})
         self.state = 'NULL'
         self.rtp_msc = None
