@@ -180,7 +180,7 @@ class GsmCallFsm(pykka.ThreadingActor):
                     ('mncc_rel_ind', '*', 'NULL'),
                     ('mncc_disc_ind', 'DISCONNECT_INDICATION', 'RELEASE_REQUEST'),
 
-                    ('mncc_rel_cnf', 'RELEASE_REQUEST', 'NULL'),
+                    ('mncc_rel_cnf', '*', 'NULL'),
                     ],
             callbacks = [('onmncc_setup_req', self._onmncc_setup_req),
                          ('onmncc_call_conf_ind', self._onmncc_call_conf_ind),
