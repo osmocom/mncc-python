@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <errno.h>
+#include <getopt.h>
 #include <sys/signal.h>
 
 #include <osmocom/core/linuxlist.h>
@@ -77,7 +78,7 @@ struct rtp_connection *create_connection(struct rtpsource_state *rss, const char
 	conn->rtp_sock = osmo_rtp_socket_create(conn, OSMO_RTP_F_POLL);
 	OSMO_ASSERT(conn->rtp_sock);
 
-	rc = osmo_rtp_socket_bind(conn->rtp_sock, "127.23.23.23", -1);
+	rc = osmo_rtp_socket_bind(conn->rtp_sock, rss->rtp_bind_ip, -1);
 	OSMO_ASSERT(rc == 0);
 
 	rc = osmo_rtp_get_bound_addr(conn->rtp_sock, &host, &port);
@@ -200,6 +201,28 @@ static void signal_handler(int signal)
 	}
 }
 
+static void handle_options(int argc, char **argv)
+{
+	while (1) {
+		int option_index = 0, c;
+		const struct option long_options[] = {
+			{"rtp-bind-ip", 1, 0, 'r' },
+			{ 0, 0, 0, 0}
+		};
+		c = getopt_long(argc, argv, "r:", long_options, &option_index);
+		if (c == -1)
+			break;
+
+		switch (c) {
+		case 'r':
+			g_rss->rtp_bind_ip = optarg;
+			break;
+		default:
+			break;
+		}
+	}
+}
+
 int main(int argc, char **argv)
 {
 	struct timespec interval = {
@@ -226,6 +249,9 @@ int main(int argc, char **argv)
 	g_rss = talloc_zero(g_tall_ctx, struct rtpsource_state);
 	OSMO_ASSERT(g_rss);
 	INIT_LLIST_HEAD(&g_rss->connections);
+	g_rss->rtp_bind_ip = "127.23.23.23";
+
+	handle_options(argc, argv);
 
 	/* Create CTRL interface */
 	//g_rss->ctrl = ctrl_interface_setup_dynip(g_rss, ctrl_vty_get_bind_addr(), 11111, NULL);

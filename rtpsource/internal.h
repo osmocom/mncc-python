@@ -27,6 +27,7 @@ struct rtpsource_state {
 	struct llist_head connections;
 	struct osmo_fd timer_ofd;
 	struct ctrl_handle *ctrl;
+	char *rtp_bind_ip;
 };
 extern struct rtpsource_state *g_rss;
 
