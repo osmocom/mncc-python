@@ -10,6 +10,15 @@
 # Licensed under GNU General Public License, Version 2 or at your
 # option, any later version.
 
+
+"""
+Usage:
+
+    ./mncc_mt_loadgen.py [<nr-of-calls> [<ramp-time>]]
+"""
+
+
+
 RTPSOURCE_CTRL_IP = "127.0.0.1"
 RTPSOURCE_CTRL_PORT = 11111
 
@@ -137,7 +146,8 @@ class MTCallRtpsource(pykka.ThreadingActor):
             # MSC+MGW informs us of the PLMN side IP/port
             mncc_rtp_ind = message['rtp']
             # tell external rtpsourc to connect to this address
-            r = self.ctrl_act.ask({'type':'rtp_connect', 'cname':self.callref,
+            if True:
+                r = self.ctrl_act.ask({'type':'rtp_connect', 'cname':self.callref,
                                    'remote_host': int2ipstr(mncc_rtp_ind.ip),
                                    'remote_port': mncc_rtp_ind.port,
                                    'payload_type':3})
@@ -150,10 +160,30 @@ class MTCallRtpsource(pykka.ThreadingActor):
                 # Call FSM has reached the NULL state again (call terminated) 
                 # on_stop() will clean up the RTP connection at rtpsource
                 self.stop()
+        elif message['type'] == 'msisdn_called':
+            return self.msisdn_called
 
+established_calls = []
+
+def release(nr=None):
+    global established_calls
+    if nr is None:
+        nr = len(established_calls)
+    for i in reversed(range(len(established_calls))):
+        call = established_calls[i]
+        if nr < 1:
+            break
+        try:
+            call.release()
+            nr -= 1
+        except pykka.exceptions.ActorDeadError:
+            pass
+        del established_calls[i]
+    time.sleep(1)
 
 # capture SIGINT (Ctrl+C) and stop all actors
 def sigint_handler(signum, frame):
+    release()
     pykka.ActorRegistry.stop_all()
     sys.exit(0)
 
@@ -172,24 +202,63 @@ rtpctrl_act = RtpSourceCtrlActor.start(RTPSOURCE_CTRL_IP, RTPSOURCE_CTRL_PORT)
 
 # convenience wrapper
 def mt_call(msisdn_called, msisdn_calling = '123456789', codecs = GSM48.AllCodecs):
+    global established_calls
     call_conn = MTCallRtpsource.start(mncc_act, rtpctrl_act, codecs).proxy()
     call_conn.start_call(msisdn_called, msisdn_calling)
+    established_calls.append(call_conn)
+    log.info('established: %d' % len(established_calls))
     return call_conn
 
+def sanitize_established_calls():
+    global established_calls
+    dead = []
+    for i in range(len(established_calls)):
+        try:
+            established_calls[i].msisdn_called.get()
+        except pykka.exceptions.ActorDeadError:
+            dead.append(i)
+            
+    for i in reversed(dead):
+        del established_calls[i]
+
+
 def calls(nr, ramp=1.0):
+    global established_calls
+    sanitize_established_calls()
+    established_msisdns = [int(call.msisdn_called.get()) for call in established_calls]
+    available_msisdns = [msisdn for msisdn in range(90001, 90201) if msisdn not in established_msisdns]
+    log.info('established: %d: %r' % (len(established_msisdns), established_msisdns))
+    log.info('available: %d: %r' % (len(available_msisdns), available_msisdns))
+    if not available_msisdns:
+        log.error('no more MSISDNs available')
+        return
+
     for i in range(nr):
-        a = 90001 + i
-        a = str(a)
+        a = str(available_msisdns[i])
         print("%d: mt_call(%r)" % (i, a))
         mt_call(a)
         time.sleep(ramp)
 
-log.info("")
-log.info("")
-log.info("Start calls by typing:")
-log.info("    mt_call('90001')")
-log.info("")
-log.info("")
+
+
+if len(sys.argv) > 1:
+
+    nr_of_calls = int(sys.argv[1])
+    ramp_time = 1.0
+    if len(sys.argv) > 2:
+        ramp_time = float(sys.argv[2])
+
+    log.info("Launching %d calls with a ramp time of %.2f" % (nr_of_calls, ramp_time))
+    calls(nr_of_calls, ramp_time)
+
+else:
+
+    log.info("")
+    log.info("")
+    log.info("Start calls by typing:")
+    log.info("    mt_call('90001')")
+    log.info("")
+    log.info("")
 
 # start a shell to enable the user to add more calls as needed
 vars = globals().copy()
