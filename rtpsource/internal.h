@@ -8,6 +8,8 @@ enum {
 	DMAIN,
 };
 
+struct rtp_provider_instance;
+
 struct rtp_connection {
 	struct llist_head list;
 
@@ -21,6 +23,7 @@ struct rtp_connection {
 	uint16_t remote_port;
 
 	uint8_t rtp_pt;
+	struct rtp_provider_instance *rtp_prov_inst;
 };
 
 struct rtpsource_state {
