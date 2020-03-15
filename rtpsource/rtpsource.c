@@ -48,6 +48,7 @@
 #include <osmocom/trau/osmo_ortp.h>
 
 #include "internal.h"
+#include "rtp_provider.h"
 
 
 /* find a connection based on its CNAME */
@@ -64,12 +65,17 @@ struct rtp_connection *find_connection_by_cname(struct rtpsource_state *rss, con
 /* create a new RTP connection for given CNAME; includes binding of local RTP port */
 struct rtp_connection *create_connection(struct rtpsource_state *rss, const char *cname)
 {
+	const struct rtp_provider *rtp_prov;
 	struct rtp_connection *conn;
+	enum codec_type codec = CODEC_GSM_FR; // TODO: configurable
 	const char *host;
 	int port;
 	int rc;
 
 	OSMO_ASSERT(!find_connection_by_cname(rss, cname));
+
+	rtp_prov = rtp_provider_find("static"); // TODO: configurable
+	OSMO_ASSERT(rtp_prov);
 
 	conn = talloc_zero(rss, struct rtp_connection);
 	OSMO_ASSERT(conn);
@@ -89,6 +95,9 @@ struct rtp_connection *create_connection(struct rtpsource_state *rss, const char
 
 	osmo_rtp_set_source_desc(conn->rtp_sock, conn->cname, "rtpsource", NULL, NULL,
 				 NULL, "osmo-rtpsource", NULL);
+
+	conn->rtp_prov_inst = rtp_provider_instance_alloc(conn, rtp_prov, codec);
+	OSMO_ASSERT(conn->rtp_prov_inst);
 
 	llist_add_tail(&conn->list, &rss->connections);
 
@@ -156,12 +165,11 @@ static int timerfd_cb(struct osmo_fd *ofd, unsigned int priv_nr)
 
 	/* iterate over all RTP connections and send one frame each */
 	llist_for_each_entry(conn, &rss->connections, list) {
-		int i;
-		/* TODO: have different sources (file+name, ...) */
-		uint8_t payload[33];
-		memset(payload, 0, sizeof(payload));
-		payload[0] = (payload[0] & 0x0f) | 0xD0; /* mask in first four bit for FR */
-		osmo_rtp_send_frame_ext(conn->rtp_sock, payload, sizeof(payload), 160, false);
+		uint8_t payload[256];
+		int i, len;
+
+		len = rtp_provider_instance_gen_frame(conn->rtp_prov_inst, payload, sizeof(payload));
+		osmo_rtp_send_frame_ext(conn->rtp_sock, payload, len, 160, false);
 		/* make sure RTP clock advances correctly, even if we missed transmit of some */
 		for (i = 1; i < expire_count; i++)
 			osmo_rtp_skipped_frame(conn->rtp_sock, 160);
