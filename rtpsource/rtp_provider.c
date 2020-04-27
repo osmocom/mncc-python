@@ -9,6 +9,24 @@
 static LLIST_HEAD(g_providers);
 static LLIST_HEAD(g_prov_instances);
 
+const struct value_string codec_type_names[] = {
+	{ CODEC_ULAW,		"ULAW" },
+	{ CODEC_ALAW,		"ALAW" },
+	{ CODEC_GSM_FR,		"GSM_FR" },
+	{ CODEC_GSM_EFR,	"GSM_EFR" },
+	{ CODEC_GSM_HR,		"GSM_HR" },
+	{ CODEC_AMR_4_75,	"AMR_4_75" },
+	{ CODEC_AMR_5_15,	"AMR_5_15" },
+	{ CODEC_AMR_5_90,	"AMR_5_90" },
+	{ CODEC_AMR_6_70,	"AMR_6_70" },
+	{ CODEC_AMR_7_40,	"AMR_7_40" },
+	{ CODEC_AMR_7_95,	"AMR_7_95" },
+	{ CODEC_AMR_10_2,	"AMR_10_2" },
+	{ CODEC_AMR_12_2,	"AMR_12_2" },
+	{ CODEC_AMR_SID,	"AMR_SID" },
+	{ 0, NULL }
+};
+
 void rtp_provider_register(struct rtp_provider *prov)
 {
 	llist_add_tail(&prov->list, &g_providers);

@@ -21,27 +21,52 @@
 #include <osmocom/ctrl/control_cmd.h>
 
 #include "internal.h"
+#include "rtp_provider.h"
 
 CTRL_CMD_DEFINE_WO_NOVRF(rtp_create, "rtp_create");
 static int set_rtp_create(struct ctrl_cmd *cmd, void *data)
 {
 	struct rtp_connection *conn;
-	const char *cname = cmd->value;
+	const char *cname, *codec_str;
+	char *tmp, *saveptr;
+	enum codec_type codec;
+
+	tmp = talloc_strdup(cmd, cmd->value);
+	OSMO_ASSERT(tmp);
+
+	cname = strtok_r(tmp, ",", &saveptr);
+	codec_str = strtok_r(NULL, ",", &saveptr);
+
+	if (!cname || !codec_str) {
+		cmd->reply = "Format is cname,codec";
+		goto error;
+	}
 
 	if (find_connection_by_cname(g_rss, cname)) {
 		cmd->reply = "Connection already exists for cname";
-		return CTRL_CMD_ERROR;
+		goto error;
 	}
 
-	conn = create_connection(g_rss, cname);
+	codec = get_string_value(codec_type_names, codec_str);
+	if (codec < 0) {
+		cmd->reply = "Invalid codec name (try GSM_FR, GSM_EFR etc.)";
+		goto error;
+	}
+
+	conn = create_connection(g_rss, cname, codec);
 	if (!conn) {
 		cmd->reply = "Error creating RTP connection";
-		return CTRL_CMD_ERROR;
+		goto error;
 	}
 
 	/* Respond */
 	cmd->reply = talloc_asprintf(cmd, "%s,%s,%d", conn->cname, conn->local_host, conn->local_port);
+	talloc_free(tmp);
 	return CTRL_CMD_REPLY;
+
+error:
+	talloc_free(tmp);
+	return CTRL_CMD_ERROR;
 }
 
 CTRL_CMD_DEFINE_WO_NOVRF(rtp_connect, "rtp_connect");

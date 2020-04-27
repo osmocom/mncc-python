@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <osmocom/core/linuxlist.h>
+#include <osmocom/core/utils.h>
 
 enum codec_type {
 	CODEC_ULAW,
@@ -19,6 +20,8 @@ enum codec_type {
 	CODEC_AMR_SID,
 	_NUM_CODECS
 };
+
+extern const struct value_string codec_type_names[];
 
 struct rtp_provider_instance;
 

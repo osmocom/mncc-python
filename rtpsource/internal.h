@@ -4,6 +4,8 @@
 #include <osmocom/trau/osmo_ortp.h>
 #include <osmocom/ctrl/control_if.h>
 
+enum codec_type;
+
 enum {
 	DMAIN,
 };
@@ -36,7 +38,7 @@ extern struct rtpsource_state *g_rss;
 
 struct rtp_connection *find_connection_by_cname(struct rtpsource_state *rss, const char *cname);
 
-struct rtp_connection *create_connection(struct rtpsource_state *rss, const char *cname);
+struct rtp_connection *create_connection(struct rtpsource_state *rss, const char *cname, enum codec_type codec);
 
 int connect_connection(struct rtp_connection *conn, const char *remote_host,
 			uint16_t remote_port, uint8_t pt);

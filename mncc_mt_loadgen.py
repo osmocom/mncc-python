@@ -80,7 +80,8 @@ class RtpSourceCtrlActor(pykka.ThreadingActor):
 
     def on_receive(self, message):
         if message['type'] == 'rtp_create':
-            (res, var, val) = self._set_var('rtp_create', message['cname'])
+            val = '%s,%s' % (message['cname'], message['codec'])
+            (res, var, val) = self._set_var('rtp_create', val)
             v = val.split(',') # input looks like '1,127.23.23.23,37723'
             return {'cname': v[0], 'remote_host': v[1], 'remote_port': int(v[2])}
         elif message['type'] == 'rtp_connect':
@@ -113,7 +114,8 @@ class MTCallRtpsource(pykka.ThreadingActor):
         self.msisdn_called = msisdn_called
         self.msisdn_calling = msisdn_calling
         # allocate a RTP connection @ rtpsource
-        r = self.ctrl_act.ask({'type':'rtp_create', 'cname':self.callref})
+        codec = "GSM_FR"  # FIXME: make configurable
+        r = self.ctrl_act.ask({'type':'rtp_create', 'cname':self.callref, 'codec':codec})
         self.ext_rtp_host = r['remote_host']
         self.ext_rtp_port = r['remote_port']
         # start the MNCC call FSM
