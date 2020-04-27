@@ -63,11 +63,10 @@ struct rtp_connection *find_connection_by_cname(struct rtpsource_state *rss, con
 }
 
 /* create a new RTP connection for given CNAME; includes binding of local RTP port */
-struct rtp_connection *create_connection(struct rtpsource_state *rss, const char *cname)
+struct rtp_connection *create_connection(struct rtpsource_state *rss, const char *cname, enum codec_type codec)
 {
 	const struct rtp_provider *rtp_prov;
 	struct rtp_connection *conn;
-	enum codec_type codec = CODEC_GSM_FR; // TODO: configurable
 	const char *host;
 	int port;
 	int rc;
@@ -101,8 +100,8 @@ struct rtp_connection *create_connection(struct rtpsource_state *rss, const char
 
 	llist_add_tail(&conn->list, &rss->connections);
 
-	CLOGP(conn, DMAIN, LOGL_INFO, "Created RTP connection; local=%s:%u\n",
-		conn->local_host, conn->local_port);
+	CLOGP(conn, DMAIN, LOGL_INFO, "Created RTP connection; local=%s:%u; codec=%u\n",
+		conn->local_host, conn->local_port, codec);
 
 
 	return conn;
