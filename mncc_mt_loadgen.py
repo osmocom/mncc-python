@@ -148,7 +148,7 @@ class MTCallRtpsource(pykka.ThreadingActor):
             self.mncc_act.tell({'type': 'send', 'msg': mncc_rtp_conn})
         elif message['type'] == 'call_state_change':
             if message['new_state'] == 'NULL':
-                # Call FSM has reached the NULL state again (call terminated) 
+                # Call FSM has reached the NULL state again (call terminated)
                 # on_stop() will clean up the RTP connection at rtpsource
                 self.stop()
 
