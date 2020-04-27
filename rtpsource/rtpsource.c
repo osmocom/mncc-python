@@ -67,7 +67,7 @@ struct rtp_connection *create_connection(struct rtpsource_state *rss, const char
 {
 	const struct rtp_provider *rtp_prov;
 	struct rtp_connection *conn;
-	enum codec_type codec = CODEC_GSM_FR; // TODO: configurable
+	enum codec_type codec = CODEC_GSM_EFR; // TODO: configurable
 	const char *host;
 	int port;
 	int rc;
