@@ -95,6 +95,22 @@ class RtpSourceCtrlActor(pykka.ThreadingActor):
         else:
             raise Exception('ctrl', 'RtpSourceCtrlActor Received unhandled %s' % message)
 
+# Keep in sync with enum codec_type in rtpsource/rtp_provider.h
+CODEC_ULAW = 0
+CODEC_ALAW = 1
+CODEC_GSM_FR = 2
+CODEC_GSM_EFR = 3
+CODEC_GSM_HR = 4
+CODEC_AMR_4_75 = 5
+CODEC_AMR_5_15 = 6
+CODEC_AMR_5_90 = 7
+CODEC_AMR_6_70 = 8
+CODEC_AMR_7_40 = 9
+CODEC_AMR_7_95 = 10
+CODEC_AMR_10_2 = 11
+CODEC_AMR_12_2 = 12
+CODEC_AMR_SID = 13
+
 
 class MTCallRtpsource(pykka.ThreadingActor):
     '''Actor to start a network-initiated MT (mobile terminated) call to a given MSISDN,
@@ -109,12 +125,11 @@ class MTCallRtpsource(pykka.ThreadingActor):
         self.state = 'NULL'
         self.rtp_msc = None
 
-    def start_call(self, msisdn_called, msisdn_calling):
+    def start_call(self, msisdn_called, msisdn_calling, codec):
         '''Start a MT call from given [external] calling party to given mobile party MSISDN'''
         self.msisdn_called = msisdn_called
         self.msisdn_calling = msisdn_calling
         # allocate a RTP connection @ rtpsource
-        codec = 2 # FR, FIXME: make configurable
         r = self.ctrl_act.ask({'type':'rtp_create', 'cname':self.callref, 'codec':codec})
         self.ext_rtp_host = r['remote_host']
         self.ext_rtp_port = r['remote_port']
@@ -173,23 +188,27 @@ start_new_thread(mncc_rx_thread, (mncc_sock,))
 rtpctrl_act = RtpSourceCtrlActor.start(RTPSOURCE_CTRL_IP, RTPSOURCE_CTRL_PORT)
 
 # convenience wrapper
-def mt_call(msisdn_called, msisdn_calling = '123456789', codecs = GSM48.AllCodecs):
+def mt_call(msisdn_called, msisdn_calling='123456789', codecs=GSM48.AllCodecs, codec=CODEC_GSM_FR):
     call_conn = MTCallRtpsource.start(mncc_act, rtpctrl_act, codecs).proxy()
-    call_conn.start_call(msisdn_called, msisdn_calling)
+    call_conn.start_call(msisdn_called, msisdn_calling, codec)
     return call_conn
 
-def calls(nr, ramp=1.0):
+def calls(nr, ramp=1.0, codec=CODEC_GSM_FR):
     for i in range(nr):
         a = 90001 + i
         a = str(a)
         print("%d: mt_call(%r)" % (i, a))
-        mt_call(a)
+        mt_call(a, codec=codec)
         time.sleep(ramp)
 
 log.info("")
 log.info("")
-log.info("Start calls by typing:")
+log.info("Start a single call by typing:")
 log.info("    mt_call('90001')")
+log.info("With a specific codec (default is FR):")
+log.info("    mt_call('90001', codec=CODEC_GSM_EFR)")
+log.info("Start multiple calls with (e.g. 4 calls with EFR):")
+log.info("    calls(4, codec=CODEC_GSM_EFR)")
 log.info("")
 log.info("")
 

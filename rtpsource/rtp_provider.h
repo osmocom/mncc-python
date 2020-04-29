@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <osmocom/core/linuxlist.h>
 
+/* Keep in sync with CODEC_* in mncc_mt_loadgen.py */
 enum codec_type {
 	CODEC_ULAW,
 	CODEC_ALAW,
