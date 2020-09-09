@@ -5,6 +5,7 @@
  */
 
 #include <stdint.h>
+#include <netinet/in.h>
 
 /* GSM 04.08 Bearer Capability: Information Transfer Capability */
 enum gsm48_bcap_itcap {
@@ -316,7 +317,7 @@ struct gsm_data_frame {
 	unsigned char	data[0];
 };
 
-#define MNCC_SOCK_VERSION	6
+#define MNCC_SOCK_VERSION	7
 struct gsm_mncc_hello {
 	uint32_t	msg_type;
 	uint32_t	version;
@@ -335,8 +336,7 @@ struct gsm_mncc_hello {
 struct gsm_mncc_rtp {
 	uint32_t	msg_type;
 	uint32_t	callref;
-	uint32_t	ip;
-	uint16_t	port;
+	struct sockaddr_storage addr;
 	uint32_t	payload_type;
 	uint32_t	payload_msg_type;
 	char		sdp[1024];
