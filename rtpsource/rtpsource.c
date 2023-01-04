@@ -35,6 +35,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <getopt.h>
+#include <signal.h>
 #include <sys/signal.h>
 
 #include <osmocom/core/linuxlist.h>
@@ -194,9 +195,9 @@ const struct log_info rtpsource_log_info = {
 struct rtpsource_state *g_rss;
 static void *g_tall_ctx;
 
-static void signal_handler(int signal)
+static void signal_handler(int signum)
 {
-	switch (signal) {
+	switch (signum) {
 	case SIGABRT:
 		/* in case of abort, we want to obtain a talloc report and
 		 * then run default SIGABRT handler, who will generate coredump
