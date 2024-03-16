@@ -1,7 +1,7 @@
 /* This file contains sections copied from
  * libosmocore/include/osmocom/gsm/protocol/gsm_04_08.h,
  * libosmocore/include/osmocom/gsm/mncc.h and
- * openbsc/include/openbsc/mncc.h
+ * osmo-msc/include/osmocom/msc/mncc.h
  */
 
 #include <stdint.h>
@@ -271,6 +271,7 @@ enum gsm_mncc_bcap {
 #define MNCC_F_CCCAP		0x0800
 #define MNCC_F_KEYPAD		0x1000
 #define MNCC_F_SIGNAL		0x2000
+#define MNCC_F_GCR		0x4000
 
 struct gsm_mncc {
 	/* context based information */
@@ -308,6 +309,9 @@ struct gsm_mncc {
 	unsigned char	lchan_type;
 	unsigned char	lchan_mode;
 
+	/* Global Call Reference (encoded as per 3GPP TS 29.205) */
+	uint8_t		gcr[16];
+
 	char		sdp[1024];
 };
 
@@ -317,7 +321,7 @@ struct gsm_data_frame {
 	unsigned char	data[0];
 };
 
-#define MNCC_SOCK_VERSION	7
+#define MNCC_SOCK_VERSION	8
 struct gsm_mncc_hello {
 	uint32_t	msg_type;
 	uint32_t	version;
