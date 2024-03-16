@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Python testing tool for establishing mobile-terminated calls using
 # the OsmoMSC MNCC interface.  It wants to communicate via CTRL with a
@@ -16,8 +16,8 @@ RTPSOURCE_CTRL_PORT = 11111
 
 from gsm_call_fsm import GsmCallFsm, GSM48
 from mncc_sock import MnccSocket
-from thread import start_new_thread
 from ctrl import OsmoCtrlSimple
+import threading
 import pykka
 import logging as log
 import signal, sys, time
@@ -166,7 +166,8 @@ signal.signal(signal.SIGINT, sigint_handler)
 # start the MnccSocket and associated pykka actor + rx thread
 mncc_sock = MnccSocket()
 mncc_act = MnccActor.start(mncc_sock)
-start_new_thread(mncc_rx_thread, (mncc_sock,))
+rx_t = threading.Thread(target=mncc_rx_thread, args=(mncc_sock,))
+rx_t.start()
 
 # connect via CTRL to rtpsource
 rtpctrl_act = RtpSourceCtrlActor.start(RTPSOURCE_CTRL_IP, RTPSOURCE_CTRL_PORT)

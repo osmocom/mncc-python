@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Python testing tool for establishing calls via the OsmoNITB MNCC
 # interface.
@@ -11,7 +11,7 @@
 
 from gsm_call_fsm import GsmCallFsm, GsmCallConnector, GSM48
 from mncc_sock import MnccSocket
-from thread import start_new_thread
+import threading
 import pykka
 import logging as log
 import signal, sys, time
@@ -57,7 +57,8 @@ signal.signal(signal.SIGINT, sigint_handler)
 # start the MnccSocket and associated pykka actor + rx thread
 mncc_sock = MnccSocket()
 mncc_act = MnccActor.start(mncc_sock)
-start_new_thread(mncc_rx_thread, (mncc_sock,))
+rx_t = threading.Thread(target=mncc_rx_thread, args=(mncc_sock,))
+rx_t.start()
 
 # convenience wrapper
 def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs):
@@ -68,16 +69,16 @@ def connect_call(msisdn_a, msisdn_b, rtp_bridge = True, codecs = GSM48.AllCodecs
 def calls(nr, ramp=1.0):
     if (nr & 1):
         print('Only even numbers allowed, because each invocation has two call legs')
-	return
-    nr /= 2
+        return
+    nr //= 2
     for i in range(nr):
-	a = 90001 + 2*i
-	b = a + 1
-	a = str(a)
-	b = str(b)
-	print('%d: connect_call(%r, %r)' % (i, a, b))
-	connect_call(a, b)
-	time.sleep(ramp)
+        a = 90001 + 2*i
+        b = a + 1
+        a = str(a)
+        b = str(b)
+        print('%d: connect_call(%r, %r)' % (i, a, b))
+        connect_call(a, b)
+        time.sleep(ramp)
 
 # start a first bogus call
 

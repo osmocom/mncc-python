@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Python interface to OsmoNITB MNCC (Mobile Network Call Control)
 # interface
