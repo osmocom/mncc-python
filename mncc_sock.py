@@ -65,7 +65,39 @@ class mncc_data_frame_msg(mncc.struct_gsm_data_frame, mncc_msg_common):
         else:
             return "(???)"
 
+def pad(x, l):
+    if len(x) < l:
+        return x + (l - len(x)) * b'\x00'
+    else:
+        return x
+
 class mncc_rtp_msg(mncc.struct_gsm_mncc_rtp, mncc_msg_common):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # we have to do this here to make sure our setters below are used
+        if 'ip' in kwargs:
+            self.ip = kwargs['ip']
+        if 'port' in kwargs:
+            self.port = kwargs['port']
+
+    @property
+    def ip(self):
+        assert self.addr.ss_family == 2
+        return int.from_bytes(self.addr.ss_padding[2:6], 'big')
+    @ip.setter
+    def ip(self, val):
+        self.addr.ss_family = 2
+        val = pad(self.addr.ss_padding[:2], 2) + val.to_bytes(4, 'big') + self.addr.ss_padding[6:]
+        self.addr.ss_padding = val
+
+    @property
+    def port(self):
+        return int.from_bytes(self.addr.ss_padding[:2], 'big')
+    @port.setter
+    def port(self, val):
+        self.addr.ss_family = 2
+        self.addr.ss_padding = val.to_bytes(2, 'big') + self.addr.ss_padding[2:]
+
     def __str__(self):
         return 'mncc_rtp_msg(type=0x%04x, callref=%u, ip=%x, port=%u)' % (self.msg_type, self.callref, self.ip, self.port)
     def __unicode__(self):

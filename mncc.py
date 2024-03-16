@@ -589,7 +589,7 @@ class struct_sockaddr_storage(Structure):
 struct_sockaddr_storage._pack_ = 1 # source:False
 struct_sockaddr_storage._fields_ = [
     ('ss_family', ctypes.c_uint16),
-    ('__ss_padding', ctypes.c_char * 118),
+    ('ss_padding', ctypes.c_char * 118),
     ('__ss_align', ctypes.c_uint64),
 ]
 
