@@ -189,6 +189,11 @@ MNCC_F_CCCAP = 0x0800 # macro
 MNCC_F_KEYPAD = 0x1000 # macro
 MNCC_F_SIGNAL = 0x2000 # macro
 MNCC_F_GCR = 0x4000 # macro
+MNCC_F_HIGHL_COMPAT = 0x8000 # macro
+MNCC_F_LOWL_COMPAT = 0x10000 # macro
+MNCC_F_ALL = 0x1ffff # macro
+GSM_MAX_LOWL_COMPAT = 16 # macro
+GSM_MAX_HIGHL_COMPAT = 3 # macro
 MNCC_SOCK_VERSION = 8 # macro
 
 # values for enumeration 'gsm48_bcap_itcap'
@@ -491,6 +496,15 @@ gsm_mncc_bcap = ctypes.c_uint32 # enum
 class struct_gsm_mncc(Structure):
     pass
 
+class struct_gsm_mncc_lowl_compat(Structure):
+    pass
+
+struct_gsm_mncc_lowl_compat._pack_ = 1 # source:False
+struct_gsm_mncc_lowl_compat._fields_ = [
+    ('len', ctypes.c_ubyte),
+    ('compat', ctypes.c_ubyte * 16),
+]
+
 class struct_gsm_mncc_clir(Structure):
     pass
 
@@ -498,6 +512,15 @@ struct_gsm_mncc_clir._pack_ = 1 # source:False
 struct_gsm_mncc_clir._fields_ = [
     ('sup', ctypes.c_int32),
     ('inv', ctypes.c_int32),
+]
+
+class struct_gsm_mncc_highl_compat(Structure):
+    pass
+
+struct_gsm_mncc_highl_compat._pack_ = 1 # source:False
+struct_gsm_mncc_highl_compat._fields_ = [
+    ('len', ctypes.c_ubyte),
+    ('compat', ctypes.c_ubyte * 3),
 ]
 
 struct_gsm_mncc._pack_ = 1 # source:False
@@ -527,7 +550,9 @@ struct_gsm_mncc._fields_ = [
     ('lchan_mode', ctypes.c_ubyte),
     ('gcr', ctypes.c_ubyte * 16),
     ('sdp', ctypes.c_char * 1024),
-    ('PADDING_0', ctypes.c_ubyte * 2),
+    ('llc', struct_gsm_mncc_lowl_compat),
+    ('hlc', struct_gsm_mncc_highl_compat),
+    ('PADDING_0', ctypes.c_ubyte),
 ]
 
 class struct_gsm_data_frame(Structure):
@@ -615,6 +640,7 @@ __all__ = \
     'GSM48_BCAP_UR_12000', 'GSM48_BCAP_UR_1200_75',
     'GSM48_BCAP_UR_2400', 'GSM48_BCAP_UR_300', 'GSM48_BCAP_UR_4800',
     'GSM48_BCAP_UR_9600', 'GSM_BAD_FRAME', 'GSM_MAX_FACILITY',
+    'GSM_MAX_HIGHL_COMPAT', 'GSM_MAX_LOWL_COMPAT',
     'GSM_MAX_SSVERSION', 'GSM_MAX_USERUSER', 'GSM_MNCC_BCAP_AUDIO',
     'GSM_MNCC_BCAP_FAX_G3', 'GSM_MNCC_BCAP_OTHER_ITC',
     'GSM_MNCC_BCAP_RESERVED', 'GSM_MNCC_BCAP_SPEECH',
@@ -623,25 +649,25 @@ __all__ = \
     'MNCC_ALERT_REQ', 'MNCC_BRIDGE', 'MNCC_CALL_CONF_IND',
     'MNCC_CALL_PROC_REQ', 'MNCC_DISC_IND', 'MNCC_DISC_REQ',
     'MNCC_FACILITY_IND', 'MNCC_FACILITY_REQ', 'MNCC_FRAME_DROP',
-    'MNCC_FRAME_RECV', 'MNCC_F_BEARER_CAP', 'MNCC_F_CALLED',
-    'MNCC_F_CALLING', 'MNCC_F_CAUSE', 'MNCC_F_CCCAP',
+    'MNCC_FRAME_RECV', 'MNCC_F_ALL', 'MNCC_F_BEARER_CAP',
+    'MNCC_F_CALLED', 'MNCC_F_CALLING', 'MNCC_F_CAUSE', 'MNCC_F_CCCAP',
     'MNCC_F_CONNECTED', 'MNCC_F_EMERGENCY', 'MNCC_F_FACILITY',
-    'MNCC_F_GCR', 'MNCC_F_KEYPAD', 'MNCC_F_PROGRESS',
-    'MNCC_F_REDIRECTING', 'MNCC_F_SIGNAL', 'MNCC_F_SSVERSION',
-    'MNCC_F_USERUSER', 'MNCC_HOLD_CNF', 'MNCC_HOLD_IND',
-    'MNCC_HOLD_REJ', 'MNCC_LCHAN_MODIFY', 'MNCC_MODIFY_CNF',
-    'MNCC_MODIFY_IND', 'MNCC_MODIFY_REJ', 'MNCC_MODIFY_REQ',
-    'MNCC_MODIFY_RSP', 'MNCC_NOTIFY_IND', 'MNCC_NOTIFY_REQ',
-    'MNCC_PROGRESS_REQ', 'MNCC_REJ_IND', 'MNCC_REJ_REQ',
-    'MNCC_REL_CNF', 'MNCC_REL_IND', 'MNCC_REL_REQ',
-    'MNCC_RETRIEVE_CNF', 'MNCC_RETRIEVE_IND', 'MNCC_RETRIEVE_REJ',
-    'MNCC_RTP_CONNECT', 'MNCC_RTP_CREATE', 'MNCC_RTP_FREE',
-    'MNCC_SETUP_CNF', 'MNCC_SETUP_COMPL_IND', 'MNCC_SETUP_COMPL_REQ',
-    'MNCC_SETUP_IND', 'MNCC_SETUP_REQ', 'MNCC_SETUP_RSP',
-    'MNCC_SOCKET_HELLO', 'MNCC_SOCK_VERSION', 'MNCC_START_DTMF_IND',
-    'MNCC_START_DTMF_REJ', 'MNCC_START_DTMF_RSP',
-    'MNCC_STOP_DTMF_IND', 'MNCC_STOP_DTMF_RSP', 'MNCC_USERINFO_IND',
-    'MNCC_USERINFO_REQ', 'gsm48_bcap_coding',
+    'MNCC_F_GCR', 'MNCC_F_HIGHL_COMPAT', 'MNCC_F_KEYPAD',
+    'MNCC_F_LOWL_COMPAT', 'MNCC_F_PROGRESS', 'MNCC_F_REDIRECTING',
+    'MNCC_F_SIGNAL', 'MNCC_F_SSVERSION', 'MNCC_F_USERUSER',
+    'MNCC_HOLD_CNF', 'MNCC_HOLD_IND', 'MNCC_HOLD_REJ',
+    'MNCC_LCHAN_MODIFY', 'MNCC_MODIFY_CNF', 'MNCC_MODIFY_IND',
+    'MNCC_MODIFY_REJ', 'MNCC_MODIFY_REQ', 'MNCC_MODIFY_RSP',
+    'MNCC_NOTIFY_IND', 'MNCC_NOTIFY_REQ', 'MNCC_PROGRESS_REQ',
+    'MNCC_REJ_IND', 'MNCC_REJ_REQ', 'MNCC_REL_CNF', 'MNCC_REL_IND',
+    'MNCC_REL_REQ', 'MNCC_RETRIEVE_CNF', 'MNCC_RETRIEVE_IND',
+    'MNCC_RETRIEVE_REJ', 'MNCC_RTP_CONNECT', 'MNCC_RTP_CREATE',
+    'MNCC_RTP_FREE', 'MNCC_SETUP_CNF', 'MNCC_SETUP_COMPL_IND',
+    'MNCC_SETUP_COMPL_REQ', 'MNCC_SETUP_IND', 'MNCC_SETUP_REQ',
+    'MNCC_SETUP_RSP', 'MNCC_SOCKET_HELLO', 'MNCC_SOCK_VERSION',
+    'MNCC_START_DTMF_IND', 'MNCC_START_DTMF_REJ',
+    'MNCC_START_DTMF_RSP', 'MNCC_STOP_DTMF_IND', 'MNCC_STOP_DTMF_RSP',
+    'MNCC_USERINFO_IND', 'MNCC_USERINFO_REQ', 'gsm48_bcap_coding',
     'gsm48_bcap_interm_rate', 'gsm48_bcap_itcap',
     'gsm48_bcap_modem_type', 'gsm48_bcap_parity', 'gsm48_bcap_ra',
     'gsm48_bcap_rrq', 'gsm48_bcap_sig_access',
@@ -651,7 +677,8 @@ __all__ = \
     'struct_gsm_mncc_bearer_cap_data', 'struct_gsm_mncc_bridge',
     'struct_gsm_mncc_cause', 'struct_gsm_mncc_cccap',
     'struct_gsm_mncc_clir', 'struct_gsm_mncc_facility',
-    'struct_gsm_mncc_hello', 'struct_gsm_mncc_number',
+    'struct_gsm_mncc_hello', 'struct_gsm_mncc_highl_compat',
+    'struct_gsm_mncc_lowl_compat', 'struct_gsm_mncc_number',
     'struct_gsm_mncc_progress', 'struct_gsm_mncc_rtp',
     'struct_gsm_mncc_ssversion', 'struct_gsm_mncc_useruser',
     'struct_sockaddr_storage']
