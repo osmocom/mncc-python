@@ -127,7 +127,7 @@ struct gsm_mncc_bearer_cap {
 	int		radio;		/* Radio Channel Requirement */
 	int		speech_ctm;	/* CTM text telephony indication */
 	int		speech_ver[8];	/* Speech version indication */
-	struct {
+	struct gsm_mncc_bearer_cap_data {
 		enum gsm48_bcap_ra		rate_adaption;
 		enum gsm48_bcap_sig_access	sig_access;
 		int				async;
@@ -185,7 +185,7 @@ struct gsm_mncc_cccap {
 	int		pcp;
 };
 
-enum {
+enum gsm_mncc_bcap {
 	GSM_MNCC_BCAP_SPEECH	= 0,
 	GSM_MNCC_BCAP_UNR_DIG	= 1,
 	GSM_MNCC_BCAP_AUDIO	= 2,
@@ -292,7 +292,7 @@ struct gsm_mncc {
 	struct gsm_mncc_facility	facility;
 	struct gsm_mncc_cccap		cccap;
 	struct gsm_mncc_ssversion	ssversion;
-	struct	{
+	struct gsm_mncc_clir {
 		int		sup;
 		int		inv;
 	} clir;

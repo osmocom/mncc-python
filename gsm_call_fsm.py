@@ -18,7 +18,7 @@ import logging as log
 from fysom import Fysom
 from mncc_sock import mncc_msg, mncc_number, mncc_rtp_msg, mncc_bridge_msg, mncc_bearer_cap
 
-Uint32Array2 = mncc.uint32_t * 2
+Uint32Array2 = ctypes.c_uint32 * 2
 
 class GSM48:
     class BCAP_SV(object):
