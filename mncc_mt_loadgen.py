@@ -178,10 +178,16 @@ def mt_call(msisdn_called, msisdn_calling='123456789', codecs=GSM48.AllCodecs, c
     call_conn.start_call(msisdn_called, msisdn_calling, codec)
     return call_conn
 
-def calls(nr, ramp=1.0, codec='GSM_FR'):
+def calls(nr, ramp=1.0, codec='GSM_FR', first_msisdn_called='402965200501'):
+    first_msisdn_called_int = int(first_msisdn_called)
+    needed_len = len(str(first_msisdn_called_int + (nr-1)))
+    # If user passed a longer zero-preffixed input, take it into account:
+    if len(first_msisdn_called) > needed_len:
+        needed_len = len(first_msisdn_called)
     for i in range(nr):
-        a = 90001 + i
-        a = str(a)
+        a = str(first_msisdn_called_int + i)
+        # prepend with zeros as needed:
+        a = a.zfill(needed_len)
         print("%d: mt_call(%r)" % (i, a))
         mt_call(a, codec=codec)
         time.sleep(ramp)
@@ -189,9 +195,9 @@ def calls(nr, ramp=1.0, codec='GSM_FR'):
 log.info("")
 log.info("")
 log.info("Start a single call by typing:")
-log.info("    mt_call('90001')")
+log.info("    mt_call('402965200501')")
 log.info("With a specific codec (default is 'GSM_FR'):")
-log.info("    mt_call('90001', codec='GSM_EFR')")
+log.info("    mt_call('402965200501', codec='GSM_EFR')")
 log.info("Start multiple calls with (e.g. 4 calls with EFR):")
 log.info("    calls(4, codec='GSM_EFR')")
 log.info("")
